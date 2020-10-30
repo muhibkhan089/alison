@@ -1,0 +1,19 @@
+<?php
+/**
+ * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+/** @var $block \Magento\Catalog\Block\Catalog\Product\View\Addto\Compare */
+?>
+<?php 
+    $_berserkhelper = $this->helper( 'Redgiant\Berserk\Helper\Data' ); 
+    $_show = $_berserkhelper->getConfig('berserk_settings/product/show_compare');
+    if($_show) {
+?>
+<a href="#" data-post='<?php /* @escapeNotVerified */ echo $block->getPostDataParams();?>'
+        data-role="add-to-links"
+        class="action tocompare"><span><?php /* @escapeNotVerified */ echo __('Add to Compare') ?></span></a>
+<?php } ?>

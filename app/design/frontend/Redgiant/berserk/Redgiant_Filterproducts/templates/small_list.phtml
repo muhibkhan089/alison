@@ -1,0 +1,93 @@
+<?php
+/**
+ * Copyright © 2015 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+use Magento\Framework\App\Action\Action;
+
+// @codingStandardsIgnoreFile
+?>
+<?php
+/**
+ * Product list template
+ *
+ * @var $block \Redgiant\Filterproducts\Block\
+ */
+?>
+<?php
+$_productCollection = $block->getLoadedProductCollection();
+$_helper = $this->helper( 'Magento\Catalog\Helper\Output' );
+$_imagehelper = $this->helper('Magento\Catalog\Helper\Image');
+$_berserkhelper = $this->helper( 'Redgiant\Berserk\Helper\Data');
+$_lazyload = $_berserkhelper->getConfig('berserk_settings/general/lazyload');
+
+$_show_review = $this->getData("rating_star");
+if(!$_show_review)
+    $_show_review = $_berserkhelper->getConfig('berserk_settings/catalog/show_review');
+$_review_model = $_berserkhelper->getModel('\Magento\Review\Model\Review');
+
+$aspect_ratio = $this->getData("aspect_ratio");
+if($aspect_ratio == null) {
+    $aspect_ratio = 0;
+}
+$image_width = $this->getData("image_width");
+if(!$image_width) {
+    $image_width = 80;
+}
+$image_height = $this->getData("image_height");
+if($aspect_ratio)
+    $image_height = $image_width;
+if(!$image_height) {
+    $image_height = 80;  
+}
+?>
+<?php if ( !$_productCollection->count() ): ?>
+    <div class="message info empty">
+        <div><?php echo __('We can\'t find products matching the selection.') ?></div>
+    </div>
+<?php else: ?>
+    <?php
+    $viewMode = 'grid';
+    $image = 'category_page_grid';
+    $templateType = \Magento\Catalog\Block\Product\ReviewRendererInterface::SHORT_VIEW;
+    ?>
+    <div class="products wrapper">
+        <?php $iterator = 1; ?>
+        <div class="filterproducts small-list">
+            <?php /** @var $_product \Magento\Catalog\Model\Product */ ?>
+            <?php foreach ( $_productCollection as $_product ): ?>
+                <?php $iterator++ == 1; ?>
+                <?php echo '<div class="product product-item">'; ?>
+                
+                <div class="product-item-info brk-sc-card-preview brk-sc-card-preview_mini d-flex" data-container="product-grid">
+                    <?php
+                        if($aspect_ratio)
+                            $productImage = $_imagehelper->init($_product, $image)->constrainOnly(FALSE)->keepAspectRatio(TRUE)->keepFrame(FALSE)->resize($image_width);
+                        else
+                            $productImage = $_imagehelper->init($_product, $image)->resize($image_width, $image_height);
+                        $productImageUrl = $productImage->getUrl();
+                    ?>
+                    <div class="brk-sc-card-preview__img-container mr-25">
+                        <a href="<?php echo $_product->getProductUrl() ?>" class="product photo product-item-photo" tabindex="-1">
+                            <img class="product-image-photo default_image <?php if($_lazyload): ?>berserk-lazyload<?php endif;?>" <?php if($_lazyload): ?>src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-<?php endif; ?>src="<?php echo $productImageUrl; ?>" alt=""/>
+                       </a>
+                    </div>
+                    <div class="d-flex flex-column justify-content-center">
+                        <a class="product-item-link" href="<?php echo $_product->getProductUrl() ?>">
+                            <?php echo $_helper->productAttribute( $_product, $_product->getName(), 'name' ); ?>
+                        </a>
+                        
+                        <?php 
+                        if($_show_review): ?>
+                            <?php
+                                echo $block->getReviewsSummaryHtml($_product, $templateType);
+                            ?>
+                        <?php endif; ?>
+                        <?php echo $block->getProductPrice($_product); ?>
+                    </div>
+                </div>
+                <?php echo '</div>'; ?>
+            <?php endforeach; ?>
+        </div>
+    </div>
+<?php endif; ?>

@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../Magento/Backend/etc/menu.xsd">
+    <menu>
+        <add id="Redgiant_Megamenu::megamenu" title="Mega Menu" module="Redgiant_Megamenu" sortOrder="505" parent="Redgiant_Core::rg_all" resource="Redgiant_Core::all"/>
+        <add id="Redgiant_Megamenu::configration" title="Configuration" module="Redgiant_Megamenu" sortOrder="10" parent="Redgiant_Megamenu::megamenu" action="adminhtml/system_config/edit/section/rg_megamenu" resource="Redgiant_Megamenu::config_megamenu"/>
+    </menu>
+</config>

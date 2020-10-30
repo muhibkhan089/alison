@@ -1,0 +1,74 @@
+<?php
+/**
+ * Copyright © 2015 Ihor Vansach (ihor@magefan.com). All rights reserved.
+ * See LICENSE.txt for license details (http://opensource.org/licenses/osl-3.0.php).
+ *
+ * Glory to Ukraine! Glory to the heroes!
+ */
+?>
+<?php
+/**
+ * Blog sidebar recent posts template
+ *
+ * @var $block \Magefan\Blog\Block\Sidebar\Recent
+ */
+?>
+
+<?php
+    $_postCollection = $block->getPostCollection();
+?>
+<?php if ($_postCollection->count()) { ?>
+
+<div class="widget block block-recent-posts tab-pane brs-tab__body-item fade" id="recentposts" data-bind="scope: 'recemt-posts'"  role="tabpanel" >
+    <div class="block-content">
+        <?php foreach ($_postCollection as $_post) { ?>
+            <?php $_postDate = $_post->getData("publish_time"); $post_link = $_post->getPostUrl(); $post_title = $block->escapeHtml($_post->getTitle()); ?>
+            <div class="brs-post brs-post_mini-horizontal" data-brk-library="component__widgets">
+                <div class="brs-post__img-container">
+                    <a href="<?php echo $post_link; ?>" class="<?php if ($_post->getFeaturedImage() == "") echo "post-no-image"?>">
+                    <?php if ($_post->getFeaturedImage() != ""): ?>
+                        <img src="<?php echo $_post->getFeaturedImage();?>" alt="alt" class="brs-post__img">
+                    <?php endif;?>
+                    </a>
+                </div>
+                <div class="brs-post__about">
+                    <a href="#" class="brs-post__date">
+                        <i class="far fa-clock brs-post__date-icon"></i>
+                        <span class="font__family-montserrat font__size-13 line__height-14 font__weight-light">
+                        <?php  echo date("M d, y", strtotime($_postDate)); ?>
+                        </span>
+                    </a>
+                    <h3 class="brs-post__title font__family-montserrat font__size-15 font__weight-light line__height-18">
+                        <?php echo $post_title; ?>
+                    </h3>
+                </div>
+            </div>
+
+        <?php } ?>
+    </div>
+</div>
+
+<?php } ?>
+
+
+<script type="text/javascript">
+    require([
+        'jquery',
+        'jquery/ui'
+    ], function($){
+
+
+        $('.brs-tab__header li a').off('click').on('click', function(){
+            var t = $(this).attr('href');
+
+            $('.brs-tab__header li a').removeClass('active');        
+            $(this).addClass('active');
+            $('.tab-pane').removeClass('active show');
+            $(t).addClass('active show');
+            
+            return false;
+        });
+
+        $('.brs-tab__header li a:first-child').trigger('click');
+    });
+</script>

@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="2columns-left"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd"
+      design_abstraction="custom">
+    <body>
+        <attribute name="class" value="account"/>
+        <referenceContainer name="customer_account_navigation">
+            <block class="Cminds\Multiwishlist\Block\Customer\Link\ManageWishlists"
+                   name="customer-account-navigation-wishlists-manage-link">
+                <arguments>
+                    <argument name="label" xsi:type="string" translate="true">Manage Wishlists</argument>
+                    <argument name="path" xsi:type="string">wishlist/manage</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+        <referenceBlock name="customer-account-navigation-wish-list-link" remove="true"/>
+    </body>
+</page>

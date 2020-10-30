@@ -1,0 +1,444 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="redgiant_berserk" translate="label" sortOrder="30">
+            <label>Berserk 1.0.2</label>
+        </tab>
+        <section id="berserk_settings" translate="label" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Berserk - Settings Panel</label>
+            <tab>redgiant_berserk</tab>
+            <resource>Redgiant_Berserk::config</resource>
+            <group id="general" translate="label" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General</label>
+                <field id="lazyload" translate="label comment" type="select" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable LazyLoad</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
+            <group id="header" translate="label" sortOrder="110" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Header</label>
+                <field id="header_type" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Header Type</label>
+                    <source_model>Redgiant\Berserk\Model\Config\Settings\Header\Type</source_model>
+                </field>
+                <field id="static_block_top_links" translate="label comment" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Static Block ID in Top Links</label>
+                </field>
+                <field id="static_block" translate="label comment" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Static Block ID</label>
+                </field>
+                <field id="sticky_header" translate="label comment" type="select" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Sticky Header</label>
+                    <source_model>Magento\Config\Model\Config\Source\Enabledisable</source_model>
+                </field>
+                <field id="sticky_header_logo_src" translate="label" type="image" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Logo Image</label>
+                    <comment>Allowed file types:PNG, GIF, JPG, JPEG, SVG.</comment>
+                    <backend_model>Redgiant\Berserk\Model\Config\Backend\Image\Stickylogo</backend_model>
+                    <base_url type="media" scope_info="1">berserk/sticky_logo</base_url>
+                    <depends>
+                        <field id="sticky_header">1</field>
+                    </depends>
+                </field>
+                <field id="mobile_sticky_header" translate="label comment" type="select" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Sticky Header on Mobile</label>
+                    <source_model>Magento\Config\Model\Config\Source\Enabledisable</source_model>
+                    <depends>
+                        <field id="sticky_header">1</field>
+                    </depends>
+                </field>
+                <field id="more_info" translate="label comment" type="select" sortOrder="110" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>More Info Popup</label>
+                    <source_model>Magento\Config\Model\Config\Source\Enabledisable</source_model>
+                </field>
+                <field id="more_info_static_block" translate="label comment" type="text" sortOrder="120" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>More Info Popup for Static Block ID</label>
+                    <depends>
+                        <field id="more_info">1</field>
+                    </depends>
+                </field>
+            </group>
+            <group id="footer" translate="label" sortOrder="115" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Footer</label>
+                <!-- Footer - Top Area -->
+                <field id="footer_top_heading" translate="label comment" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Footer - Top</label>
+                    <frontend_model>Magento\Config\Block\System\Config\Form\Field\Heading</frontend_model>
+                </field>
+                <field id="footer_top" translate="label comment" type="select" sortOrder="110" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Show Footer Top</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="footer_top_custom" translate="label comment" type="text" sortOrder="150" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Static Block Id</label>
+                    <depends>
+                        <field id="footer_top">1</field>
+                    </depends>
+                </field>
+                <!-- Footer - Top Area -->
+                <!-- Footer - Bottom Area -->
+                <field id="footer_bottom_heading" translate="label comment" sortOrder="400" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Footer - Bottom</label>
+                    <frontend_model>Magento\Config\Block\System\Config\Form\Field\Heading</frontend_model>
+                </field>
+                <field id="footer_bottom" translate="label comment" type="select" sortOrder="401" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Show Footer Bottom</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="footer_bottom_custom" translate="label comment" type="text" sortOrder="430" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Static Block Id</label>
+                    <depends>
+                        <field id="footer_bottom">1</field>
+                    </depends>
+                </field>
+                <!-- Footer - Bottom Area -->
+            </group>
+            <group id="catalog" translate="label" sortOrder="120" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Catalog</label>
+                <field id="layout" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Default Page Layout For Category Page</label>
+                    <source_model>Redgiant\Berserk\Model\Config\Settings\Catalog\Layout</source_model>
+                </field>
+                <field id="product_per_row" translate="label comment" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Number Of Product Per Row</label>
+                    <source_model>Redgiant\Berserk\Model\Config\Settings\Catalog\Perrow</source_model>
+                </field>
+                <field id="grid_style" translate="label comment" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Grid Style For Category Page</label>
+                    <source_model>Redgiant\Berserk\Model\Config\Settings\Catalog\Gridstyle</source_model>
+                </field>
+                <field id="enable_aspect_ratio" translate="label comment" type="select" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Keep Image Aspect Ratio</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="image_width" translate="label comment" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Image Width</label>
+                </field>
+                <field id="image_height" translate="label comment" type="text" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Image Height</label>
+                    <depends>
+                        <field id="enable_aspect_ratio">0</field>
+                    </depends>
+                </field>
+                <field id="new_label" translate="label comment" type="text" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>New Label</label>
+                </field>
+                <field id="sale_label" translate="label comment" type="text" sortOrder="80" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Sale Label</label>
+                </field>
+                <field id="label_type" translate="label comment" type="select" sortOrder="90" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label><![CDATA[Sale & New Label Style]]></label>
+                    <source_model>Redgiant\Berserk\Model\Config\Settings\Catalog\Labeltype</source_model>
+                </field>
+                <field id="show_percent" translate="label comment" type="select" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Show Sale Percent</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="show_review" translate="label comment" type="select" sortOrder="110" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Show Review</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="show_infinite" translate="label comment" type="select" sortOrder="120" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Show Infinite Scroll</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="sidebar_cms_block" translate="label comment" type="text" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Sidebar Static Block</label>
+                </field>
+            </group>
+            <group id="product" translate="label" sortOrder="150" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Product View</label>
+                <field id="enable_aspect_ratio" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Keep Image Aspect Ratio</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="image_width" translate="label comment" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Image Width</label>
+                </field>
+                <field id="image_height" translate="label comment" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Image Height</label>
+                    <depends>
+                        <field id="enable_aspect_ratio">0</field>
+                    </depends>
+                </field>
+                <field id="show_addto_links" translate="label comment" type="select" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Show Addto Links</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="show_related_products" translate="label comment" type="select" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Show Related Products</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="show_upsell_products" translate="label comment" type="select" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Show Upsell Products</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="quicknav" translate="label comment" type="select" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label><![CDATA[Show Prev & Next Product]]></label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="prev_text" translate="label comment" type="text" sortOrder="80" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Preivous Nav Text</label>
+                    <depends>
+                        <field id="quicknav">1</field>
+                    </depends>
+                </field>
+                <field id="next_text" translate="label comment" type="text" sortOrder="90" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Next Nav Text</label>
+                    <depends>
+                        <field id="quicknav">1</field>
+                    </depends>
+                </field>
+                <field id="content_cms_block" translate="label comment" type="text" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Main Content Static Block</label>
+                </field>
+                <field id="sidebar_cms_block" translate="label comment" type="text" sortOrder="110" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Sidebar Static Block</label>
+                </field>
+                <field id="custom_social" translate="label comment" type="textarea" sortOrder="150" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Custom Social Icons</label>
+                </field>
+            </group>
+            <group id="contacts" translate="label" sortOrder="250" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Contact Us</label>
+                <field id="google_map_heading" translate="label comment" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Google Map</label>
+                    <frontend_model>Magento\Config\Block\System\Config\Form\Field\Heading</frontend_model>
+                </field>
+                <field id="enable" translate="label comment" type="select" sortOrder="110" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Show Google Map</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="api_key" translate="label comment" type="text" sortOrder="112" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Google Map API key</label>
+                    <comment><![CDATA[You can get an API key from <a href="https://developers.google.com/maps/documentation/javascript/get-api-key">https://developers.google.com/maps/documentation/javascript/get-api-key</a><br/>
+                    eg: AIzaSyCkw3Q5Y7y2prqgTXSvF50Nr09-j7_carc</br>
+                    This is an example key for localhost.
+                    ]]></comment>
+                </field>
+                <field id="latitude" translate="label comment" type="text" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Latitude</label>
+                </field>
+                <field id="longitude" translate="label comment" type="text" sortOrder="140" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Longitude</label>
+                </field>
+                <field id="zoom" translate="label comment" type="text" sortOrder="150" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Zoom</label>
+                </field>
+                <field id="contact_info_heading" translate="label comment" sortOrder="200" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Contact Info</label>
+                    <frontend_model>Magento\Config\Block\System\Config\Form\Field\Heading</frontend_model>
+                </field>
+                <field id="infoblock" translate="label comment" type="textarea" sortOrder="210" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label></label>
+                </field>
+            </group>
+            <group id="custom_settings" translate="label" sortOrder="550" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Customization Settings</label>
+                <field id="custom_style" translate="label comment" type="textarea" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Custom Style 1</label>
+                    <comment><![CDATA[Type in your custom styles , e.g.:<br/>
+                            <em>.page { padding: 0; margin: 0; }<br/>
+                            .main { font-size: 14px; font-weight:400; }
+                            </em>
+                            ]]></comment>
+                </field>
+                <field id="custom_style_2" translate="label comment" type="textarea" sortOrder="200" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Custom Style 2</label>
+                    <comment><![CDATA[This field is useful with multi store. So you can add your global custom styles into this field.]]></comment>
+                </field>
+            </group>
+            <group id="install" translate="label" sortOrder="800" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Installation</label>
+                <field id="demo_version" translate="label comment" type="select" sortOrder="90" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Demo Version</label>
+                    <comment>Select the demo version, then import static blocks and cms pages.</comment>
+                    <source_model>Redgiant\Berserk\Model\Config\Settings\Installation\Demoversion</source_model>
+                </field>
+                <field id="import_blocks_heading" translate="label comment" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Import Static Blocks</label>
+                    <frontend_model>Magento\Config\Block\System\Config\Form\Field\Heading</frontend_model>
+                </field>
+                <field id="import_blocks" translate="button_label" sortOrder="110" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <button_label>Import Static Blocks</button_label>
+                    <attribute type="action_url">berserk_admin/system_config_cms/import</attribute>
+                    <attribute type="import_type">blocks</attribute>
+                    <frontend_model>Redgiant\Berserk\Block\System\Config\Form\Button\Import\Cms</frontend_model>
+                </field>
+                <field id="overwrite_blocks" translate="label comment" type="select" sortOrder="120" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Overwrite Existing Blocks</label>
+                    <comment>If the identifiers of the static blocks are already exist, you can set to "Yes" then save the configuration, then click the "Import Static Blocks" button.</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="import_pages_heading" translate="label comment" sortOrder="200" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Import CMS Pages</label>
+                    <frontend_model>Magento\Config\Block\System\Config\Form\Field\Heading</frontend_model>
+                </field>
+                <field id="import_pages" translate="button_label" sortOrder="210" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <button_label>Import CMS Pages</button_label>
+                    <attribute type="action_url">berserk_admin/system_config_cms/import</attribute>
+                    <attribute type="import_type">pages</attribute>
+                    <frontend_model>Redgiant\Berserk\Block\System\Config\Form\Button\Import\Cms</frontend_model>
+                </field>
+                <field id="overwrite_pages" translate="label comment" type="select" sortOrder="220" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Overwrite Existing Pages</label>
+                    <comment>If the identifiers of the cms pages are already exist, you can set to "Yes" then save the configuration, then click the "Import Static Blocks" button.</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="import_demo_heading" translate="label comment" sortOrder="300" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Import New demos</label>
+                    <frontend_model>Magento\Config\Block\System\Config\Form\Field\Heading</frontend_model>
+                </field>
+                <field id="import_demo1" translate="button_label" sortOrder="301" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <button_label>Demo 1 - Shop Clothes</button_label>
+                    <attribute type="action_url">berserk_admin/system_config_demo/import</attribute>
+                    <attribute type="demo_version">demo01</attribute>
+                    <frontend_model>Redgiant\Berserk\Block\System\Config\Form\Button\Import\Demo</frontend_model>
+                </field>
+                <field id="import_demo2" translate="button_label" sortOrder="302" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <button_label>Demo 2 - Shop Drone</button_label>
+                    <attribute type="action_url">berserk_admin/system_config_demo/import</attribute>
+                    <attribute type="demo_version">demo02</attribute>
+                    <frontend_model>Redgiant\Berserk\Block\System\Config\Form\Button\Import\Demo</frontend_model>
+                </field>
+                <field id="import_demo3" translate="button_label" sortOrder="303" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <button_label>Demo 3 - Shop Electronics</button_label>
+                    <attribute type="action_url">berserk_admin/system_config_demo/import</attribute>
+                    <attribute type="demo_version">demo03</attribute>
+                    <frontend_model>Redgiant\Berserk\Block\System\Config\Form\Button\Import\Demo</frontend_model>
+                </field>
+                <field id="import_demo4" translate="button_label" sortOrder="304" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <button_label>Demo 4 - Shop Modern</button_label>
+                    <attribute type="action_url">berserk_admin/system_config_demo/import</attribute>
+                    <attribute type="demo_version">demo04</attribute>
+                    <frontend_model>Redgiant\Berserk\Block\System\Config\Form\Button\Import\Demo</frontend_model>
+                </field>
+                <field id="import_demo5" translate="button_label" sortOrder="305" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <button_label>Demo 5 - Shop Trendy</button_label>
+                    <attribute type="action_url">berserk_admin/system_config_demo/import</attribute>
+                    <attribute type="demo_version">demo05</attribute>
+                    <frontend_model>Redgiant\Berserk\Block\System\Config\Form\Button\Import\Demo</frontend_model>
+                </field>
+                <field id="import_demo6" translate="button_label" sortOrder="306" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <button_label>Demo 6 - Shop Video</button_label>
+                    <attribute type="action_url">berserk_admin/system_config_demo/import</attribute>
+                    <attribute type="demo_version">demo06</attribute>
+                    <frontend_model>Redgiant\Berserk\Block\System\Config\Form\Button\Import\Demo</frontend_model>
+                </field>
+                <field id="import_demo7" translate="button_label" sortOrder="307" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <button_label>Demo 7 - Shop Sports</button_label>
+                    <attribute type="action_url">berserk_admin/system_config_demo/import</attribute>
+                    <attribute type="demo_version">demo07</attribute>
+                    <frontend_model>Redgiant\Berserk\Block\System\Config\Form\Button\Import\Demo</frontend_model>
+                </field>
+            </group>
+        </section>
+        <section id="berserk_design" translate="label" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Berserk - Design Panel</label>
+            <tab>redgiant_berserk</tab>
+            <resource>Redgiant_Berserk::config</resource>
+            <group id="general" translate="label" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General</label>
+                <field id="theme_color" translate="label comment" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Primary Theme Color</label>
+                    <backend_model>Redgiant\Berserk\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Redgiant\Berserk\Block\System\Config\Form\Field\Color</frontend_model>
+                </field>
+                <field id="theme_color_2" translate="label comment" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Secondary Theme Color</label>
+                    <backend_model>Redgiant\Berserk\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Redgiant\Berserk\Block\System\Config\Form\Field\Color</frontend_model>
+                </field>
+            </group>
+            <group id="font" translate="label" sortOrder="200" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Font</label>
+                <field id="custom" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Custom</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="font_size" translate="label comment" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Basic Font Size</label>
+                    <source_model>Redgiant\Berserk\Model\Config\Design\Font\Size</source_model>
+                    <depends>
+                        <field id="custom">1</field>
+                    </depends>
+                </field>
+                <field id="font_family" translate="label comment" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Basic Font Family</label>
+                    <source_model>Redgiant\Berserk\Model\Config\Design\Font\Family</source_model>
+                    <depends>
+                        <field id="custom">1</field>
+                    </depends>
+                </field>
+                <field id="custom_font_family" translate="label comment" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Font Family - Custom</label>
+                    <depends>
+                        <field id="custom">1</field>
+                        <field id="font_family">custom</field>
+                    </depends>
+                </field>
+                <field id="google_font_family" translate="label comment" type="select" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Font Family - Google Fonts</label>
+                    <source_model>Redgiant\Berserk\Model\Config\Design\Font\Googlefonts</source_model>
+                    <depends>
+                        <field id="custom">1</field>
+                        <field id="font_family">google</field>
+                    </depends>
+                </field>
+                <field id="char_latin_ext" translate="label comment" type="select" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Character Set: Latin Extended</label>
+                    <source_model>Magento\Config\Model\Config\Source\Enabledisable</source_model>
+                    <depends>
+                        <field id="custom">1</field>
+                        <field id="font_family">google</field>
+                    </depends>
+                </field>
+                <field id="char_subset" translate="label comment" type="text" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Custom Character Subset</label>
+                    <depends>
+                        <field id="custom">1</field>
+                        <field id="font_family">google</field>
+                    </depends>
+                </field>
+            </group>
+            <group id="colors" translate="label" sortOrder="300" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Colors</label>
+                <field id="custom" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Custom</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="basic_heading" translate="label comment" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Basic Colors</label>
+                    <frontend_model>Magento\Config\Block\System\Config\Form\Field\Heading</frontend_model>
+                    <depends>
+                        <field id="custom">1</field>
+                    </depends>
+                </field>
+                <field id="text_color" translate="label comment" type="text" sortOrder="110" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Text Color</label>
+                    <backend_model>Redgiant\Berserk\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Redgiant\Berserk\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="custom">1</field>
+                    </depends>
+                </field>
+                <field id="link_color" translate="label comment" type="text" sortOrder="120" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Link Color</label>
+                    <backend_model>Redgiant\Berserk\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Redgiant\Berserk\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="custom">1</field>
+                    </depends>
+                </field>
+                <field id="link_hover_color" translate="label comment" type="text" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Link Hover Color</label>
+                    <backend_model>Redgiant\Berserk\Model\Config\Backend\Design\Color\Validatetransparent</backend_model>
+                    <frontend_model>Redgiant\Berserk\Block\System\Config\Form\Field\Color</frontend_model>
+                    <depends>
+                        <field id="custom">1</field>
+                    </depends>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

@@ -1,0 +1,15 @@
+<?xml version="1.0"?> 
+
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="customer_account"/>
+    <body>
+        <referenceBlock name="customer_account_navigation">
+            <block class="Esparksinc\Consult\Block\Customer\Tab" name="customer-account-navigation-customer-query">
+                <arguments>
+                    <argument name="label" xsi:type="string" translate="true">Customer Query</argument>
+                    <argument name="path" xsi:type="string">ergo/customer/index</argument>
+                </arguments>
+            </block>
+        </referenceBlock>
+    </body>
+</page>

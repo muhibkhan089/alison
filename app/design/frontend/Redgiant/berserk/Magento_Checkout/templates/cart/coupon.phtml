@@ -1,0 +1,64 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+?>
+<div class="coupon-wrapper">
+<div class="block discount" id="block-discount" data-mage-init='{"collapsible":{"openedState": "active", "saveState": false}}'>    
+    <div class="content" data-role="content">
+        <form id="discount-coupon-form" class="brk-form-round brk-form-round-btn-inside-full w-100"
+              action="<?php /* @escapeNotVerified */ echo $block->getUrl('checkout/cart/couponPost') ?>"
+              method="post"
+              data-mage-init='{"discountCode":{"couponCodeSelector": "#coupon_code",
+                                               "removeCouponSelector": "#remove-coupon",
+                                               "applyButton": "button.action.apply",
+                                               "cancelButton": "button.action.cancel"}}'>
+            <div class="fieldset coupon<?php strlen($block->getCouponCode()) ? ' applied' : ''?>">
+                <input type="hidden" name="remove" id="remove-coupon" value="0" />
+                <div class="field">
+                    <label for="coupon_code" class="label"><span><?php /* @escapeNotVerified */ echo __('Enter discount code') ?></span></label>
+                    <div class="control">
+                        <input type="text" class="input-text" id="coupon_code" name="coupon_code" value="<?php echo $block->escapeHtml($block->getCouponCode()) ?>" placeholder="<?php echo $block->escapeHtml(__('Enter discount code'));?>" />
+                    </div>
+                </div>
+                <div class="actions-toolbar">
+                    <?php if (!strlen($block->getCouponCode())): ?>
+                    <div class="primary">
+                        <button class="apply btn btn-inside-out btn-lg border-radius-25 btn-shadow mx-0 my-0 brk-library-rendered" type="button" value="<?php /* @escapeNotVerified */ echo __('Apply Discount') ?>">
+                        <span class="before"><?php /* @escapeNotVerified */ echo __('Apply Discount') ?></span><span class="text"><?php /* @escapeNotVerified */ echo __('Apply Discount') ?></span><span class="after"><?php /* @escapeNotVerified */ echo __('Apply Discount') ?></span>
+                        </button>
+                    </div>
+                    <?php else: ?>
+                        <div class="primary btn btn-inside-out btn-lg border-radius-25 btn-shadow mx-0 my-0 brk-library-rendered">
+                            <button  type="button" class="action cancel primary" value="<?php /* @escapeNotVerified */ echo __('Cancel Coupon') ?>"><span class="before"><?php /* @escapeNotVerified */ echo __('Cancel Coupon') ?></span><span class="text"><?php /* @escapeNotVerified */ echo __('Cancel Coupon') ?></span><span class="after"><?php /* @escapeNotVerified */ echo __('Cancel Coupon') ?></span></button>
+                        </div>
+                    <?php endif; ?>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+    <div class="update-shopping-cart-wrap">
+            <button id="update-shopping-cart"                       
+                    title="<?php echo $block->escapeHtml(__('Update Shopping Cart')); ?>"
+                    class="action update btn btn-prime btn-md border-radius-25 btn-no-shadow mx-0 my-0 font__weight-bold brk-library-rendered"><i class="icon-inside fas fa-sync-alt"></i><span class="before"></span><span class="after"></span>
+                <span class="border-btn"></span><span><?php /* @escapeNotVerified */ echo __('Update Shopping Cart'); ?></span>
+            </button>
+    </div>
+
+</div>
+
+<script type="text/javascript">
+    require([
+                    'jquery'
+                ], function ($) {
+                    $("#update-shopping-cart").off("click").on("click", function() {
+                        $(".cart-container .actions.main .action.update").trigger("click");
+                    });
+                });
+</script>

@@ -1,0 +1,21 @@
+<?php 
+    $_helper = $this->helper( 'Redgiant\Berserk\Helper\Data' );
+    $_dailyhelper = $this->helper( 'Redgiant\Dailydeals\Helper\Data' );
+    $_product = $_helper->getCurrentProduct();
+    $productSku=$_product->getSku();
+    
+    if(!empty($_product->getData("brk_custom_block"))) :
+?>
+    <div class="fullwidth-customattr-block"><?php echo $_helper->filterContent($_product->getData("brk_custom_block")); ?></div>
+<?php endif; ?>
+
+<?php 
+    $_blockId = $_helper->getConfig( 'berserk_settings/product/content_cms_block' );
+    if(!empty($_blockId)):
+    ?>
+    <div class="fullwidth-cutom-block">
+    <?php        
+        echo $this->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId($_blockId)->toHtml();
+    ?>
+    </div>
+<?php endif; ?>

@@ -1,0 +1,63 @@
+<?php
+$contacts_config = $this->helper('Smartwave\Porto\Helper\Data')->getConfig('porto_settings/contacts');
+$_infoblock = $contacts_config['infoblock'];
+$_customblock = $contacts_config['customblock'];
+
+if($_customblock) {
+    $block = $this->getLayout()->createBlock('Magento\Cms\Block\Block');
+    if($block) {
+        $block->setBlockId($_customblock);
+    }
+    if($block){
+        echo '<div class="row"><div class="col-md-12">'.$block->toHtml().'</div></div>';
+    }
+}
+?>
+<div class="container-fluid es-center" style="padding-top: 40px;">
+    <?php echo $_infoblock; ?>
+</div>
+<div class="" style="padding-top: 50px;">
+    <div class="row">
+       <div class="col-md-4 font-black es-center pd-contact">
+        <div class="row" style="padding-top: 100px;">
+            <div class="col-md-12">
+                <img src="pub/media/wysiwyg/smartwave/porto_child/contact/FindYourCaseSize_image.png">
+                <h2 class="ft-30-ls-4">find your case size</h2>
+            </div>
+        </div>
+        <div class="row" style="padding-top: 36px">
+            <div class="col-md-12">
+                <img src="pub/media/wysiwyg/smartwave/porto_child/contact/GetAQuoteForACustomCase_image.png">
+                <h2 class="ft-30-ls-4">get a quote for a custom case</h2>
+            </div>
+        </div>
+        <div class="row" style="padding-top: 100px">
+            <div class="col-md-4 col-sm-4 col-4">
+                <a href="#">
+                    <img class="icon-size" src="pub/media/wysiwyg/smartwave/porto_child/footer/footer_facebookicon_grey.png">
+                </a>
+                
+            </div>
+            <div class="col-md-4 col-sm-4 col-4">
+                <a href="#">
+                    <img class="icon-size" src="pub/media/wysiwyg/smartwave/porto_child/footer/footer_linkedinicon_grey.png">
+                </a>
+                
+            </div>
+            <div class="col-md-4 col-sm-4 col-4">
+                <a href="#">
+                    <img class="icon-size" src="pub/media/wysiwyg/smartwave/porto_child/footer/footer_twittericon_grey.png">
+                </a>
+                
+            </div>
+        </div>
+        <div class="row" style="padding-top: 40px">
+            <div class="col-md-12">
+                <h2 class="ft-30-ls-4">follow us on social media</h2>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-8 bg-img"><?php echo $this->getChildHtml('contactForm')?></div>
+
+</div>
+</div>

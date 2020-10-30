@@ -1,0 +1,148 @@
+<?php
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+$customerSession = $objectManager->create('Magento\Customer\Model\Session');
+
+// Use For redirection if customer is not logged in
+$urlInterface = $objectManager->create('\Magento\Customer\Model\Url');
+
+if(!$customerSession->isLoggedIn()) 
+{
+    $url = $urlInterface->getLoginUrl();
+    $class = "no-url";
+}
+else
+{
+    $url = "#";
+    $class = "click-me";
+}
+?>
+<div class="container">
+    <div class="row es-row-ergonomist">
+
+        <div class="col-lg-6 col-sm-12">
+
+            <h2 class="es-ergonomist-heading"><?= /* @escapeNotVerified */ __('Find An Ergonomist') ?></h2>
+            <a class="alberta es-ergonomist-province" onclick="document.getElementById('myImage').src='<?php echo $block->getUrl("pub/media/wysiwyg/berserk/map/")?>Alberta-Green.png'" data-target="#alberta"><?= /* @escapeNotVerified */ __('Alberta') ?> (<?php echo $block->provinceCount("alberta");?>)</a>
+            <a class="britishColumbia es-ergonomist-province" onclick="document.getElementById('myImage').src='<?php echo $block->getUrl("pub/media/wysiwyg/berserk/map/")?>British-Columbia-Green.png'" data-target="#britishColumbia"><?= /* @escapeNotVerified */ __('British Columbia') ?> (<?php echo $block->provinceCount("britishColumbia");?>)</a>
+            <a class="manitoba es-ergonomist-province" onclick="document.getElementById('myImage').src='<?php echo $block->getUrl("pub/media/wysiwyg/berserk/map/")?>Manitoba-Green.png'" data-target="#manitoba"><?= /* @escapeNotVerified */ __('Manitoba') ?> (<?php echo $block->provinceCount("manitoba");?>)</a>
+            <a class="novaScotia es-ergonomist-province" onclick="document.getElementById('myImage').src='<?php echo $block->getUrl("pub/media/wysiwyg/berserk/map/")?>Nova-Scotia-green.png'" data-target="#novaScotia"><?= /* @escapeNotVerified */ __('Nova Scotia') ?> (<?php echo $block->provinceCount("novaScotia");?>)</a>
+            <a class="ontario es-ergonomist-province" onclick="document.getElementById('myImage').src='<?php echo $block->getUrl("pub/media/wysiwyg/berserk/map/")?>Ontario-Green.png'" data-target="#ontario"><?= /* @escapeNotVerified */ __('Ontario') ?> (<?php echo $block->provinceCount("ontario");?>)</a>
+            <a class="yukon es-ergonomist-province" onclick="document.getElementById('myImage').src='<?php echo $block->getUrl("pub/media/wysiwyg/berserk/map/")?>Yukon-Green.png'" data-target="#yukon"><?= /* @escapeNotVerified */ __('Yukon') ?> (<?php echo $block->provinceCount("yukon");?>)</a>
+
+            <a class="newBrunswick es-ergonomist-province" onclick="document.getElementById('myImage').src='<?php echo $block->getUrl("pub/media/wysiwyg/berserk/map/")?>New-Brunswick-Green.png'" data-target="#newBrunswick"><?= /* @escapeNotVerified */ __('New Brunswick') ?> (<?php echo $block->provinceCount("newBrunswick");?>)</a>
+            <a class="newfoundland es-ergonomist-province" onclick="document.getElementById('myImage').src='<?php echo $block->getUrl("pub/media/wysiwyg/berserk/map/")?>Newfoundland-&-Labrador-Green.png'" data-target="#newfoundland"><?= /* @escapeNotVerified */ __('Newfoundland & Labrador') ?> (<?php echo $block->provinceCount("newfoundland");?>)</a>
+            <a class="northwestTerritories es-ergonomist-province" onclick="document.getElementById('myImage').src='<?php echo $block->getUrl("pub/media/wysiwyg/berserk/map/")?>Northwest-Territories-Green.png'" data-target="#northwestTerritories"><?= /* @escapeNotVerified */ __('Northwest Territories') ?> (<?php echo $block->provinceCount("northwestTerritories");?>)</a>
+            <a class="princeEdward es-ergonomist-province" onclick="document.getElementById('myImage').src='<?php echo $block->getUrl("pub/media/wysiwyg/berserk/map/")?>P-E-I-Green.png'" data-target="#princeEdward"><?= /* @escapeNotVerified */ __('Prince Edward Island') ?> (<?php echo $block->provinceCount("princeEdward");?>)</a>
+            <a class="quebec es-ergonomist-province" onclick="document.getElementById('myImage').src='<?php echo $block->getUrl("pub/media/wysiwyg/berserk/map/")?>Quebec-Green.png'" data-target="#quebec"><?= /* @escapeNotVerified */ __('Quebec') ?> (<?php echo $block->provinceCount("quebec");?>)</a>
+            <a class="saskatchewan es-ergonomist-province" onclick="document.getElementById('myImage').src='<?php echo $block->getUrl("pub/media/wysiwyg/berserk/map/")?>Saskatchewan-Green.png'" data-target="#saskatchewan"><?= /* @escapeNotVerified */ __('Saskatchewan') ?> (<?php echo $block->provinceCount("saskatchewan");?>)</a>
+            <a class="nunavut es-ergonomist-province" onclick="document.getElementById('myImage').src='<?php echo $block->getUrl("pub/media/wysiwyg/berserk/map/")?>Nunavut-Green.png'" data-target="#nunavut"><?= /* @escapeNotVerified */ __('Nunavut') ?> (<?php echo $block->provinceCount("nunavut");?>)</a>
+        </div>
+        <div class="col-lg-6 col-sm-12 es-ergo-map">
+            <img id="myImage" src="<?php echo $block->getUrl("pub/media/wysiwyg/berserk/map/")?>all-blue.png">
+        </div>
+    </div>
+</div>
+<?php $allProvinvce = $block->getAllProvince();?>
+<?php foreach ($allProvinvce as $key => $value): ?>
+    <div id="<?php echo $value['value'];?>" class="container es-data hide">
+       <h2><?php echo __($value['label']);?></h2>
+       <div class="row">
+
+
+        <?php foreach ($block->getCustomerCollection($value['value']) as $key=>$post) : ?>
+
+            <div class="col-lg-6 col-sm-6 es-padding">
+                <h4 class="es-inline"><?= /* @escapeNotVerified */ __('Name') ?>:&nbsp;</h4><span><?php echo $post->getName();?></span><br>
+                <h4 class="es-inline"><?= /* @escapeNotVerified */ __('Address') ?>:&nbsp;</h4><span><?php echo $block->getAddress($post->getId());?></span><br>
+                <h4 class="es-inline"><?= /* @escapeNotVerified */ __('Credentials') ?>:&nbsp;</h4><span><?php echo $block->getCredentials($post->getId());?></span><br>
+                <h4 class="es-inline"><?= /* @escapeNotVerified */ __('Bio') ?>:&nbsp;</h4><span><?php echo $block->getBio($post->getId());?></span><br>
+                <a href="<?php echo $url;?>" class="<?php echo $class;?> btn btn-inside-out btn-md btn-icon border-radius-25 font__weight-bold" data-id='<?php echo $post->getId();?>' data-name="<?php echo $post->getName();?>" data-email= '<?php echo $post->getEmail();?>'  data-brk-library="component__button"> <span class="before"><?= /* @escapeNotVerified */ __('Contact') ?></span><span class="text"><?= /* @escapeNotVerified */ __('Click Me') ?></span><span class="after"><?= /* @escapeNotVerified */ __('Contact') ?></span></a>
+
+            </div>
+
+        <?php endforeach; ?>
+    </div>
+</div>
+<?php endforeach; ?>
+<div id="popup-modal" >
+ <form class="form" action="<?php /* @escapeNotVerified */ echo $block->getFormAction(); ?>" id="survey-form" method="post" data-hasrequired="* Required Fields">
+    <fieldset class="fieldset">
+    	<input type="hidden" name="customerId" id="customerId" value="<?php echo $customerSession->getCustomer()->getId(); ?>" />
+        <input type="hidden" name="customerName" id="customerName" value="<?php echo $customerSession->getCustomer()->getName(); ?>" />
+        <input type="hidden" name="customerEmail" id="customerEmail" value="<?php echo $customerSession->getCustomer()->getEmail(); ?>" />
+        <input type="hidden" name="ergoId" id="ergoId" value="" />
+
+        <input type="hidden" name="ergoName" id="ergoName" value="" />
+        <input type="hidden" name="ergoEmail" id="ergoEmail" value="" />
+        <div class="field name required">
+            <label class="label" for="query"><span><?= /* @escapeNotVerified */ __('Query') ?></span></label>
+            <div class="control">
+                <textarea name="query" id="query" required rows="6"></textarea>
+            </div>
+        </div>
+        <?php echo $block->getChildHtml('form.additional.info'); ?>
+    </fieldset>
+    <div class="actions-toolbar">
+        <div class="primary">
+            <input type="hidden" name="hideit" id="hideit" value="" />
+            <button type="submit" title="Submit" class="action submit primary">
+                <span>Submit</span>
+            </button>
+        </div>
+    </div>
+</form>
+</div>
+
+<script>
+    require(
+        [
+        'jquery',
+        'Magento_Ui/js/modal/modal'
+        ],
+        function(
+            $,
+            modal
+            ) {
+            var options = {
+                type: 'popup',
+                responsive: true,
+                innerScroll: true,
+                buttons: [{
+                    text: $.mage.__('Cancel'),
+                    class: '',
+                    click: function () {
+                        this.closeModal();
+                    }
+                }]
+            };
+
+            var popup = modal(options, $('#popup-modal'));
+            $(".click-me").on('click',function(){
+
+            	var ergoId = $(this).data('id');
+                var ergoName = $(this).data('name');
+                var ergoEmail =  $(this).data('email');
+
+                $('#ergoId').attr("value",ergoId);
+                $('#ergoName').attr("value",ergoName);
+                $('#ergoEmail').attr("value",ergoEmail);
+                $("#popup-modal").modal("openModal");
+            });
+
+        }
+        );
+    </script>
+    <script type="text/javascript">
+//<![CDATA[
+require([
+    'jquery'
+    ], function($) {
+       $(".es-ergonomist-province").click(function() {
+        var target = $(this).data("target");
+        $(".es-data").addClass("hide")
+        $(target).removeClass("hide");
+    });
+   }
+   );
+//]]>
+</script>

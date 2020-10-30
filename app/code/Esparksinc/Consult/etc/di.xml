@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+
+<preference for="Esparksinc\Consult\Api\Data\QueryInterface" type="Esparksinc\Consult\Model\Query" />
+<preference for="Magento\Wishlist\Block\Customer\Sharing" type="Esparksinc\Consult\Block\Sharing" />
+
+
+    <virtualType name="Esparksinc\Consult\Model\ResourceModel\Query\Query\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">esparksinc_consult_form</argument>
+            <argument name="resourceModel" xsi:type="string">Esparksinc\Consult\Model\ResourceModel\Query</argument>
+        </arguments>
+    </virtualType>
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="query_record_query_list_data_source" xsi:type="string">Esparksinc\Consult\Model\ResourceModel\Query\Query\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+</config>
+
+

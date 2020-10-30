@@ -1,0 +1,43 @@
+<?php
+    $_helper = $this->helper('Redgiant\Berserk\Helper\Data');
+    $_prodconfig = $_helper->getConfig('berserk_settings/product');
+    $_imghelper = $this->helper('Magento\Catalog\Helper\Image');
+    if(!empty($_prodconfig['quicknav'])) {
+        $_product = $_helper->getCurrentProduct();
+        $_prev_product = $_helper->getPrevProduct($_product);
+        $_next_product = $_helper->getNextProduct($_product);
+        
+?>
+<?php if($_prev_product || $_next_product):?>
+<div class="products-quicknav">
+    <?php if($_prev_product): ?>
+    <?php
+        $productImage = $_imghelper->init($_prev_product, 'category_page_grid')->constrainOnly(FALSE)->keepAspectRatio(TRUE)->keepFrame(FALSE)->resize(80);
+        $productImageUrl = $productImage->getUrl();
+    ?>
+    <div class="product-nav product-prev">
+        <a href="<?php echo $_prev_product->getProductUrl(); ?>" title="<?php echo __('Previous Product'); ?>"><?php echo $_prodconfig['prev_text']; ?></a>
+        <div class="product-pop">
+            <img class="product-image" src="<?php echo $productImageUrl; ?>" alt="<?php echo $productImage->getLabel(); ?>"/>
+            <h3 class="product-name"><?php echo $_prev_product->getName(); ?></h3>
+        </div>
+    </div>
+    <?php endif; ?>
+    <?php if($_next_product): ?>
+    <?php
+        $productImage = $_imghelper->init($_next_product, 'category_page_grid')->constrainOnly(FALSE)->keepAspectRatio(TRUE)->keepFrame(FALSE)->resize(80);
+        $productImageUrl = $productImage->getUrl();
+    ?>
+    <div class="product-nav product-next">
+        <a href="<?php echo $_next_product->getProductUrl(); ?>" title="<?php echo __('Next Product'); ?>"><?php echo $_prodconfig['next_text']; ?></a>
+        <div class="product-pop">
+            <img class="product-image" src="<?php echo $productImageUrl; ?>" alt="<?php echo $productImage->getLabel(); ?>"/>
+            <h3 class="product-name"><?php echo $_next_product->getName(); ?></h3>
+        </div>
+    </div>
+    <?php endif; ?>
+</div>
+<?php endif; ?>
+<?php
+    }
+?>

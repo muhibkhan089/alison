@@ -1,0 +1,216 @@
+<?php 
+    $_helper = $this->helper('Redgiant\Berserk\Helper\Cssconfig');
+    $berserk_helper = $this->helper('Redgiant\Berserk\Helper\Data');
+?>
+<?php //Include Google fonts character subsets (such as extended latin, cyrillic)
+    $d = $this->getConfig('berserk_design');
+    $charSubset = "";
+    if (isset($d['font']['char_latin_ext']) && $d['font']['char_latin_ext']==1 )
+        $charSubset .= ',latin-ext';
+    if (isset($d['font']['char_subset']) && $d['font']['char_subset'])
+        $charSubset .= ','.$d['font']['char_subset'];
+    $font_weights = "%3A300%2C300italic%2C400%2C400italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic";
+?>
+<?php if (isset($d['font']['custom']) && $d['font']['custom'] && $d['font']['font_family'] == 'google'): ?>
+<link rel="stylesheet" href='//fonts.googleapis.com/css?family=<?php echo str_replace(' ', '+', $d['font']['google_font_family']).$font_weights; echo $charSubset; ?>' type='text/css' />
+<?php endif;?>
+<link href="//fonts.googleapis.com/css?family=Oxygen:300,400,700%7CMontserrat:100,200,300,400,500,600,700%7COpen+Sans:200,300,400,600,700%7CPlayfair+Display:400,400i,700%7CRoboto:100,300,400,700%7CPacifico:300,400,700%7CMontserrat+Alternates:400,700" rel="stylesheet">
+<link rel="stylesheet" type="text/css" media="all" href="<?php echo $_helper->getDesignFile()?>">
+<link rel="stylesheet" type="text/css" media="all" href="<?php echo $_helper->getSettingsFile()?>">
+<script type="text/javascript">
+if ( typeof Berserk == "undefined")
+  Berserk = {behaviors: {}, settings: {timeout_delay: 200}};
+
+var berserk_config = {
+    paths: {
+        owlcarousel: 'owlcarousel/owl.carousel.min',
+        fancybox: 'fancybox/js/jquery.fancybox.min',        
+        slickCarousel: 'slickCarousel/js/slick.min',        
+        packery: 'packery/packery.pkgd',
+        imagesloaded: 'packery/imagesloaded',
+        'form-controls': 'js/form-controls',
+        'gallery-sliders': 'js/gallery-sliders',
+        'brk-hover3d': 'js/brk-hover3d',
+        'sliders-skin': 'js/sliders-skin',
+        'fss': 'js/fss.min',
+        'google-maps': 'js/google-maps',
+        'berserk' : 'js/berserk',
+        'progress-bar': 'js/progress-bars',
+        'jquerycountdown' : 'jquerycountdown/jquery.countdown.min',
+        'countdown' : 'js/countdown',
+        'image-map-pro': 'js/image-map-pro.min',
+        'image-map': 'js/image-map',
+        'swiper': 'swiper/swiper.min',
+        'swiper-skin': 'js/swiper-skin',
+        'jquery-bridget' : 'isotope/js/jquery-bridget',
+        'isotope' : 'isotope/js/isotope.pkgd.min',
+        'isotope-skin' : 'js/isotope-skin',
+        'tiles-angle' : 'js/tiles_angle',
+        'steps' : 'js/steps',
+    },
+    shim: {
+        owlcarousel: {
+            deps: ['jquery']
+        },
+        fancybox: {            
+            deps: ['jquery'],            
+        },        
+        slickCarousel: {
+          deps: ['jquery'],
+        },        
+        packery: {
+          deps: ['jquery'],
+        },
+        imagesloaded: {
+          deps: ['jquery'],
+        },        
+        'sliders-skin': {
+          deps: ['jquery', 'slickCarousel'],
+        },
+        'gallery-sliders': {
+          deps: ['jquery'],
+        },        
+        'brk-hover3d': {
+          deps: ['jquery'],
+        },
+        'fss': {
+          deps: ['jquery'],
+        },
+        'form-controls': {
+          deps: ['jquery']
+        },
+        'google-maps': {
+          deps: ['jquery']
+        },
+        'berserk' : {
+          deps: ['jquery'],
+        },
+        'progress-bar': {
+          deps: ['jquery', 'berserk'],
+        },
+        'jquerycountdown' : {
+          deps: ['jquery']
+        },
+        'countdown' : {
+          deps : ['jquery', 'jquerycountdown']
+        },
+        'image-map-pro' : {
+          deps: ['jquery']
+        },
+        'image-map' : {
+          deps: ['jquery', 'image-map-pro']
+        },
+        'swiper-skin': {
+          deps: ['jquery', 'swiper']
+        },
+        'jquery-bridget': {
+          deps: ['jquery']
+        },
+        'isotope' : {
+          deps: ['jquery']
+        },
+        'isotope-skin' : {
+          deps: ['jquery', 'isotope']
+        },
+        'tiles-angle' : {
+          deps: ['jquery']
+        },
+        'steps' : {
+          deps: ['jquery']
+        },
+    }
+};
+
+require.config(berserk_config);
+
+require([
+    'jquery'
+], function ($) {
+    $(document).ready(function(){
+    	var header_one = $("header.page-header");
+<?php if($berserk_helper->getConfig('berserk_settings/header/sticky_header')): ?>
+		var windowWidth = window.innerWidth || $(window).width();
+	<?php if(!$berserk_helper->getConfig('berserk_settings/header/mobile_sticky_header')): ?>
+		if (windowWidth >= 992) {
+	<?php endif; ?>
+			if($(window).scrollTop() > 0) {
+				$(header_one).addClass("brk-header_scroll");
+			} else if ($(window).scrollTop() <= 0) {
+				$(header_one).removeClass("brk-header_scroll");
+			}
+	<?php if(!$berserk_helper->getConfig('berserk_settings/header/mobile_sticky_header')): ?>
+		}
+	<?php endif; ?>
+<?php endif; ?>
+	});
+
+	$(window).scroll(function () {
+<?php if($berserk_helper->getConfig('berserk_settings/header/sticky_header')): ?>
+		var windowWidth = window.innerWidth || $(window).width();
+		header_one = $("header.page-header");
+		<?php if(!$berserk_helper->getConfig('berserk_settings/header/mobile_sticky_header')): ?>
+		if (windowWidth >= 992) {
+	<?php endif; ?>
+			if($(window).scrollTop() > 0) {
+				$(header_one).addClass("brk-header_scroll");
+			} else if ($(window).scrollTop() <= 0) {
+				$(header_one).removeClass("brk-header_scroll");
+			}
+	<?php if(!$berserk_helper->getConfig('berserk_settings/header/mobile_sticky_header')): ?>
+		}
+	<?php endif; ?>
+<?php endif; ?>
+	});
+
+	/**
+     * Sticky Hide
+     */
+    var stickyHide = 0;
+<?php if($berserk_helper->getConfig('berserk_settings/header/header_type') == 2): ?>
+	stickyHide = 1;
+<?php endif; ?>
+
+    if (stickyHide == 1) {
+      var scrollPrev = 0;
+
+      setTimeout(function () {
+        $(window).scroll(function () {
+          header_one = $("header.page-header");
+          var scrolled = $(this).scrollTop(),
+            firstScrollUp = false,
+            firstScrollDown = false;
+
+          if (scrolled > 0) {
+
+            if (scrolled > scrollPrev) {
+              firstScrollUp = false;
+
+              if (scrolled < $(header_one).height() + $(header_one).offset().top) {
+                if (firstScrollDown === false) {
+                  $(header_one).addClass('brk-header_sticky-hide');
+
+                  firstScrollDown = true;
+                }
+              }
+            } else {
+              firstScrollDown = false;
+
+              if (scrolled > $(header_one).offset().top) {
+                if (firstScrollUp === false) {
+                  $(header_one).removeClass('brk-header_sticky-hide');
+
+                  firstScrollUp = true;
+                }
+              }
+            }
+            scrollPrev = scrolled;
+          }
+
+        });
+      }, 2500);
+    }
+    /**
+     * End Sticky Hide
+     */
+});
+</script>

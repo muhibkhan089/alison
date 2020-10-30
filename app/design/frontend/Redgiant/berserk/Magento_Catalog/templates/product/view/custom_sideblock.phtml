@@ -1,0 +1,8 @@
+<?php
+    $_helper = $this->helper('Redgiant\Berserk\Helper\Data');
+    $_blockId = $_helper->getConfig( 'berserk_settings/product/sidebar_cms_block' );
+    echo $this->getLayout()
+          ->createBlock('Magento\Cms\Block\Block')
+          ->setBlockId($_blockId)
+          ->toHtml();
+?>

@@ -1,0 +1,21 @@
+<?php
+/* @var \Magento\Wishlist\Block\Link $block */
+?>
+<li class="link wishlist" data-bind="scope: 'wishlist'">
+    <a <?= $block->getLinkAttributes() ?>>
+        <?= $block->escapeHtml($block->getLabel()) ?>
+    </a>
+</li>
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "Magento_Ui/js/core/app": {
+                "components": {
+                    "wishlist": {
+                        "component": "Magento_Wishlist/js/view/wishlist"
+                    }
+                }
+            }
+        }
+    }
+</script>

@@ -1,0 +1,106 @@
+<h2>
+	<?php echo $block->getTitle(); ?>
+</h2>
+
+
+<div class="table-wrapper query-history">
+    <table class="data table table-query-items history" id="my-query-table">
+        <caption class="table-caption"><?= /* @escapeNotVerified */ __('Query') ?></caption>
+        <thead>
+            <tr>
+                <th scope="col" class="col name"><?= /* @escapeNotVerified */ __('Customer Name') ?></th>
+                <th scope="col" class="col email"><?= /* @escapeNotVerified */ __('Customer Email') ?></th>
+                <th scope="col" class="col query"><?= /* @escapeNotVerified */ __('Customer Query') ?></th>
+                <th scope="col" class="col actions"><?= /* @escapeNotVerified */ __('Action') ?></th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($block->forPager() as $value): ?>
+                <tr>
+                    <td data-th="<?= $block->escapeHtml(__('Customer Name')) ?>" class="col name"><?php echo $value->getCustomerName() ?></td>
+                    <td data-th="<?= $block->escapeHtml(__('Customer Email')) ?>" class="col email"><?php echo $value->getCustomerEmail() ?></td>
+                    <td data-th="<?= $block->escapeHtml(__('Customer Query')) ?>" class="es-query col query"><?php echo $value->getQuery() ?></td>
+                    <td data-th="<?= $block->escapeHtml(__('Actions')) ?>" class="col actions">
+                        <a href="#" class="click-me" data-query="<?php echo $value['query'];?>" data-name="<?php echo $value['customer_name'];?>" data-email= "<?php echo $value['customer_email'];?>" >View</a>
+                    </td>
+                </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+</div>
+
+<?php if ($block->getPagerHtml()): ?>
+    <div class="query-products-toolbar toolbar bottom"><?= $block->getPagerHtml() ?></div>
+    <?php else: ?>
+        <div class="message info empty"><span><?= /* @escapeNotVerified */ __('You have no Query.') ?></span></div>
+    <?php endif ?>
+
+    <div id="popup-modal" >
+
+        <fieldset class="fieldset">
+
+
+            <div class="field name">
+                <label class="label" for="ergoName"><span><?= /* @escapeNotVerified */ __('Customer Name') ?>:</span></label>
+                <span name="ergoName" id="ergoName" text="Customer">Customer Name</span>
+            </div>
+            <div class="field name">
+                <label class="label" for="ergoEmail"><span><?= /* @escapeNotVerified */ __('Customer Email') ?>:</span></label>
+                <span name="ergoEmail" id="ergoEmail">Customer Email</span>
+            </div>
+            <div class="field name">
+                <label class="label" for="query"><span><?= /* @escapeNotVerified */ __('Query') ?></span></label>
+                <div class="control">
+                    <span name="query" id="query">Query</span>
+                </div>
+            </div>
+        </fieldset>
+        <div class="actions-toolbar">
+            <div class="primary">
+                <input type="hidden" name="hideit" id="hideit" value="" />
+            </div>
+        </div>
+    </div>
+    <script>
+        require(
+            [
+            'jquery',
+            'Magento_Ui/js/modal/modal'
+            ],
+            function(
+                $,
+                modal
+                ) {
+                var options = {
+                    type: 'popup',
+                    responsive: true,
+                    innerScroll: true,
+                    buttons: [{
+                        text: $.mage.__('OK'),
+                        class: '',
+                        click: function () {
+                            this.closeModal();
+                        }
+                    }]
+                };
+
+                var popup = modal(options, $('#popup-modal'));
+                $(".click-me").on('click',function(){
+
+                 var query = $(this).data('query');
+                 var ergoName = $(this).data('name');
+                 var ergoEmail =  $(this).data('email');
+
+                 $('#query').text(query);
+                 $('#ergoName').text(ergoName);
+                 $('#ergoEmail').text(ergoEmail);
+
+                // $('#query').attr("value",query);
+                // $('#ergoName').attr("value",ergoName);
+                // $('#ergoEmail').attr("value",ergoEmail);
+                $("#popup-modal").modal("openModal");
+            });
+
+            }
+            );
+        </script>

@@ -1,0 +1,140 @@
+<?php
+/**
+ * Copyright © 2015 Ihor Vansach (ihor@magefan.com). All rights reserved.
+ * See LICENSE.txt for license details (http://opensource.org/licenses/osl-3.0.php).
+ *
+ * Glory to Ukraine! Glory to the heroes!
+ */
+?>
+<?php
+/**
+ * Blog post list item template
+ *
+ * @var $block \Magefan\Blog\Block\Post\AbstractPost
+ */
+?>
+<?php
+    $_post = $this->getPost();
+    $_postUrl = $_post->getPostUrl();
+    $_postName = $block->escapeHtml($_post->getTitle(), null, true);
+    $_postDate = $_post->getData("publish_time");
+    $_helper = $this->helper('Redgiant\Berserk\Helper\Data');
+?>
+
+<li class="post-holder post-holder-<?php echo $_post->getId() ?> mb-60">
+    <?php 
+        $scontent = $_post->getShortContent();
+        $type = "style";
+        preg_match('/<div\s([^>]*\s)?data-type="(.*?)"(.*?)>/', $scontent, $out);
+
+        if (!empty($out) && count($out) >= 3) {
+            $type = $out[2];
+        }
+
+        $subdescription = substr(strip_tags($_post->getContent()), 0, 300);
+        
+     ?>
+     <?php if ($type == "style" || $type == "sticky"): ?> 
+        <div class="post-content-wrapper <?php if ($type == "sticky")  echo "brs-post_sticky"; ?> brs-post_simple">
+            <div class="featured brs-post__img-container">                           
+                    <img src="<?php echo $_post->getFeaturedImage(); ?>" alt="" class="brs-post__img"/>          
+            </div>
+            <div class="post-content brs-post__body">
+                <div class="post-date brs-post__information font__family-montserrat font__weight-semibold font__size-13 line__height-14">
+                    <a href="#" class="brs-post__date"> <i class="far fa-clock brs-post__date-icon"></i> <span><?php echo date("M d, y", strtotime($_postDate)); ?></span></a>
+                    <a href="#" class="brs-post__comments"><i class="far fa-comments brs-post__comments-icon"></i> 0</a>           
+                </div>
+                <div class="post-description clearfix">
+                    <h2 class="brs-post__title font__family-montserrat font__size-24 font__weight-bold line__height-28 text-left"><a href="<?php echo $_postUrl ?>"><?php echo $_postName ?></a></h2>
+                    <p class="brs-post__paragraph text-left font__family-open-sans font__size-16 font__weight-normal line__height-26">
+                        <?php echo $subdescription; ?>
+                    </p>
+                    <a class="post-read-more brs-post__more font__family-montserrat font__size-14 font__weight-normal line__height-26 text-left" href="<?php echo $_postUrl ?>" title="<?php echo $_postName ?>"
+                    >
+                    <?php echo __('Read more &#187;') ?>
+                    </a>
+                </div>
+            </div>
+        </div>
+    <?php elseif ($type == "style-slider"): ?>
+        <div class="brs-post brs-post_slider brk-library-rendered post-content-wrapper" >
+            <div class="brs-post__body">                
+                <div class="brs-post__slider-container rendered slick-initialized slick-slider">
+                    <?php echo $_helper->filterContent($scontent);?>
+                </div>
+                <div class="brs-post__info-wrapper">
+                    <div class="brs-post__information font__family-montserrat font__weight-semibold font__size-13 line__height-14"><a href="#" class="brs-post__date"><i class="far fa-clock brs-post__date-icon"></i><?php echo date("M d, y", strtotime($_postDate)); ?></a><a href="#" class="brs-post__comments"><i class="far fa-comments brs-post__comments-icon"></i> 0</a></div>
+                    <h2 class="brs-post__title font__family-montserrat font__size-24 font__weight-bold line__height-28 text-left"><a href="<?php echo $_postUrl ?>"><?php echo $_postName ?></a></h2>
+                </div>
+            </div>
+            <div class="brs-post__description">
+                <p class="brs-post__description__paragraph text-left font__family-open-sans font__size-16 font__weight-normal line__height-26"><?php echo $_helper->filterContent($subdescription); ?></p>
+            </div>
+        </div>
+    <?php elseif ($type == "video"): ?>
+    <div class="brk-hosted-video" data-brk-library="component__media_embeds,fancybox">
+        <div class="brk-abs-bg-overlay brk-hosted-video__before brk-base-bg-gradient-50deg-opacity-28"></div>
+        <?php echo $_helper->filterContent($scontent); ?>  
+        <div class="brk-hosted-video__body"><a class="icon__btn icon__btn_reverse icon__btn-circled icon__btn-lg brk-hosted-video__btn fancybox" href="" data-brk-library="component__button"><span class="before"></span> <i class="fa fa-play" aria-hidden="true"></i> <span class="after"></span></a>
+            <div class="brk-hosted-video__description">
+                <div class="brk-hosted-video__about">
+                <div class="brk-hosted-video__information font__family-montserrat font__weight-semibold font__size-13 line__height-14"><a href="#brk-hosted-video-0" class="brk-hosted-video__date brk-dark-font-color"><i class="far fa-clock brk-hosted-video__date-icon"></i><?php echo date("M d, y", strtotime($_postDate)); ?></a><a href="#" class="brk-hosted-video__comments brk-dark-font-color"><i class="far fa-comments brk-hosted-video__comments-icon"></i> 12</a></div>
+					<h2 class="brk-hosted-video__title font__family-montserrat font__size-24 font__weight-bold line__height-28 text-left"><a href="<?php echo $_postUrl ?>"><?php echo $_postName ?></a></h2>
+                </div>
+                <p class="brk-hosted-video__paragraph text-left font__family-open-sans font__size-16 font__weight-normal line__height-26"><?php echo $_helper->filterContent($subdescription); ?></p>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        require([
+            'jquery',
+            'fancybox',
+            'berserk',
+        ], function ($) {
+            $(document).ready(function(){
+                Berserk.behaviors.media_embeds_init.attach($('body'), {timeout_delay: 2000});
+                Berserk.behaviors.fancybox_init.attach($('body'), {timeout_delay: 2000});
+            });
+        });
+    </script>   
+    <?php elseif ($type == "map"): ?>
+        <div class="brs-post brs-post_map" data-brk-library="component__blog_css">
+            <?php echo $_helper->filterContent($scontent); ?>
+            <div class="brs-post__body">
+                <div class="brs-post__about">
+                    <div class="brs-post__information text-left font__family-montserrat font__weight-semibold font__size-13 line__height-14"><a href="#" class="brs-post__date"><i class="far fa-clock brs-post__date-icon"></i><?php echo date("M d, y", strtotime($_postDate)); ?> </a><a href="#" class="brs-post__comments"><i class="far fa-comments brs-post__comments-icon"></i> 12</a></div>
+                    <h2 class="brs-post__title font__family-montserrat font__size-24 font__weight-bold line__height-28 text-left"><a href="<?php echo $_postUrl ?>"><?php echo $_postName ?></a></h2>
+                </div>
+                <div class="brs-post__description">
+                    <p class="brs-post__paragraph text-left font__family-open-sans font__size-16 font__weight-normal line__height-26">
+                        <?php echo $_helper->filterContent($subdescription); ?>
+                    </p>
+                    <a href="<?php echo $_postUrl; ?>" class="brs-post__more font__family-montserrat font__size-14 font__weight-normal line__height-26 text-left">Read More</a>
+                </div>                
+            </div>
+        </div>
+   <?php elseif ($type == "yt-video"): ?>
+        <div class="brs-post brs-post_video" data-brk-library="component__blog_css">
+        <?php echo $_helper->filterContent($scontent); ?>
+        <div class="brs-post__about">
+                <div class="brs-post__information font__family-montserrat font__weight-semibold font__size-13 line__height-14"><a href="#" class="brs-post__date"><i class="far fa-clock brs-post__date-icon"></i><?php echo date("M d, y", strtotime($_postDate)); ?></a> <a href="#" class="brs-post__comments"><i class="far fa-comments brs-post__comments-icon"></i> 12</a></div>
+                <h2 class="brs-post__title font__family-montserrat font__size-24 font__weight-bold line__height-28 text-left"><a href="<?php echo $_postUrl ?>"><?php echo $_postName ?></a></h2><a href="<?php echo $_postUrl ?>" class="brs-post__more font__family-montserrat font__size-14 font__weight-normal line__height-26 text-left">Read More</a>
+            </div>
+        </div>
+    
+    <?php elseif ($type == "quote"): ?>
+        <div class="brs-post brs-post_quote" data-brk-library="component__blog_css">
+            <?php echo $_helper->filterContent($scontent); ?>
+            <div class="brs-post__body">
+                <div class="brs-post__information">
+                    <a href="#" class="brs-post__date font__family-montserrat font__weight-semibold font__size-13 line__height-14"><i class="far fa-clock brs-post__date-icon"></i><?php echo date("M d, y", strtotime($_postDate)); ?></a> 
+                    <a href="#" class="brs-post__comments font__family-montserrat font__weight-semibold font__size-13 line__height-14"><i class="far fa-comments brs-post__comments-icon"></i> 12</a>
+                </div>
+                <p class="brs-post__paragraph text-left font__family-montserrat font__size-24 font__weight-normal line__height-32">
+                    <?php echo $_helper->filterContent($subdescription); ?>
+                </p>
+            <a href="<?php echo $_postUrl ?>" class="brs-post__more font__family-montserrat font__size-14 font__weight-normal line__height-26 text-left">Read More</a>
+            </div>
+        </div>
+    <?php endif;?>
+</li>

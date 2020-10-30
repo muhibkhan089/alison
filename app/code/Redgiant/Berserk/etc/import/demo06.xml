@@ -1,0 +1,242 @@
+<root>
+<config>
+    <web>
+        <default>
+            <cms_home_page>berserk-shop-video</cms_home_page>
+            <cms_no_route>berserk-no-route</cms_no_route>
+        </default>
+    </web>
+    <cms>
+        <wysiwyg>
+            <enabled>hidden</enabled>
+        </wysiwyg>
+    </cms>
+    <design>
+        <header>
+            <logo_width>142</logo_width>
+            <logo_height>26</logo_height>
+            <logo_src>default/logo.png</logo_src>
+        </header>
+    </design>
+    <dev>
+        <js>
+            <merge_files>1</merge_files>
+        </js>
+    </dev>
+    <berserk_settings>
+        <header>
+            <header_type>3</header_type>
+            <static_block_top_links>berserk_custom_block_for_top_links_3</static_block_top_links>
+            <static_block>berserk_custom_block_for_header_3</static_block>
+            <sticky_header_logo_src>default/logo_dark.png</sticky_header_logo_src>
+            <more_info_static_block>berserk_custom_block_for_more_info_popup</more_info_static_block>
+        </header>
+        <footer>
+            <footer_top>1</footer_top>
+            <footer_top_custom>berserk_custom_block_for_footer_top_6</footer_top_custom>
+            <footer_bottom>1</footer_bottom>
+            <footer_bottom_custom>berserk_custom_block_for_footer_bottom_6</footer_bottom_custom>
+        </footer>
+        <catalog>
+            <sidebar_cms_block>berserk_category_sideblock</sidebar_cms_block>
+        </catalog>
+        <product>
+            <content_cms_block>berserk_product_contentblock</content_cms_block>
+            <sidebar_cms_block>berserk_product_sideblock</sidebar_cms_block>
+        </product>
+        <custom_settings>
+            <custom_style><![CDATA[body:not(.cms-index-index) .page-wrapper .top-container {
+    padding-top: 100px;
+}
+.block.newsletter .form.subscribe {
+        position: relative;
+}
+.block.newsletter .form.subscribe input {
+    width: 100%;
+    height: 54px;
+    border-radius: 27px;
+    font-size: 14px;
+    box-shadow: 0 3px 10px rgba(0,0,0,.1);
+    padding: 0 15px 0 30px;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+    background-color: rgba(255,255,255,.12);
+    color: #c4c4c4;
+    border: 2px solid rgba(255,255,255,.2);
+}
+.block.newsletter .action.subscribe span {
+    display: none;
+}
+.block.newsletter .actions {
+    display: block;
+}
+.block.newsletter .field .control:before {
+    display: none;
+}
+.block.newsletter .action.subscribe:hover {
+    border: 0;
+}
+.block.newsletter .action.subscribe {
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    right: 6px;
+    width: 41px;
+    height: 41px;
+    border-radius: 50%;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    background-image: linear-gradient(10deg,#00e0dd,#0b9e9d);
+}
+.block.newsletter .action.subscribe:before {
+    content: "\f1d8";
+    display: block;
+    font-family: "Font Awesome\ 5 Free" !important;
+    font-weight: 900;
+    font-size: 16px;
+    color: #fff;
+}
+.brk-bg-gradient-0deg-90 {
+    background-image: -webkit-gradient(linear,left bottom,left top,from(rgba(0,224,221,.9)),to(rgba(2,207,164,.9)));
+    background-image: linear-gradient(0deg,rgba(0,224,221,.9) 0%,rgba(2,207,164,.9) 100%);
+}
+.btn.btn-prime:hover {
+    color: #00e0dd !important
+}
+.brk-sc-masonry-two__links .btn.btn-prime {
+    color: #cdcdcd !important;
+}
+.btn-prime .border-btn {
+     border-color: #00e0dd;
+}
+.brk-sc-masonry-two__links .btn.btn-prime .border-btn {
+    border-color: #cdcdcd;
+}
+.btn-inside-out>.after, 
+.btn-inside-out>.before {
+    background: #00e0dd;
+}
+.btn-inside-out:hover {
+    background: #02cfa4;
+}
+.brk-sc-masonry-two__links .btn-prime:hover>.after, .brk-sc-masonry-two__links .btn-prime:hover>.before {
+      background-color: rgba(205,205,205,.15)!important;
+}
+.brk-sc-masonry-two__links .btn-md i.icon-inside {
+      top: 0;
+}
+.page-footer {
+     background: none;
+     padding: 0;
+}
+.page-footer:before {
+     background-image: none;
+}
+.page-footer .brk-social-links-wide__link {
+     color: #9f9f9f;
+}
+.page-footer .brk-social-links-wide__link:hover {
+     color: rgba(0,0,0,.7);
+}
+.brk-map.lazyloaded:after, .brk-map.lazyloaded:before {
+    opacity: 0;
+    visibility: hidden;
+}
+.brk-tags_light li:before, .brk-tags_transparent li:before {
+    top: 50%;
+    -webkit-transform: translate(-50%,-50%) scale(0);
+    transform: translate(-50%,-50%) scale(0);
+    width: 100%;
+    height: 100%;
+    border-radius: 16px;
+    z-index: 1;
+    background-image: -webkit-gradient(linear,left top,right top,from(#00b96a),to(#00b947));
+    background-image: linear-gradient(to right,#00b96a,#00b947);
+}
+.filterproducts.small-list .product-item-link, .filterproducts.small-list .product-item-link:hover, .filterproducts.small-list .product-item-link:visited, .filterproducts.small-list .product-item-link:active,.page-footer .price-box .price {
+   color: #fff;
+}
+.flip-box.type4 .flip-box__split-overlay {
+    background-image: none;
+    background-color: #000;
+    opacity: .8;
+}
+.product-item .flip-box.type4 .flip__front .price-box.price-final_price {
+    box-shadow: 0 5px 16px #00dcad80;
+    background-color: #00dcad;
+}
+.btn-inside-out-invert-light>.after, .btn-inside-out-invert-light>.before, .btn-inside-out-invert>.after, .btn-inside-out-invert>.before {
+    background-color: #fff;
+    color: #00e0dd;
+}
+.brk-base-bg-gradient-50deg-a {
+    background-image: linear-gradient(50deg, rgba(11, 158, 157, 0.92) 30%, rgba(2, 207, 164, 0.92) 70%);
+}
+.brk-lightning-effect {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    vertical-align: middle;
+}
+.brk-lightning-effect:before {
+    content: '';
+    width: 50px;
+    position: absolute;
+    top: 0;
+    left: -50px;
+    bottom: 0;
+    z-index: 9;
+    background: -webkit-gradient(linear,left top,right top,from(rgba(255,255,255,.2)),color-stop(50%,#fff),to(rgba(255,255,255,.2)));
+    background: linear-gradient(to right,rgba(255,255,255,.2) 0%,#fff 50%,rgba(255,255,255,.2) 100%);
+    box-sizing: border-box;
+}
+.brk-lightning-effect:hover:before {
+    -webkit-animation: lightning-effect 2s infinite ease-in-out;
+    animation: lightning-effect 2s infinite ease-in-out;
+}
+.brk-map__opener_classic .brk-map__second i {
+     vertical-align: middle;
+}
+@-webkit-keyframes lightning-effect {
+  0% {
+    left: -50px;
+    background: -webkit-gradient(linear, left top, right top, from(rgba(255, 255, 255, 0.2)), color-stop(50%, white), to(rgba(255, 255, 255, 0.2)));
+    background: linear-gradient(to right, rgba(255, 255, 255, 0.2) 0%, white 50%, rgba(255, 255, 255, 0.2) 100%); }
+  50% {
+    left: 100%; }
+  100% {
+    left: -50px;
+    background: transparent; } }
+
+@keyframes lightning-effect {
+  0% {
+    left: -50px;
+    background: -webkit-gradient(linear, left top, right top, from(rgba(255, 255, 255, 0.2)), color-stop(50%, white), to(rgba(255, 255, 255, 0.2)));
+    background: linear-gradient(to right, rgba(255, 255, 255, 0.2) 0%, white 50%, rgba(255, 255, 255, 0.2) 100%); }
+  50% {
+    left: 100%; }
+  100% {
+    left: -50px;
+    background: transparent; }
+}
+.icon__btn-invert, .icon__btn-invert:hover {
+    color: #00e0dd;
+}
+.icon__btn>.after, .icon__btn>.before {
+    background-color: #00e0dd;
+}]]></custom_style>
+        </custom_settings>
+    </berserk_settings>
+    <berserk_design>
+        <general>
+            <theme_color>0B9E9D</theme_color>
+            <theme_color_2>00DCAD</theme_color_2>
+        </general>
+    </berserk_design>
+</config>
+</root>

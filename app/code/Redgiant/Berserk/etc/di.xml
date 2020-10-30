@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../../lib/internal/Magento/Framework/ObjectManager/etc/config.xsd">
+    <type name="Redgiant\Berserk\Block\Template">
+        <arguments>
+            <argument name="customTemplate" xsi:type="array">
+                <item name="context" xsi:type="string">\Magento\Framework\View\Element\Template\Context</item>
+                <item name="registry" xsi:type="string">\Magento\Framework\Registry</item>
+            </argument>
+        </arguments>
+    </type>
+    <preference for="Magento\Catalog\Controller\Category\View" type="Redgiant\Berserk\Controller\Category\View" />
+    <preference for="Magento\Catalog\Helper\Product\View" type="Redgiant\Berserk\Helper\Product\View" />
+</config>

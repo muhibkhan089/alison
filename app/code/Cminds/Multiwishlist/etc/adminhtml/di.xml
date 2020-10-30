@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Wishlist\Block\Adminhtml\WishlistTab">
+        <plugin name="wishlist_default_tab_display_rule"
+                type="Cminds\Multiwishlist\Plugin\Wishlist\Block\Adminhtml\WishlistTab"
+                sortOrder="1"/>
+    </type>
+</config>

@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2015 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <move element="logo" destination="berserk_header"/>
+        <move element="navigation.sections" destination="berserk_header"/>
+        <move element="rg.topnav" destination="berserk_header"/>
+        <move element="top.search" destination="berserk_header"/>
+        <move element="minicart" destination="berserk_header"/>
+        <move element="currency" destination="berserk_header"/>
+        <move element="skip_to_content" destination="berserk_header"/>        
+        <move element="page.main.title" destination="page.top" before="-"/>
+
+        <referenceBlock name="page.main.title">
+            <action method="setPageTitle">
+                <argument translate="true" name="title" xsi:type="string">CheckOut</argument>
+            </action>
+        </referenceBlock>
+    </body>
+</page>

@@ -1,0 +1,19 @@
+<?php
+/**
+ * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+/** @var $block \Magento\Catalog\Block\Product\View*/
+?>
+<?php 
+    $_berserkhelper = $this->helper( 'Redgiant\Berserk\Helper\Data' );
+    $_show = $_berserkhelper->getConfig('berserk_settings/product/show_addto_links');
+?>
+<?php if (!empty($_show)): ?>
+<div class="product-addto-links" data-role="add-to-links">
+    <?php echo $block->getChildHtml(); ?>
+</div>
+<?php endif; ?>

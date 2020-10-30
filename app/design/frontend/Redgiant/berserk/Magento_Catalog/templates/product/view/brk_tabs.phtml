@@ -1,0 +1,49 @@
+<?php
+    
+    
+    $_helper = $this->helper( 'Redgiant\Berserk\Helper\Data' );
+    $_show_related = $_helper->getConfig( 'berserk_settings/product/show_related_products' );
+    $_show_upsell = $_helper->getConfig( 'berserk_settings/product/show_upsell_products' );
+    $_active = 'active';
+    $_html = '';
+    if ($currentProduct = $_helper->getCurrentProduct()) {
+        $relatedProducts = $currentProduct->getRelatedProducts();
+        if (!empty($relatedProducts) && !empty($_show_related) ) {
+            $_html = '<li class="brk-tab"><a href="javascript:void(0)" class="active" target="related" ><i class="fa fa-shopping-basket" aria-hidden="true"></i><span>' . __('Related Products'). '</span></a></li>';
+            $_active = '';
+        }
+        $upsellProducts = $currentProduct->getUpSellProducts();
+        if (!empty($upsellProducts) && !empty($_show_upsell)) {
+            $_html .= '<li class="brk-tab '. $_active . '"><a href="javascript:void(0)" target="upsell" ><i class="fa fa-shopping-basket" aria-hidden="true"></i><span>' . __('Upsell Products'). '</span></a></li>';
+        }
+    }
+    if($_html) {
+?>
+<div class="brk-products-tabs"><div class="tabs-inner">
+    <img src="<?php echo $_helper->getBaseUrl() . '/berserk/product/block_bg.jpg'; ?>" class="brk-tabs-content__img" />
+    <ul class="brk-tabs-nav">
+        <?php echo $_html; ?>
+    </ul>
+    <div class="container">
+        <?php echo $block->getChildHtml(); ?>
+    </div>
+    </div>
+</div>
+<script>
+    require([
+        'jquery'
+    ], function ($) {
+        $('.brk-products-tabs .container > .block').hide();
+        $('.brk-products-tabs .block:first-child').show();
+        $('.brk-products-tabs .brk-tab > a').click(function(){
+            var id = $(this).attr('target');
+            $('.brk-products-tabs .brk-tab > a').removeClass('active');
+            $(this).addClass('active');
+            if($('.brk-products-tabs .block.' + id).length > 0) {
+                $('.brk-products-tabs .container > .block').hide();
+                $('.brk-products-tabs .container > .block.' + id).fadeIn('slow');
+            }
+        });
+    });
+</script>
+<?php } ?>

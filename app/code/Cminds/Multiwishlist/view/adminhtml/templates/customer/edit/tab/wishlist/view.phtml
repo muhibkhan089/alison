@@ -1,0 +1,18 @@
+<?php
+/** @var \Magento\Framework\View\Element\Template $block */
+?>
+<script>
+    window.wishlistLinks = {
+        viewUrl: '<?= $block->escapeJs($block->getUrl('wishlist/manage/view', ['id' => 'id_placeholder'])) ?>',
+        deleteUrl: '<?= $block->escapeJs($block->getUrl('wishlist/manage/delete', ['id' => 'id_placeholder'])) ?>',
+        redirect: function (url, id) {
+            window.location.assign(url.replace('id_placeholder', id));
+        },
+        removeList: function (id) {
+            this.redirect(this.deleteUrl, id);
+        },
+        viewList: function (id) {
+            this.redirect(this.viewUrl, id);
+        }
+    };
+</script>

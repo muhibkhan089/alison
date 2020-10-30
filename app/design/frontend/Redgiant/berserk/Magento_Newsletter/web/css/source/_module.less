@@ -1,0 +1,88 @@
+// /**
+//  * Copyright © Magento, Inc. All rights reserved.
+//  * See COPYING.txt for license details.
+//  */
+
+//
+//  Common
+//  _____________________________________________
+
+& when (@media-common = true) {
+    //  Newsletter subscription
+    .block.newsletter {
+        .form.subscribe {
+            display: table;
+            width: 100%;
+        }
+
+        .fieldset {
+            display: table-cell;
+            margin: 0;
+            padding: 0;
+            vertical-align: top;
+        }
+
+        .field {
+            margin: 0;
+
+            .control {
+                &:before {
+                    content: "\f0e0";
+                    display: block;
+                    font-family: "Font Awesome\ 5 Free" !important;
+                    position: absolute;
+                    left: 5px;
+                    top: 16px;
+                    font-weight: 900;
+                    font-size: 16px;
+                    color: #aaa;
+                }
+
+                position: relative;
+                display: block;
+            }
+        }
+
+        input {
+            height: 54px;
+            border: 0;
+            border-radius: 0;
+            box-shadow: none;
+            padding: 0 15px 0 35px;
+            border-bottom: 1px solid #e8ecff;
+            color: #272727;
+            background-color: transparent;
+            display: block;
+            max-width: 100%;
+        }
+
+        .title {
+            display: none;
+        }
+
+        .label {
+            &:extend(.abs-visually-hidden all);
+        }
+
+        .actions {
+            display: table-cell;
+            vertical-align: top;
+            width: 1%;
+        }
+
+        .action.subscribe {
+            border-bottom-left-radius: 0;
+            border-top-left-radius: 0;
+            margin-left: -1px;
+            white-space: nowrap;
+        }
+    }
+}
+
+//
+//  Desktop
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+    
+}

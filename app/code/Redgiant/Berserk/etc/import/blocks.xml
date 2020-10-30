@@ -1,0 +1,931 @@
+<root>
+   <blocks>
+      <cms_item>
+         <title>Berserk - Custom Menu Before</title>
+         <identifier>berserk_custom_menu_before</identifier>
+         <content><![CDATA[<ul>
+	<li class="ui-menu-item level0 classic parent">
+		<div class="open-children-toggle"></div>
+		<a href="{{store url=''}}" class="level-top"><span>Home</span></a>
+		<div class="level0 submenu">
+			<div class="row">
+				<ul class="subchildmenu">
+					<li class="ui-menu-item level1">
+						<a href="#"><span>Shop Clothes</span></a>
+					</li>
+					<li class="ui-menu-item level1">
+						<a href="#"><span>Shop Drone</span></a>
+					</li>
+					<li class="ui-menu-item level1">
+						<a href="#"><span>Shop Electronics</span></a>
+					</li>
+					<li class="ui-menu-item level1">
+						<a href="#"><span>Shop Modern</span></a>
+					</li>
+					<li class="ui-menu-item level1">
+						<a href="#"><span>Shop Trendy</span></a>
+					</li>
+					<li class="ui-menu-item level1">
+						<a href="#"><span>Shop Video</span></a>
+					</li>
+					<li class="ui-menu-item level1">
+						<a href="#"><span>Shop Sports</span></a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</li>
+</ul>]]></content>
+         <is_active>1</is_active>
+      </cms_item>
+      <cms_item>
+         <title>Berserk - Custom Menu</title>
+         <identifier>berserk_custom_menu</identifier>
+         <content><![CDATA[<ul>
+	<li class="ui-menu-item level0">
+		<a href="{{store url='contact'}}" class="level-top"><span>Contact Us</span></a>
+	</li>
+</ul>]]></content>
+         <is_active>1</is_active>
+      </cms_item>
+      <cms_item>
+         <title>Berserk - Header Custom Block</title>
+         <identifier>berserk_custom_block_for_header</identifier>
+         <content><![CDATA[<div class="brk-call-us brk-header__item">
+    <a href="tel:88001234567" class="brk-call-us__number">8 800 12 34 567</a>
+    <a href="tel:88001234567" class="brk-call-us__link"><i class="fa fa-phone" aria-hidden="true"></i></a>
+</div>]]></content>
+         <is_active>1</is_active>
+      </cms_item>
+      <cms_item>
+         <title>Berserk - Header Custom Block 2</title>
+         <identifier>berserk_custom_block_for_header_2</identifier>
+         <content><![CDATA[<a href="javascript:void(0)" class="btn btn-gradient btn-sm-1 brk-header__item brk-header__btn border-radius-5 font__family-open-sans font__weight-bold pl-30 pr-30"><span>Buy now <span class="font__family-times-new-roman text-lowercase font__style-italic">for</span> 39$</span></a>]]></content>
+         <is_active>1</is_active>
+      </cms_item>
+      <cms_item>
+         <title>Berserk - Header Custom Block 3</title>
+         <identifier>berserk_custom_block_for_header_3</identifier>
+         <content><![CDATA[<a href="javascript:void(0)" class="btn btn-inside-out btn- brk-header__item brk-header__btn brk-header__btn_white btn-sm-1 brk-base-box-shadow border-radius-25 font__family-open-sans font__weight-bold pr-30 pl-30 brk-library-rendered" data-brk-library="component__button">
+    <span class="before">Buy now <span class="font__family-times-new-roman text-lowercase font__style-italic">for</span> 39$</span><span class="text" style="min-width: 100.375px;">Click Me</span><span class="after">Buy now <span class="font__family-times-new-roman text-lowercase font__style-italic">for</span> 39$</span>
+</a>]]></content>
+         <is_active>1</is_active>
+      </cms_item>
+      <cms_item>
+         <title>Berserk - Header Custom Block 4</title>
+         <identifier>berserk_custom_block_for_header_4</identifier>
+         <content><![CDATA[<div class="brk-header__element brk-header__element_skin-1 brk-header__element_label-mob-only brk-header__item"><a href="tel:88002003040" class="brk-header__element--wrap"><i class="fa fa-phone"></i> <span class="brk-header__element--label">88002003040</span></a></div>]]></content>
+         <is_active>1</is_active>
+      </cms_item>
+      <cms_item>
+         <title>Berserk - Header Custom Block 6</title>
+         <identifier>berserk_custom_block_for_header_6</identifier>
+         <content><![CDATA[<div class="brk-header__element brk-header__element_skin-1 brk-header__item" style="opacity: 1;"><a href="tel:88002003040" class="brk-header__element--wrap"><i class="far fa-phone"></i> <span class="brk-header__element--label d-lg-none">8 800 200 30 40</span></a></div>
+<a href="#" class="btn btn-inside-out btn- ml-20 mr-10 brk-header__item brk-header__btn btn-sm-1 border-radius-25 font__family-open-sans font__weight-bold m-0 pl-30 pr-30 brk-library-rendered" data-brk-library="component__button" style="opacity: 1;"><span class="before">Buy now <span class="font__family-times-new-roman text-lowercase font__style-italic">for</span> 39$</span><span class="text" style="min-width: 100.375px;">Click Me</span><span class="after">Buy now <span class="font__family-times-new-roman text-lowercase font__style-italic">for</span> 39$</span></a>]]></content>
+         <is_active>1</is_active>
+      </cms_item>
+      <cms_item>
+         <title>Berserk - Header Custom Block 7</title>
+         <identifier>berserk_custom_block_for_header_7</identifier>
+         <content><![CDATA[<div class="row align-items-center">
+    <div class="col-lg">
+        <div class="brk-header__element brk-header__element_skin-3 brk-header__item">
+            <div class="brk-header__element--wrap"><i class="fa fa-map-marker-alt"></i> <span class="brk-header__element--label">1010 Avenue of the Moon<br>New York, NY 10018 US.</span></div>
+        </div>
+    </div>
+    <div class="col-lg">
+        <div class="brk-header__element brk-header__element_skin-3 brk-header__item">
+            <div class="brk-header__element--wrap"><i class="fa fa-clock-o"></i> <span class="brk-header__element--label">Mon - Sat 8.00 - 18.00<br>Sunday CLOSED</span></div>
+        </div>
+    </div>
+    <div class="col-lg">
+        <div class="brk-header__element brk-header__element_skin-3 brk-header__item">
+            <a href="#" class="brk-header__element--wrap"><i class="fa fa-phone"></i> <span class="brk-header__element--label font__weight-semibold">8 800 386 5575<br>Free call</span></a>
+        </div>
+    </div>
+</div>]]></content>
+         <is_active>1</is_active>
+      </cms_item>
+      <cms_item>
+         <title>Berserk - Header Top Links Custom Block</title>
+         <identifier>berserk_custom_block_for_top_links</identifier>
+         <content><![CDATA[<div class="brk-header__element brk-header__element_skin-1 brk-header__item">
+    <a href="#" class="brk-header__element--wrap"><i class="fa fa-envelope"></i> <span class="brk-header__element--label">admin@berserk.com</span></a>
+</div>
+<div class="brk-header__element brk-header__element_skin-1 brk-header__item">
+    <div class="brk-header__element--wrap"><i class="far fa-clock"></i> <span class="brk-header__element--label">Mn-Fr (9.00 am - 5.00 pm)</span></div>
+</div>]]></content>
+         <is_active>1</is_active>
+      </cms_item>
+      <cms_item>
+         <title>Berserk - Header Top Links Custom Block 2</title>
+         <identifier>berserk_custom_block_for_top_links_2</identifier>
+         <content><![CDATA[<div class="brk-header__element brk-header__element_skin-2 brk-header__item">
+    <a href="tel:88002003040" class="brk-header__element--wrap"><i class="fa fa-phone"></i> <span class="brk-header__element--label font__weight-semibold">8 800 200 30 40</span></a>
+</div>
+<div class="brk-header__element brk-header__element_skin-2 brk-header__item">
+    <div class="brk-header__element--wrap"><i class="fa fa-clock-o"></i> <span class="brk-header__element--label font__weight-medium">08:00 am − 20:00</span></div>
+</div>
+<div class="brk-header__element brk-header__element_skin-2 brk-header__item">
+    <a href="#" class="brk-header__element--wrap"><i class="fa fa-envelope"></i> <span class="brk-header__element--label font__weight-medium">hello@berserk.com</span></a>
+</div>]]></content>
+         <is_active>1</is_active>
+      </cms_item>
+      <cms_item>
+         <title>Berserk - Header Top Links Custom Block 3</title>
+         <identifier>berserk_custom_block_for_top_links_3</identifier>
+         <content><![CDATA[<div class="brk-header__element brk-header__item">
+    <a href="tel:88002003040" class="brk-header__element--wrap"><i class="fa fa-phone"></i><span class="brk-header__element--label font__weight-semibold">8 800 200 30 40</span></a>
+</div>
+<div class="brk-header__element brk-header__item">
+    <a href="#" class="brk-header__element--wrap"><i class="fa fa-envelope"></i> <span class="brk-header__element--label font__weight-medium">hello@berserk.com</span></a>
+</div>]]></content>
+         <is_active>1</is_active>
+      </cms_item>
+      <cms_item>
+         <title>Berserk - More Info Popup</title>
+         <identifier>berserk_custom_block_for_more_info_popup</identifier>
+         <content><![CDATA[<div class="brk-info-menu__bar">
+    <div class="brk-info-menu__header font__family-montserrat font__weight-bold font__size-21">More info <a href="javascript:void(0)" class="brk-info-menu__close text-center"><i class="fa fa-times" aria-hidden="true"></i></a></div>
+    <ul class="list-inline-7 mt-10 mb-10">
+        <li class="font__family-open-sans font__size-14"><a href="#">Our Features <span class="list-inline-7__before"><i class="fa fa-angle-right"></i></span></a>
+            <ul class="mt-10 mb-10">
+                <li class="font__family-open-sans font__size-14"><a href="#">Our Features <span class="list-inline-7__before"><i class="fa fa-angle-right"></i></span></a></li>
+                <li class="font__family-open-sans font__size-14"><a href="#">Our Clients <span class="list-inline-7__before"><i class="fa fa-angle-right"></i></span></a></li>
+            </ul>
+        </li>
+        <li class="font__family-open-sans font__size-14"><a href="#">Our Clients <span class="list-inline-7__before"><i class="fa fa-angle-right"></i></span></a></li>
+        <li class="font__family-open-sans font__size-14"><a href="#">Our News <span class="list-inline-7__before"><i class="fa fa-angle-right"></i></span></a></li>
+        <li class="font__family-open-sans font__size-14"><a href="#">Our Partners <span class="list-inline-7__before"><i class="fa fa-angle-right"></i></span></a></li>
+        <li class="font__family-open-sans font__size-14"><a href="#">Our History <span class="list-inline-7__before"><i class="fa fa-angle-right"></i></span></a></li>
+    </ul>
+    <div class="brk-info-menu__header font__family-montserrat font__weight-bold font__size-21">Our instagram</div>
+    <div id="more_info_slider" class="owl-carousel owl-theme dots-base-skin">
+        <div class="item">
+            <div class="brk-header-slider">
+                <div class="brk-header-slider__img brk-base-box-shadow"><img src="{{media url="wysiwyg/berserk/header/more_info_1.jpg"}}" alt="" /></div>
+                <div class="brk-header-slider__content"><img src="{{media url="wysiwyg/berserk/header/more_info_head_icon.png"}}" alt="" />
+                    <div class="brk-header-slider__content--title">
+                        <h4 class="font__family-montserrat font__weight-bold font__size-16">@berserk</h4>
+                        <span class="font__size-14">17 Hours ago</span>
+                    </div>
+                </div>
+                <p class="brk-header-slider__text font__size-14 line__height-21">Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra</p>
+            </div>
+        </div>
+        <div class="item">
+            <div class="brk-header-slider">
+                <div class="brk-header-slider__img brk-base-box-shadow"><img src="{{media url="wysiwyg/berserk/header/more_info_2.jpg"}}" alt="" /></div>
+                <div class="brk-header-slider__content"><img src="{{media url="wysiwyg/berserk/header/more_info_head_icon.png"}}" alt="" />
+                    <div class="brk-header-slider__content--title">
+                        <h4 class="font__family-montserrat font__weight-bold font__size-16">@berserk</h4>
+                        <span class="font__size-14">17 Hours ago</span>
+                    </div>
+                </div>
+                <p class="brk-header-slider__text font__size-14 line__height-21">Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra</p>
+            </div>
+        </div>
+        <div class="item">
+            <div class="brk-header-slider">
+                <div class="brk-header-slider__img brk-base-box-shadow"><img src="{{media url="wysiwyg/berserk/header/more_info_3.jpg"}}" alt="" /></div>
+                <div class="brk-header-slider__content"><img src="{{media url="wysiwyg/berserk/header/more_info_head_icon.png"}}" alt="" />
+                    <div class="brk-header-slider__content--title">
+                        <h4 class="font__family-montserrat font__weight-bold font__size-16">@berserk</h4>
+                        <span class="font__size-14">17 Hours ago</span>
+                    </div>
+                </div>
+                <p class="brk-header-slider__text font__size-14 line__height-21">Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra</p>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        require.config(berserk_config);
+        require([
+            'jquery',
+            'owlcarousel'
+        ], function ($) {
+            $('#more_info_slider').owlCarousel({
+                loop:true,
+                margin:10,
+                dots:true,
+                items:1,
+                margin:30
+            });
+        });
+    </script>
+</div>]]></content>
+         <is_active>1</is_active>
+      </cms_item>
+      <cms_item>
+         <title>Berserk - Custom Block for Footer Top</title>
+         <identifier>berserk_custom_block_for_footer_top</identifier>
+         <content><![CDATA[<div class="container">
+    <div class="brk-footer__shop-element">
+        <div class="row">
+            <div class="col-12 col-lg-3">
+                <h6 class="brk-footer__shop-title_wide">Categories</h6>
+                <ul class="brk-categories">
+                    <li class="brk-categories__item">
+                        <a href="#">
+                            <span class="brk-categories__item-name">General <span class="brk-categories__item-count">(3)</span></span><span class="brk-categories__item-icon"><i class="fa fa-angle-right"></i></span>
+                        </a>
+                    </li>
+                    <li class="brk-categories__item">
+                        <a href="#">
+                            <span class="brk-categories__item-name">Mockups <span class="brk-categories__item-count">(12)</span></span><span class="brk-categories__item-icon"><i class="fa fa-angle-right"></i></span>
+                        </a>
+                    </li>
+                    <li class="brk-categories__item">
+                        <a href="#">
+                            <span class="brk-categories__item-name">HTML & CSS <span class="brk-categories__item-count">(7)</span></span><span class="brk-categories__item-icon"><i class="fa fa-angle-right"></i></span>
+                        </a>
+                    </li>
+                    <li class="brk-categories__item">
+                        <a href="#">
+                            <span class="brk-categories__item-name">Logo <span class="brk-categories__item-count">(2)</span></span><span class="brk-categories__item-icon"><i class="fa fa-angle-right"></i></span>
+                        </a>
+                    </li>
+                    <li class="brk-categories__item">
+                        <a href="#">
+                            <span class="brk-categories__item-name">Web Design <span class="brk-categories__item-count">(3)</span></span><span class="brk-categories__item-icon"><i class="fa fa-angle-right"></i></span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-12 col-lg-9">
+                <h6 class="brk-footer__shop-title">Popular items</h6>
+            </div>
+        </div>
+    </div>
+</div>]]></content>
+         <is_active>1</is_active>
+      </cms_item>
+      <cms_item>
+         <title>Berserk - Custom block For Footer Top 1</title>
+         <identifier>berserk_custom_block_for_footer_top_1</identifier>
+         <content><![CDATA[<div class="pt-lg-60 pb-lg-40 pt-30 pb-30 brk-base-bg-gradient-right-no-opacity">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-12 col-lg-4">
+                                <h6 class="brk-white-font-color font__family-montserrat font__weight-semibold font__size-21 text-uppercase letter-spacing-100 text-sm-left text-center">Popular Items</h6>
+                                <hr class="horiz-line mt-20 mb-30">
+                                {{block class="Redgiant\Filterproducts\Block\Home\LatestList" name="latest_product" product_count="2" template="small_list.phtml"}}
+
+                            </div>
+                            <div class="col-12 col-lg-4">
+                                <h6 class="brk-white-font-color font__family-montserrat font__weight-semibold font__size-21 text-uppercase letter-spacing-100 text-sm-left text-center">Top Rated</h6>
+                                <hr class="horiz-line mt-20 mb-30">
+                                            {{block class="Redgiant\Filterproducts\Block\Home\LatestList" name="latest_product" product_count="2" template="small_list.phtml"}}
+
+                            </div>
+                            <div class="col-12 col-lg-4">
+                                <h6 class="brk-white-font-color font__family-montserrat font__weight-semibold font__size-21 text-uppercase letter-spacing-100 text-sm-left text-center">Top sellers</h6>
+                                <hr class="horiz-line mt-20 mb-30">
+
+                                {{block class="Redgiant\Filterproducts\Block\Home\LatestList" name="latest_product" product_count="2" template="small_list.phtml"}}
+
+                            </div>
+                        </div>
+                    </div>
+                </div>]]></content>
+         <is_active>1</is_active>
+      </cms_item>
+      <cms_item>
+         <title>Berserk - Custom block For Footer Top 2</title>
+         <identifier>berserk_custom_block_for_footer_top_2</identifier>
+         <content><![CDATA[<div class="brk-footer position-relative brk-home-footer2 " data-brk-library="component__footer,twitter_init" >
+        <div class="brk-footer__wrapper brk-footer__wrapper_animated">
+            <div class="brk-footer__bg-container pt-80 pb-50"><span class="brk-footer__bg-left brk-footer__bg-left_footer-5"></span> <span class="brk-footer__bg-right brk-footer__bg-right_footer-5"></span>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12 col-lg-6"><a class="mb-30 d-sm-inline-block d-block text-center"><img src="{{media url='wysiwyg/berserk/home/shop_drone/brk-logo-trandy.png'}}" alt="Berserk"></a>
+                            <p class="brk-dark-font-color-3 font__family-roboto font__size-15 font__weight-normal line__height-28 mb-20 mr-80 mr-xs-0 text-sm-left text-center">Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit.</p>
+                            <div class="brk-social-links brk-social-links_rounded brk-white-font-color mb-50 d-flex justify-content-center justify-content-sm-start" data-brk-library="component__social_links"><a href="#" class="brk-social-links__item"><i class="fab fa-vimeo-v"></i> </a><a href="#" class="brk-social-links__item"><i class="fab fa-youtube"></i> </a><a href="#" class="brk-social-links__item"><i class="fab fa-facebook-f"></i> </a><a href="#" class="brk-social-links__item"><i class="fab fa-twitter"></i></a></div>
+                            {{block class="Magento\Newsletter\Block\Subscribe" name="form.subscribe" as="subscribe" before="-" template="subscribe.phtml"}}
+                        </div>
+                        <div class="col-12 col-lg-6">
+                            <div class="ml-lg-70">
+                                <h6 class="brk-white-font-color font__family-montserrat font__size-12 font__weight-semibold line__height-28 text-uppercase letter-spacing-100 mb-10">Tweets</h6>
+                                <div class="mb-50 brk-styled-twitter brk-styled-twitter_dark-color"><a href="https://twitter.com/theme_rg?ref_src=twsrc%5Etfw" class="twitter-timeline" data-tweet-limit="1" data-chrome="noheader,transparent,nofooter,noborders" data-theme="dark">Tweets by theme_rg</a>
+<a href="https://twitter.com/theme_rg?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-show-count="false" data-size="large">Follow @theme_rg</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></div>
+                                <nav class="d-flex flex-wrap justify-content-sm-start justify-content-around mb-xs-20">
+                                    <ul class="mr-200 mr-xs-20 font__family-roboto font__size-15 font__weight-normal brk-dark-font-color-3">
+                                        <li><a href="#">About</a></li>
+                                        <li><a href="#">Help</a></li>
+                                        <li><a href="#">Contacts</a></li>
+                                        <li><a href="#">Terms</a></li>
+                                    </ul>
+                                    <ul class="font__family-roboto font__size-15 font__weight-medium brk-dark-font-color">
+                                        <li><a href="#">Privacy</a></li>
+                                        <li><a href="#">Shop</a></li>
+                                        <li><a href="#">Testimonials</a></li>
+                                        <li><a href="#">Contact</a></li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <p class="brk-dark-font-color font__family-roboto font__size-13 font__weight-medium text-sm-left text-center">&#xA9; 2019. Berserk. All rights reserved.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>]]></content>
+         <is_active>1</is_active>
+      </cms_item>
+      <cms_item>
+         <title>Berserk - Custom Block for Footer Top 3</title>
+         <identifier>berserk_custom_block_for_footer_top_3</identifier>
+         <content><![CDATA[<div class="container">
+    <div class="brk-footer__shop-element">
+        <div class="row">
+            <div class="col-12 col-lg-3">
+                <h6 class="brk-footer__shop-title_wide">Categories</h6>
+                <ul class="brk-categories">
+                    <li class="brk-categories__item">
+                        <a href="#">
+                            <span class="brk-categories__item-name">General <span class="brk-categories__item-count">(3)</span></span><span class="brk-categories__item-icon"><i class="fa fa-angle-right"></i></span>
+                        </a>
+                    </li>
+                    <li class="brk-categories__item">
+                        <a href="#">
+                            <span class="brk-categories__item-name">Mockups <span class="brk-categories__item-count">(12)</span></span><span class="brk-categories__item-icon"><i class="fa fa-angle-right"></i></span>
+                        </a>
+                    </li>
+                    <li class="brk-categories__item">
+                        <a href="#">
+                            <span class="brk-categories__item-name">HTML & CSS <span class="brk-categories__item-count">(7)</span></span><span class="brk-categories__item-icon"><i class="fa fa-angle-right"></i></span>
+                        </a>
+                    </li>
+                    <li class="brk-categories__item">
+                        <a href="#">
+                            <span class="brk-categories__item-name">Logo <span class="brk-categories__item-count">(2)</span></span><span class="brk-categories__item-icon"><i class="fa fa-angle-right"></i></span>
+                        </a>
+                    </li>
+                    <li class="brk-categories__item">
+                        <a href="#">
+                            <span class="brk-categories__item-name">Web Design <span class="brk-categories__item-count">(3)</span></span><span class="brk-categories__item-icon"><i class="fa fa-angle-right"></i></span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-12 col-lg-9">
+                <h6 class="brk-footer__shop-title">Popular items</h6>
+                                 <div id="owl_product_list_1">
+    {{block class="Redgiant\Filterproducts\Block\Home\FeaturedList" name="latest_product" product_count="2" item_type="5" template="owl_list.phtml"}}
+    </div>
+    <script type="text/javascript">
+        require([
+            'jquery',
+            'owlcarousel'
+        ], function ($) {
+            $('#owl_product_list_1 .owl-carousel').owlCarousel({
+                loop:true,
+                nav: true,
+                                navText: ['<i class="fal fa-arrow-left"></i>','<i class="fal fa-arrow-right"></i>'],
+                items:3,
+                responsive:{
+                    0:{
+                        items:1,
+                        nav:false
+                    },
+                    575:{
+                        items:1,
+                        nav:false
+                    },
+                    992:{
+                        items:2,
+                        nav:false
+                    }
+                }
+            });
+        });
+    </script>            </div>
+        </div>
+    </div>
+</div>]]></content>
+         <is_active>1</is_active>
+      </cms_item>
+      <cms_item>
+         <title>Berserk - Custom Block for Footer Top 4</title>
+         <identifier>berserk_custom_block_for_footer_top_4</identifier>
+         <content><![CDATA[<div class="brk-footer__wrapper pt-30 pb-30">
+                <div class="container-fluid">
+                    <div class="row">
+
+<div class="col-12 col-lg-7">
+                            <div class="brk-map brk-map_extra h-100" data-height="367" data-brk-library="component__map">
+                                <div class="brk-map__canvas" data-address="412 Throop Ave, Brooklyn, NY 11221, USA" data-zoom="13" data-type="roadmap" data-marker="{{media url="wysiwyg/berserk/home/shop_trendy/gm-1.png"}}" data-offset-lat="" data-offset-lng="" data-style="silver" data-info-window=".info-map">
+</div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-5">
+                            <div class="pl-15 pr-15">
+<div class="row">
+                                    <nav class="col-6 col-lg-3">
+                                        <p class="font__family-montserrat font__size-16 font__weight-medium text-uppercase mt-15 mb-30">Policy info</p>
+                                        <ul class="brk-dark-font-color line__height-26">
+                                            <li class="mb-10"><a href="#">Privacy info</a></li>
+                                            <li class="mb-10"><a href="#">Terms of Sale</a></li>
+                                            <li class="mb-10"><a href="#">Terms of Use</a></li>
+                                            <li><a href="#">Takedown Policy</a></li>
+                                        </ul>
+                                    </nav>
+                                    <nav class="col-6 col-lg-3">
+                                        <p class="font__family-montserrat font__size-16 font__weight-medium text-uppercase mt-15 mb-30">Company</p>
+                                        <ul class="brk-dark-font-color line__height-26">
+                                            <li class="mb-10"><a href="#">About Us</a></li>
+                                            <li class="mb-10"><a href="#">Careers</a></li>
+                                            <li class="mb-10"><a href="#">Find Store</a></li>
+                                            <li><a href="#">Blog</a></li>
+                                        </ul>
+                                    </nav>
+                                    <nav class="col-6 col-lg-3">
+                                        <p class="font__family-montserrat font__size-16 font__weight-medium text-uppercase mt-15 mb-30">Business</p>
+                                        <ul class="brk-dark-font-color line__height-26">
+                                            <li class="mb-10"><a href="#">Online Shopping</a></li>
+                                            <li class="mb-10"><a href="#">Become a Seller</a></li>
+                                            <li class="mb-10"><a href="#">Advertisement</a></li>
+                                            <li><a href="#">Be an Affiliate</a></li>
+                                        </ul>
+                                    </nav>
+                                    <nav class="col-6 col-lg-3">
+                                        <p class="font__family-montserrat font__size-16 font__weight-medium text-uppercase mt-15 mb-30">Need Help?</p>
+                                        <ul class="brk-dark-font-color line__height-26">
+                                            <li class="mb-10"><a href="#">FAQ</a></li>
+                                            <li class="mb-10"><a href="#">Help Center</a></li>
+                                            <li><a href="#">Online Chat</a></li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                                                         </div>
+                                                         <div class="position-relative pt-30 pb-30 pr-20 pl-50 cfa_footer mt-50 rounded overflow-hid" style="background-image:url({{media url='wysiwyg/berserk/home/shop_modern/750x115_1.jpg'}})"><div class="brk-layer brk-base-bg-gradient-14 position-absolute opacity-90"></div>
+<div class="shop-elec-subscribe"><span class="brk-white-font-color font__family-montserrat font__size-21 font__weight-bold mr-35" style="
+">CFA Heading</span>{{block class="Magento\Newsletter\Block\Subscribe" name="form.subscribe" as="subscribe" before="-" template="subscribe.phtml"}}</div>
+                                                         </div>
+                                                </div>
+
+
+</div>
+</div>
+</div>
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAJ7dgBDkg2ze3UT4pMUFfgO6ltF2lZT9o" type="text/javascript"></script>
+<script type="text/javascript">
+    require(["jquery",  "google-maps"], function($) {
+Berserk.behaviors.google_maps.attach($("body"), {timeout_delay: 2000});
+});
+</script>]]></content>
+         <is_active>1</is_active>
+      </cms_item>
+      <cms_item>
+         <title>Berserk - Custom Block for Footer Top 5</title>
+         <identifier>berserk_custom_block_for_footer_top_5</identifier>
+         <content><![CDATA[<div class="brk-footer__wrapper brk-footer__wrapper_shadow rendered">
+        <div class="row no-gutters">
+            <div class="col-xl-7 col-12">
+                <div class="brk-map h-100 brk-library-rendered lazyloaded" data-height="520" data-brk-library="component__map">
+                            <div class="brk-map__section">
+                                <div class="brk-map__canvas h-100" data-address="412 Throop Ave, Brooklyn, NY 11221, USA" data-zoom="13" data-type="roadmap" data-marker="{{media url="wysiwyg/berserk/home/shop_trendy/gm-1.png"}}" data-offset-lat="0.0047" data-style="silver" data-lat="40.6898297" data-lng="-73.94250620000003"></div>
+                            </div>
+                            <div class="brk-map__infoicon brk-map__infoicon_layout-one text-center"><span class="marker"><img src="{{media url='wysiwyg/berserk/home/shop_trendy/gm-1.png'}}" alt="alt"></span>
+                                <h4 class="font__family-montserrat font__weight-bold font__size-21 line__height-22">Chicago, USA</h4>
+                                <div class="brk-map__infoicon--text">
+                                    <ul class="font__size-15 line__height-21">
+                                        <li><i class="fas fa-phone"></i><a href="tel:8800123456789">8 800 123 456 789</a></li>
+                                        <li><i class="far fa-clock"></i> <span>Mon - Sat 8:00 - 18:00<br>Sunday CLOSED</span></li>
+                                    </ul>
+                                </div><a href="#" class="btn border-radius-25 font__family-open-sans font__weight-bold btn-inside-out brk-library-rendered" data-brk-library="component__button"><span class="before">Get directions</span> <span class="text">Get directions</span> <span class="after">Get directions</span></a>
+                            </div>
+                        </div>
+            </div>
+            <div class="col-xl-5 col-12">
+                                <div class="brk-base-bg-gradient-40-no-opacity h-100">
+                            <div class="row no-gutters">
+                                <div class="col-12 col-md-7">
+                                    <div class="all-light text-center text-sm-left pt-80 pt-xs-20 pb-50 pl-md-60 pr-md-30"><a href="#" class="d-inline-block logo-img"><img src="{{media url='wysiwyg/berserk/home/shop_drone/logo.png'}}" alt="alt"></a>
+                                        <hr class="horiz-line" style="margin-top: 20px; margin-bottom: 47px;">
+                                        <p class="font__family-open-sans font__size-14 line__height-21 brk-white-font-color opacity-60">Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra fequis, feugiat arutr, tellus. Phasellus viverra nulla ut metus varius laoreet.</p>
+                                        <hr class="horiz-line" style="margin-bottom: 12px;">
+                                        <div class="d-flex flex-wrap brk-footer__info-grid flex-sm-row flex-column">
+                                            <p class="font__family-open-sans font__weight-bold font__size-14 mt-10"><i class="brk-footer-icon text-middle fa fa-map-marker line__height-24"></i>Chicago</p>
+                                            <p class="font__family-open-sans font__weight-bold font__size-14 mt-10"><i class="brk-footer-icon text-middle fa fa-envelope line__height-24"></i> <a href="mailto:i@nikadevs.com" class="show-inline-block">we@dev.com</a></p>
+                                            <p class="font__family-open-sans font__weight-bold font__size-14 mt-10"><i class="brk-footer-icon text-middle fa fa-comments line__height-24"></i>Contact</p>
+                                            <p class="font__family-open-sans font__weight-bold font__size-14 mt-10"><i class="brk-footer-icon text-middle fa fa-phone line__height-24"></i> <a href="#" class="show-inline-block">800 12 34 567</a></p>
+                                        </div>
+                                        <hr class="horiz-line mt-25 mb-25">
+                                        {{block class="Magento\Newsletter\Block\Subscribe" name="form.subscribe" as="subscribe" before="-" template="subscribe.phtml"}}
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-5">
+                                    <div class="pt-80 pt-xs-20 pb-50">
+                                        <h6 class="brk-white-font-color text-center text-sm-left font__family-montserrat font__size-36 font__weight-bold line__height-36">Our Twitter</h6>
+                                        <hr class="horiz-line mb-40" style="margin-top: 19px;">
+                                        <div class="brk-styled-twitter-3 pr-xs-15 pl-xs-15 rendered"><a href="https://twitter.com/theme_rg?ref_src=twsrc%5Etfw" class="twitter-timeline" data-tweet-limit="2" data-chrome="noheader,transparent,nofooter,noborders" data-theme="dark">Tweets by theme_rg</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+            </div>
+        </div>
+</div>
+
+ <script async defer src="https://maps.googleapis.com/maps/api/js?v=3.17" type="text/javascript"></script>
+<script type="text/javascript">
+    require(["jquery",  "google-maps"], function($) {
+Berserk.behaviors.google_maps.attach($("body"), {timeout_delay: 2000});
+});
+</script>]]></content>
+         <is_active>1</is_active>
+      </cms_item>
+      <cms_item>
+         <title>Berserk - Custom Block for Footer Top 6</title>
+         <identifier>berserk_custom_block_for_footer_top_6</identifier>
+         <content><![CDATA[<div class="brk-footer__wrapper">
+                                 <div class="brk-map overflow-hid" data-height="350" data-brk-library="component__map">
+                    <div class="brk-map__opener-section brk-map__opener-section_classic">
+                        <div class="brk-map__opener brk-map__opener_classic font__family-montserrat font__weight-semibold">
+                            <div class="brk-map__second"><i class="fas fa-map-marker-alt" aria-hidden="true"></i> <span class="brk-lightning-effect">Locate us on the map</span> <i class="fa fa-angle-down" aria-hidden="true"></i></div>
+                            <div class="brk-map__second"><i class="fas fa-map-marker-alt" aria-hidden="true"></i> <span class="brk-lightning-effect">Close the map</span> <i class="fa fa-angle-up" aria-hidden="true"></i></div>
+                        </div>
+                    </div>
+                    <div class="brk-map__section">
+                        <div class="brk-map__canvas" data-address="412 Throop Ave, Brooklyn, NY 11221, USA" data-zoom="13" data-type="roadmap" data-style="silver" data-info-window=".info-map"></div>
+                    </div>
+                    <div class="info-map">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis, distinctio, illum modi aspernatur fugiat iste!</div>
+                </div>
+    <div class="pt-lg-60 pb-lg-40 pt-30 pb-30 brk-base-gradient-30">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-12 col-lg-4">
+                                <h6 class="brk-white-font-color font__family-montserrat font__weight-semibold font__size-21 text-uppercase letter-spacing-100 text-sm-left text-center">Popular Items</h6>
+                                <hr class="horiz-line mt-20 mb-30">
+                                {{block class="Redgiant\Filterproducts\Block\Home\LatestList" name="latest_product" product_count="2" template="small_list.phtml"}}
+
+                            </div>
+                            <div class="col-12 col-lg-4">
+                                <h6 class="brk-white-font-color font__family-montserrat font__weight-semibold font__size-21 text-uppercase letter-spacing-100 text-sm-left text-center">Best Rated</h6>
+                                <hr class="horiz-line mt-20 mb-30">
+                                            {{block class="Redgiant\Filterproducts\Block\Home\LatestList" name="latest_product" product_count="2" template="small_list.phtml"}}
+
+                            </div>
+                            <div class="col-12 col-lg-4">
+                                <h6 class="brk-white-font-color font__family-montserrat font__weight-semibold font__size-21 text-uppercase letter-spacing-100 text-sm-left text-center">Top sellers</h6>
+                                <hr class="horiz-line mt-20 mb-30">
+
+                                {{block class="Redgiant\Filterproducts\Block\Home\LatestList" name="latest_product" product_count="2" template="small_list.phtml"}}
+
+                            </div>
+                                                </div>
+                                        </div>
+     </div>
+</div>
+
+<script async defer src="https://maps.googleapis.com/maps/api/js?v=3.17" type="text/javascript"></script>
+<script type="text/javascript">
+    require(["jquery",  "google-maps"], function($) {
+     Berserk.behaviors.google_maps.attach($("body"), {timeout_delay: 2000});
+});
+</script>]]></content>
+         <is_active>1</is_active>
+      </cms_item>
+      <cms_item>
+         <title>Berserk - Custom Block for Footer Top 7</title>
+         <identifier>berserk_custom_block_for_footer_top_7</identifier>
+         <content><![CDATA[<div class="brk-footer__bg-container pt-40 pb-30"><span class="brk-footer__bg-left brk-base-bg-gradient-24"></span> <span class="brk-footer__bg-right brk-base-bg-gradient-top"></span>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <h6 class="brk-white-font-color font__family-montserrat font__size-36 font__weight-bold line__height-40 mb-40 text-center text-sm-left">Follow Us</h6>
+                <div class="d-flex align-items-center justify-content-sm-between flex-wrap">
+                    <div class="brk-social-links brk-white-font-color mb-10 font__size-15 brk-social-links_footer-4 brk-library-rendered brk-location-screen-left"><a href="javascript:void(0)" class="brk-social-links__item"><i class="fab fa-twitter"></i> </a><a href="javascript:void(0)" class="brk-social-links__item"><i class="fab fa-instagram"></i> </a><a href="javascript:void(0)" class="brk-social-links__item"><i class="fab fa-google-plus-g"></i> </a><a href="javascript:void(0)" class="brk-social-links__item"><i class="fab fa-youtube"></i> </a><a href="javascript:void(0)" class="brk-social-links__item"><i class="fab fa-vimeo"></i> </a><a href="javascript:void(0)" class="brk-social-links__item"><i class="fab fa-vk"></i></a></div><a href="javascript:void(0)" class="btn btn-prime btn-md border-radius-25 font__family-open-sans font__weight-bold font__size-16 btn-prime_footer-4 pl-40 pr-40 mr-40 mb-10 ml-0 mt-0 mr-xs-0"><i class="fa fa-link" aria-hidden="true"></i> <span class="before"></span><span class="after"></span><span class="border-btn"></span>Work with us</a>
+                </div>
+            </div>
+            <div class="col-12 col-md-6">
+                <div class="ml-md-5">
+                    <h6 class="brk-white-font-color font__family-montserrat font__size-36 font__weight-bold line__height-40 mb-45 mt-xs-20">Subscribe now</h6>
+                    {{block class="Magento\Newsletter\Block\Subscribe" name="form.subscribe" as="subscribe" before="-" template="subscribe.phtml"}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>]]></content>
+         <is_active>1</is_active>
+      </cms_item>
+      <cms_item>
+         <title>Berserk - Custom Block for Footer Bottom</title>
+         <identifier>berserk_custom_block_for_footer_bottom</identifier>
+         <content><![CDATA[<div class="container">
+    <div class="d-flex align-items-center justify-content-between flex-wrap mb-30">
+        <div class="d-flex align-items-center flex-wrap justify-content-between">
+            <p class="text-uppercase flex-wrap brk-footer__social-links-title">follow us:</p>
+            <div style="margin-top: 2px;">
+                <div class="brk-social-links brk-white-font-color font__size-13 pb-1 brk-library-rendered brk-location-screen-left" data-brk-library="component__social_links"><a href="#" class="brk-social-links__item"><i class="fab fa-twitter"></i> </a><a href="#" class="brk-social-links__item"><i class="fab fa-instagram"></i> </a><a href="#" class="brk-social-links__item"><i class="fab fa-google-plus-g"></i> </a><a href="#" class="brk-social-links__item"><i class="fab fa-youtube"></i> </a><a href="#" class="brk-social-links__item"><i class="fab fa-vimeo"></i> </a><a href="#" class="brk-social-links__item"><i class="fab fa-vk"></i></a></div>
+            </div>
+        </div>
+        <a href="#" class="btn btn-prime btn-lg mx-0 my-0 border-radius-0 btn-prime-white-transparent btn-no-shadow mx-xs-auto mt-xs-20 btn-xs-max-width brk-library-rendered" data-brk-library="component__button"><span class="before"></span><span class="after"></span><span class="border-btn"></span>contact us</a>
+    </div>
+    <div class="brk-footer__wide-menu pt-20 pt-sm-15 pb-15 d-flex flex-wrap justify-content-between align-items-center">
+        <p class="font__size-14 line__height-21 font__weight-normal text-sm-left mx-xs-auto">&#xA9; 2019 Berserk All rights reserved</p>
+        <nav class="brk-footer-nav pt-10 pt-md-0">
+            <ul class="d-flex flex-wrap justify-content-center font__size-14 font__weight-medium text-uppercase">
+                <li><a href="#">home</a></li>
+                <li><a href="#">pages</a></li>
+                <li><a href="#">elements</a></li>
+                <li><a href="#">portfolio</a></li>
+                <li><a href="#">blog</a></li>
+                <li><a href="#">shop</a></li>
+            </ul>
+        </nav>
+    </div>
+</div>]]></content>
+         <is_active>1</is_active>
+      </cms_item>
+      <cms_item>
+         <title>Berserk - Custom Block For Footer Bottom 1</title>
+         <identifier>berserk_custom_block_for_footer_bottom_1</identifier>
+         <content><![CDATA[<div class="brk-footer__borders_footer-10" style="background:url({{media url='wysiwyg/berserk/home/shop_clothes/9.png'}})"><span class="brk-abs-bg-overlay brk-bg-alt-gradient-90deg-92"></span>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-4 col-12">
+                                <div class="h-100 d-flex flex-column justify-content-center mt-20 mb-10 mb-lg-0 mt-lg-0">
+                                    <h6 class="sr-only">Copyright</h6><a href="#" class="mt-15 mb-15 d-sm-inline-block d-block"><img src="{{media url='wysiwyg/berserk/home/shop_drone/logo.png'}}" alt="alt"></a>
+                                    <p class="brk-color-base-7 font__family-open-sans font__size-14 font__weight-normal line__height-21 pl-10 pl-xs-0">&#xA9; 2019 Berserk All rights reserved</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-12">
+                                <div class="brk-footer__bordered-col h-100 pt-40 pt-lg-30 pr-lg-30">
+                                    <h6 class="brk-white-font-color font__family-montserrat font__weight-semibold text-uppercase letter-spacing-100 font__size-21 line__height-28 mb-30">Tags</h6>
+                                    <ul class="brk-tags brk-tags_solid brk-tags_solid-primary font__family-montserrat brk-tags_transparent brk-tags_gray mb-20" data-brk-library="component__tags">
+                                        <li><a href="#" rel="tag">Network</a></li>
+                                        <li><a href="#" rel="tag">Development</a></li>
+                                        <li><a href="#" rel="tag">Bussines</a></li>
+                                        <li><a href="#" rel="tag">Beauty</a></li>
+                                        <li><a href="#" rel="tag">WordPress</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-12">
+                                <h6 class="brk-white-font-color font__family-montserrat font__weight-semibold text-uppercase letter-spacing-100 font__size-21 line__height-28 mb-40 mt-30">Follow us</h6>
+                                <ul class="brk-social-links-wide mb-25" data-brk-library="component__social_links">
+                                    <li class="brk-social-links-wide__item brk-color-base-7 brk-social-links-wide__item_light mb-15"><a href="#" class="brk-social-links-wide__link">
+                                            <div class="brk-social-links-wide__icon-container font__size-14"><i class="fab fa-twitter" aria-hidden="true"></i></div>
+                                            <p class="font__size-14 font__weight-normal line__height-16">Follow Us on Twitter</p>
+                                        </a></li>
+                                    <li class="brk-social-links-wide__item brk-color-base-7 brk-social-links-wide__item_light mb-15"><a href="#" class="brk-social-links-wide__link">
+                                            <div class="brk-social-links-wide__icon-container font__size-14"><i class="fab fa-instagram" aria-hidden="true"></i></div>
+                                            <p class="font__size-14 font__weight-normal line__height-16">Subscribe on Instagram</p>
+                                        </a></li>
+                                    <li class="brk-social-links-wide__item brk-color-base-7 brk-social-links-wide__item_light mb-15"><a href="#" class="brk-social-links-wide__link">
+                                            <div class="brk-social-links-wide__icon-container font__size-14"><i class="fab fa-google-plus-g" aria-hidden="true"></i></div>
+                                            <p class="font__size-14 font__weight-normal line__height-16">Find us on Google Plus</p>
+                                        </a></li>
+                                    <li class="brk-social-links-wide__item brk-color-base-7 brk-social-links-wide__item_light mb-15"><a href="#" class="brk-social-links-wide__link">
+                                            <div class="brk-social-links-wide__icon-container font__size-14"><i class="fab fa-youtube" aria-hidden="true"></i></div>
+                                            <p class="font__size-14 font__weight-normal line__height-16">Watch about us on YouTube</p>
+                                        </a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>]]></content>
+         <is_active>1</is_active>
+      </cms_item>
+      <cms_item>
+         <title>Berserk - Custom Block for Footer Bottom 3</title>
+         <identifier>berserk_custom_block_for_footer_bottom_3</identifier>
+         <content><![CDATA[<div class="container">
+    <div class="d-flex align-items-center justify-content-between flex-wrap mb-30">
+        <div class="d-flex align-items-center flex-wrap justify-content-between">
+            <p class="text-uppercase flex-wrap brk-footer__social-links-title">follow us:</p>
+            <div style="margin-top: 2px;">
+                <div class="brk-social-links brk-white-font-color font__size-13 pb-1 brk-library-rendered brk-location-screen-left" data-brk-library="component__social_links"><a href="#" class="brk-social-links__item"><i class="fab fa-twitter"></i> </a><a href="#" class="brk-social-links__item"><i class="fab fa-instagram"></i> </a><a href="#" class="brk-social-links__item"><i class="fab fa-google-plus-g"></i> </a><a href="#" class="brk-social-links__item"><i class="fab fa-youtube"></i> </a><a href="#" class="brk-social-links__item"><i class="fab fa-vimeo"></i> </a><a href="#" class="brk-social-links__item"><i class="fab fa-vk"></i></a></div>
+            </div>
+        </div>
+        <a href="#" class="btn btn-prime btn-lg mx-0 my-0 border-radius-0 btn-prime-white-transparent btn-no-shadow mx-xs-auto mt-xs-20 btn-xs-max-width brk-library-rendered" data-brk-library="component__button"><span class="before"></span><span class="after"></span><span class="border-btn"></span>contact us</a>
+    </div>
+    <div class="brk-footer__wide-menu pt-20 pt-sm-15 pb-15 d-flex flex-wrap justify-content-between align-items-center">
+        <p class="font__size-14 line__height-21 font__weight-normal text-sm-left mx-xs-auto">&#xA9; 2019 Berserk All rights reserved</p>
+        <nav class="brk-footer-nav pt-10 pt-md-0">
+            <ul class="d-flex flex-wrap justify-content-center font__size-14 font__weight-medium text-uppercase">
+                <li><a href="#">home</a></li>
+                <li><a href="#">pages</a></li>
+                <li><a href="#">elements</a></li>
+                <li><a href="#">portfolio</a></li>
+                <li><a href="#">blog</a></li>
+                <li><a href="#">shop</a></li>
+            </ul>
+        </nav>
+    </div>
+</div>]]></content>
+         <is_active>1</is_active>
+      </cms_item>
+      <cms_item>
+         <title>Berserk - Custom Block for Footer Bottom 5</title>
+         <identifier>berserk_custom_block_for_footer_bottom_5</identifier>
+         <content><![CDATA[<div class="pt-50 pb-20 brk-light-gradient-90deg-94 border-bottom-3 brk-border-color-light brk-shadow-light">
+                    <div class="container">
+                        <div class="brk-dashed-logo mb-20"><span class="brk-dashed-logo__line"></span> <a class="brk-dashed-logo__link ml-25 mr-25"><img src="{{media url='wysiwyg/berserk/home/shop_drone/logo.png'}}" height="31" width="170" alt="logo"> </a><span class="brk-dashed-logo__line"></span></div>
+                        <div class="brk-social-links brk-white-font-color brk-social-links_opacity d-flex justify-content-center mb-30 font__size-12" data-brk-library="component__social_links"><a href="#" class="brk-social-links__item"><i class="fab fa-twitter"></i> </a><a href="#" class="brk-social-links__item"><i class="fab fa-instagram"></i> </a><a href="#" class="brk-social-links__item"><i class="fab fa-google-plus-g"></i> </a><a href="#" class="brk-social-links__item"><i class="fab fa-youtube"></i> </a><a href="#" class="brk-social-links__item"><i class="fab fa-vimeo"></i> </a><a href="#" class="brk-social-links__item"><i class="fab fa-vk"></i></a></div>
+                        <div class="brk-footer__rights pt-15 pb-25 text-center">
+                            <p class="font__family-open-sans font__size-14 font__weight-normal line__height-14">&#xA9; 2019 <span class="brk-white-font-color pl-1 pr-1 font__weight-bold">Berserk</span> All rights reserved</p>
+                        </div>
+                    </div>
+                </div>]]></content>
+         <is_active>1</is_active>
+      </cms_item>
+      <cms_item>
+         <title>Berserk - Custom Block for Footer Bottom 6</title>
+         <identifier>berserk_custom_block_for_footer_bottom_6</identifier>
+         <content><![CDATA[<div class="brk-footer__borders_footer-10 lazyload"><span class="brk-abs-bg-overlay brk-bg-color-dark-4"></span>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-4 col-12">
+                                <div class="h-100 d-flex flex-column justify-content-center mt-20 mb-10 mb-lg-0 mt-lg-0">
+                                    <h6 class="sr-only">Copyright</h6><a href="#" class="mt-15 mb-15 d-sm-inline-block d-block"><img src="{{media url='wysiwyg/berserk/home/shop_drone/logo.png}}" alt="alt"></a>
+                                    <p class="brk-dark-font-color font__family-open-sans font__size-14 font__weight-normal line__height-21 pl-10 pl-xs-0">&#xA9; 2019 Berserk All rights reserved</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-12">
+                                <div class="brk-footer__bordered-col h-100 pt-40 pt-lg-30 pr-lg-30">
+                                    <h6 class="brk-white-font-color font__family-montserrat font__weight-semibold text-uppercase letter-spacing-100 font__size-21 line__height-28 mb-40 mt-30">Tags</h6>
+                                    <ul class="brk-tags brk-tags_solid font__family-montserrat brk-tags_transparent brk-tags_gray mb-20" data-brk-library="component__tags">
+                                        <li><a href="#" rel="tag">Network</a></li>
+                                        <li><a href="#" rel="tag">Development</a></li>
+                                        <li><a href="#" rel="tag">Bussines</a></li>
+                                        <li><a href="#" rel="tag">Beauty</a></li>
+                                        <li><a href="#" rel="tag">WordPress</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-12">
+                                <h6 class="brk-white-font-color font__family-montserrat font__weight-semibold text-uppercase letter-spacing-100 font__size-21 line__height-28 mb-40 mt-30">Follow us</h6>
+                                <ul class="brk-social-links-wide mb-25" data-brk-library="component__social_links">
+                                    <li class="brk-social-links-wide__item brk-dark-font-color mb-15"><a href="#" class="brk-social-links-wide__link">
+                                            <div class="brk-social-links-wide__icon-container font__size-14"><i class="fab fa-twitter" aria-hidden="true"></i></div>
+                                            <p class="font__size-14 font__weight-normal line__height-16">Follow Us on Twitter</p>
+                                        </a></li>
+                                    <li class="brk-social-links-wide__item brk-dark-font-color mb-15"><a href="#" class="brk-social-links-wide__link">
+                                            <div class="brk-social-links-wide__icon-container font__size-14"><i class="fab fa-instagram" aria-hidden="true"></i></div>
+                                            <p class="font__size-14 font__weight-normal line__height-16">Subscribe on Instagram</p>
+                                        </a></li>
+                                    <li class="brk-social-links-wide__item brk-dark-font-color mb-15"><a href="#" class="brk-social-links-wide__link">
+                                            <div class="brk-social-links-wide__icon-container font__size-14"><i class="fab fa-google-plus-g" aria-hidden="true"></i></div>
+                                            <p class="font__size-14 font__weight-normal line__height-16">Find us on Google Plus</p>
+                                        </a></li>
+                                    <li class="brk-social-links-wide__item brk-dark-font-color mb-15"><a href="#" class="brk-social-links-wide__link">
+                                            <div class="brk-social-links-wide__icon-container font__size-14"><i class="fab fa-youtube" aria-hidden="true"></i></div>
+                                            <p class="font__size-14 font__weight-normal line__height-16">Watch about us on YouTube</p>
+                                        </a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>]]></content>
+         <is_active>1</is_active>
+      </cms_item>
+      <cms_item>
+         <title>Berserk - Custom Block for Footer Bottom 7</title>
+         <identifier>berserk_custom_block_for_footer_bottom_7</identifier>
+         <content><![CDATA[<div class="brk-base-bg-gradient-26 d-flex align-items-center justify-content-center pt-30 pb-30 brk-footer__border-gradient">
+    <p class="brk-dark-font-color font__family-open-sans font__size-14">&#xA9; 2019 <span class="brk-white-font-color font__weight-bold">Berserk</span> All rights reserved</p>
+</div>]]></content>
+         <is_active>1</is_active>
+      </cms_item>
+      <cms_item>
+         <title>Berserk - Category Sidebar Static Block</title>
+         <identifier>berserk_category_sideblock</identifier>
+         <content><![CDATA[<div class="block-title">Free Shipping</div>
+<div class="block-content text-center"><figure class="shape-box__wrapper-stripe brk-library-rendered" data-brk-library="component__shape_box">
+    <img src="{{media url='/berserk/product/sideblock_bg.jpg'}}" data-src="{{media url='/berserk/product/sideblock_bg.jpg'}}" class=" lazyloaded" alt="alt">
+    <div class="brk-abs-overlay z-index-0 bg-black opacity-60"></div>
+    <div class="icon"><svg viewBox="0 0 60 60">
+            <path fill="none" stroke="#9CAAB9" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" d="M42,31h1.43l0.35,2.94l2.65,1.1L49,33l2,2l-2.04,2.56l1.1,2.65L53,40.57v2.87l-2.94,0.35l-1.1,2.65L51,49l-2,2l-2.56-2.04l-2.65,1.1L43.43,53h-2.87l-0.35-2.94l-2.65-1.1L35,51l-2-2l2.04-2.56l-1.1-2.65L31,43.43v-2.87l2.94-0.35l1.1-2.65L33,35l2-2l2.56,2.04l2.65-1.1L40.57,31H42zM42,39c-1.66,0-3,1.34-3,3c0,1.66,1.34,3,3,3c1.66,0,3-1.34,3-3C45,40.34,43.66,39,42,39z"></path>
+            <path fill="none" stroke="#95A5A6" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" d="M23,7h1.04l1.01,4.31l2.02,0.54l3.03-3.23l1.81,1.04l-1.28,4.23l1.48,1.48l4.23-1.28l1.05,1.81l-3.22,3.03l0.54,2.02L39,21.96l0,2.08l-4.31,1.01l-0.54,2.02l3.22,3.03l-1.04,1.81l-4.23-1.28l-1.48,1.48l1.28,4.23l-1.81,1.05l-3.03-3.23l-2.02,0.54L24.04,39l-2.09,0l-1.01-4.31l-2.02-0.54l-3.02,3.23l-1.81-1.04l1.28-4.23l-1.48-1.48L9.66,31.9L8.62,30.1l3.23-3.03l-0.54-2.02L7,24.04l0-2.09l4.31-1.01l0.54-2.02L8.62,15.9l1.04-1.81l4.24,1.28l1.48-1.48L14.1,9.66l1.81-1.04l3.03,3.23l2.02-0.54L21.96,7H23zM23,17c-3.31,0-6,2.68-6,6c0,3.31,2.68,6,6,6c3.31,0,6-2.69,6-6C29,19.68,26.31,17,23,17z"></path></svg></div>
+    <span class="after"></span>
+    <figcaption>
+        <div class="show-cont">
+            <h4 class="font__family-montserrat font__weight-bold font__size-24 text-uppercase main-title text-center">Shipping</h4>
+        </div>
+        <p class="font__family-open-sans font__size-14 text-gray text-center">Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor consequat</p><a href="#" class="btn btn-inside-out btn-lg border-radius-25 font__weight-bold brk-library-rendered" data-brk-library="component__button"><span class="before">read more</span><span class="text" style="min-width: 93.9063px;">Click Me</span><span class="after">read more</span></a>
+    </figcaption>
+</figure></div>
+<link rel="stylesheet" href="{{view url="swiper/swiper.min.css"}}">
+<div class="block-title">Popular Items</div>
+<div class="block-content text-center mb-110">
+{{block class="Redgiant\Filterproducts\Block\Home\LatestList" product_count="4" aspect_ratio="0" image_width="300" image_height="300" template="Redgiant_Filterproducts::swiper_list.phtml" }}
+</div>]]></content>
+         <is_active>1</is_active>
+      </cms_item>
+      <cms_item>
+         <title>Berserk - Product Content Static Block</title>
+         <identifier>berserk_product_contentblock</identifier>
+         <content><![CDATA[<div class="product-custom-block__bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="brk-sc-bonus mb-30 text-center pl-50 pr-50 pb-50 pt-50">
+                    <h6 class="brk-sc-bonus__subtitle font__family-montserrat font__size-14 font__weight-bold line__height-14 mb-15">We are Awesome</h6>
+                    <h5 class="brk-sc-bonus__title font__family-montserrat font__size-21 font__weight-normal line__height-28 mb-15">$100<span class="font__family-playfair font__style-italic"> for</span>
+                    <br>
+                    <span class="text-uppercase font__weight-medium">the first purchase!</span></h5>
+                    <p class="font__family-open-sans font__size-16 font__weight-normal line__height-26 brk-dark-font-color">Get <span class="font__weight-bold brk-black-font-color">100</span> bonus dollars for your first purchase right now!</p>
+                    <a href="{{store url='customer/account/login'}}" class="brk-base-font-color font__family-open-sans font__size-16 font__weight-normal line__height-26 brk-sc-bonus__link">Sign Up</a>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="brk-sc-bonus mb-30 text-center pl-50 pr-50 pb-50 pt-50">
+                    <h6 class="brk-sc-bonus__subtitle font__family-montserrat font__size-14 font__weight-bold line__height-14 mb-15">We are Awesome</h6>
+                    <h5 class="brk-sc-bonus__title font__family-montserrat font__size-21 font__weight-normal line__height-28 mb-15"><span class="text-uppercase">do you want even</span>
+                    <br>
+                    <span class="font__family-playfair font__style-italic">cheaper?</span></h5>
+                    <p class="font__family-open-sans font__size-16 font__weight-normal line__height-26 brk-dark-font-color">Do <span class="font__weight-bold brk-black-font-color">selfie</span> with our products &amp; get<br>$100<br>for the next purchase.</p>                    
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="brk-sc-bonus mb-30 text-center pl-50 pr-50 pb-50 pt-50">
+                    <h6 class="brk-sc-bonus__subtitle font__family-montserrat font__size-14 font__weight-bold line__height-14 mb-15">We are Awesome</h6>
+                    <h5 class="brk-sc-bonus__title font__family-montserrat font__size-21 font__weight-normal line__height-28 mb-15"><span class="text-uppercase">Do you want a gift</span>
+                    <br>
+                    <span class="font__family-playfair font__style-italic">or a souvenir?</span></h5>
+                    <p class="font__family-open-sans font__size-16 font__weight-normal line__height-26 brk-dark-font-color">Buy our product with <span class="font__weight-bold brk-black-font-color">free shipping</span><br>and recieve a gift from us or<br>a souvenir</p>
+                </div>
+            </div>
+        </div>
+        <div class="brk-sc-item-page-tabs pb-90 rendered">
+            <h5 class="brk-sc-item-page-tabs__title brk-black-font-color font__family-montserrat font__size-36 line__height-42 font__weight-normal d-inline-flex flex-wrap">Need help? <span class="font__weight-bold">Read F.A.Q</span></h5>
+            <div class="brk-tabs brk-tabs-simple-smooth rendered brk-library-rendered" data-brk-library="component__tabs">
+                <ul class="brk-tabs-nav font__family-montserrat font__size-16 font__weight-400 line__height-16 pt-10" style="min-width: 469.781px;">
+                    <li class="brk-tab active"><a href="javascript:void(0)" target="#tab1" ><span>How to get a discount?</span></a></li>
+                    <li class="brk-tab"><a href="javascript:void(0)" target="#tab2" ><span>Free Shipping</span></a></li>
+                    <li class="brk-tab"><a href="javascript:void(0)" target="#tab3" ><span>How to buy &amp; pay</span></a></li>
+                </ul>
+                <div class="brk-tabs-content">
+                    <div class="brk-tab-item" style="display:block;" id="tab1">
+                        <h3 class="font__family-montserrat font__size-21 font__weight-bold line__height-22 mb-50">How to get a discount?</h3>
+                        <p class="font__family-open-sans brk-dark-font-color font__size-16 font__weight-normal line__height-26 mb-25">Maecenas nec odio et ante tincidunt tempus. Donecbero vitae sapien ut libero nenatis faucibus. Nullam quis ante. Etiam sit amet orci eget met orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nigna magna mi.</p>
+                        <p class="font__family-open-sans brk-dark-font-color font__size-16 font__weight-normal line__height-26 mb-25">Donec sodales sagittis mbibenagna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc, quis gravida magna mi a libero. Fusce vulputate. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue.</p>
+                        <p class="font__family-open-sans brk-dark-font-color font__size-16 font__weight-normal line__height-26 mb-25">condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem.</p>
+                    </div>
+                    <div class="brk-tab-item" style="display: none;" id="tab2">
+                        <h3 class="font__family-montserrat font__size-21 font__weight-bold line__height-22 mb-50">Free Shipping</h3>
+                        <p class="font__family-open-sans brk-dark-font-color font__size-16 font__weight-normal line__height-26 mb-25">Maecenas nec odio et ante tincidunt tempus. Donecbero vitae sapien ut libero nenatis faucibus. Nullam quis ante. Etiam sit amet orci eget met orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nigna magna mi.</p>
+                        <p class="font__family-open-sans brk-dark-font-color font__size-16 font__weight-normal line__height-26 mb-25">Donec sodales sagittis mbibenagna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc, quis gravida magna mi a libero. Fusce vulputate. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue.</p>
+                        <p class="font__family-open-sans brk-dark-font-color font__size-16 font__weight-normal line__height-26 mb-25">condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem.</p>
+                    </div>
+                    <div class="brk-tab-item" style="display: none;" id="tab3">
+                        <h3 class="font__family-montserrat font__size-21 font__weight-bold line__height-22 mb-50">How to buy &amp; pay</h3>
+                        <p class="font__family-open-sans brk-dark-font-color font__size-16 font__weight-normal line__height-26 mb-25">Maecenas nec odio et ante tincidunt tempus. Donecbero vitae sapien ut libero nenatis faucibus. Nullam quis ante. Etiam sit amet orci eget met orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nigna magna mi.</p>
+                        <p class="font__family-open-sans brk-dark-font-color font__size-16 font__weight-normal line__height-26 mb-25">Donec sodales sagittis mbibenagna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc, quis gravida magna mi a libero. Fusce vulputate. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue.</p>
+                        <p class="font__family-open-sans brk-dark-font-color font__size-16 font__weight-normal line__height-26 mb-25">condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem.</p>
+                    </div>
+                </div>
+            </div>
+        </div> 
+    </div>
+</div>
+<script>
+    require([
+        'jquery'
+    ], function ($) {
+        $('.brk-sc-item-page-tabs .brk-tab > a').click(function(){
+            var id = $(this).attr('target');
+            $('.brk-sc-item-page-tabs .brk-tab > a').removeClass('active');
+            $(this).addClass('active');
+            if($('.brk-sc-item-page-tabs ' + id).length > 0) {
+                $('.brk-sc-item-page-tabs .brk-tabs-content > div').hide();
+                $('.brk-sc-item-page-tabs ' + id).fadeIn('slow');
+            }
+        });
+    });
+</script>]]></content>
+         <is_active>1</is_active>
+      </cms_item>
+      <cms_item>
+         <title>Berserk - Product Sidebar Static Block</title>
+         <identifier>berserk_product_sideblock</identifier>
+         <content><![CDATA[{{block class="Redgiant\Berserk\Block\Template" template="Magento_Catalog::product/view/parent_categories.phtml"}}
+<div class="block-title">Free Shipping</div>
+<div class="block-content text-center"><figure class="shape-box__wrapper-stripe brk-library-rendered" data-brk-library="component__shape_box">
+    <img src="{{media url='/berserk/product/sideblock_bg.jpg'}}" data-src="{{media url='/berserk/product/sideblock_bg.jpg'}}" class=" lazyloaded" alt="alt">
+    <div class="brk-abs-overlay z-index-0 bg-black opacity-60"></div>
+    <div class="icon"><svg viewBox="0 0 60 60">
+            <path fill="none" stroke="#9CAAB9" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" d="M42,31h1.43l0.35,2.94l2.65,1.1L49,33l2,2l-2.04,2.56l1.1,2.65L53,40.57v2.87l-2.94,0.35l-1.1,2.65L51,49l-2,2l-2.56-2.04l-2.65,1.1L43.43,53h-2.87l-0.35-2.94l-2.65-1.1L35,51l-2-2l2.04-2.56l-1.1-2.65L31,43.43v-2.87l2.94-0.35l1.1-2.65L33,35l2-2l2.56,2.04l2.65-1.1L40.57,31H42zM42,39c-1.66,0-3,1.34-3,3c0,1.66,1.34,3,3,3c1.66,0,3-1.34,3-3C45,40.34,43.66,39,42,39z"></path>
+            <path fill="none" stroke="#95A5A6" stroke-width="2" stroke-linecap="square" stroke-miterlimit="10" d="M23,7h1.04l1.01,4.31l2.02,0.54l3.03-3.23l1.81,1.04l-1.28,4.23l1.48,1.48l4.23-1.28l1.05,1.81l-3.22,3.03l0.54,2.02L39,21.96l0,2.08l-4.31,1.01l-0.54,2.02l3.22,3.03l-1.04,1.81l-4.23-1.28l-1.48,1.48l1.28,4.23l-1.81,1.05l-3.03-3.23l-2.02,0.54L24.04,39l-2.09,0l-1.01-4.31l-2.02-0.54l-3.02,3.23l-1.81-1.04l1.28-4.23l-1.48-1.48L9.66,31.9L8.62,30.1l3.23-3.03l-0.54-2.02L7,24.04l0-2.09l4.31-1.01l0.54-2.02L8.62,15.9l1.04-1.81l4.24,1.28l1.48-1.48L14.1,9.66l1.81-1.04l3.03,3.23l2.02-0.54L21.96,7H23zM23,17c-3.31,0-6,2.68-6,6c0,3.31,2.68,6,6,6c3.31,0,6-2.69,6-6C29,19.68,26.31,17,23,17z"></path></svg></div>
+    <span class="after"></span>
+    <figcaption>
+        <div class="show-cont">
+            <h4 class="font__family-montserrat font__weight-bold font__size-24 text-uppercase main-title text-center">Shipping</h4>
+        </div>
+        <p class="font__family-open-sans font__size-14 text-gray text-center">Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor consequat</p><a href="#" class="btn btn-inside-out btn-lg border-radius-25 font__weight-bold brk-library-rendered" data-brk-library="component__button"><span class="before">read more</span><span class="text" style="min-width: 93.9063px;">Click Me</span><span class="after">read more</span></a>
+    </figcaption>
+</figure></div>
+<link rel="stylesheet" href="{{view url="swiper/swiper.min.css"}}">
+<div class="block-title">Popular Items</div>
+<div class="block-content text-center mb-110">
+{{block class="Redgiant\Filterproducts\Block\Home\LatestList" product_count="4" aspect_ratio="0" image_width="300" image_height="300" template="Redgiant_Filterproducts::swiper_list.phtml" }}
+</div>]]></content>
+         <is_active>1</is_active>
+      </cms_item>
+   </blocks>
+</root>

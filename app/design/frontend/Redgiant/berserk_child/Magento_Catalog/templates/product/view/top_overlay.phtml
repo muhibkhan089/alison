@@ -1,0 +1,22 @@
+<?php
+$_helper = $this->helper('Redgiant\Berserk\Helper\Data');
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+$_product = $_helper->getCurrentProduct();
+$_pagetype = $_product->getData('brk_page_type');
+if($_pagetype == 'type2') :
+?>
+<div class="fullwidth-row top_overlay" style="height: 972px;">
+<span class="brk-sc-item-page-header__overlay"></span>
+<span class="brk-sc-item-page-header__svg">
+    <img class="es-product-curve" src="<?php echo $_helper->getBaseUrl() . 'wysiwyg/berserk/product_bg.png'; ?>" >
+</span>
+</div>
+<script>
+    require([
+        'jquery'
+    ], function ($) {
+        $('body').removeClass('<?php echo $_pagetype; ?>');
+        $('body').addClass('<?php echo $_pagetype; ?>');
+    });
+</script>
+<?php endif; ?>

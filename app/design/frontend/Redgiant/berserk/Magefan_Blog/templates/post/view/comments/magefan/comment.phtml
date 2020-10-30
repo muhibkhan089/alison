@@ -1,0 +1,65 @@
+<?php
+/**
+ * Copyright © Magefan (support@magefan.com). All rights reserved.
+ * See LICENSE.txt for license details (http://opensource.org/licenses/osl-3.0.php).
+ *
+ * Glory to Ukraine! Glory to the heroes!
+ */
+?>
+<?php
+/**
+ * Blog post comments template
+ *
+ * @var $block \Magefan\Blog\Block\Post\View\Comments\Magefan\Comment
+ */
+?>
+<?php
+    $comment = $block->getComment();
+    $numberOfCommentsToDisplay = $block->getNumberOfReplies();
+?>
+<div class="c-comment c-comment-parent-<?php echo (int)$comment->getParentId() ?>" <?php if ($comment->getIsHidden()) echo 'style="display:none"' ?>>
+    <?php if ($authorImage = $comment->getAuthorImage()) { ?>
+    <div class="c-img">
+        <img src="<?php echo $authorImage ?>" alt="<?php echo $block->escapeHtml($comment->getAuthorName()) ?>">
+    </div>
+    <?php } ?>
+    <div class="  brk-reply-item font__family-open-sans font__size-14" id="c-post-<?php echo $comment->getId() ?>">
+        <div class="brk-forum-post__header font__family-open-sans font__size-14 brk-library-rendered">
+            <a href="#" class="brk-forum-post__header-user"><img src='<?php echo $block->getViewFileUrl('Magefan_Blog::images/55x55_1.jpg') ?>' class="brk-forum-post__header-img" > <span class="brk-forum-post__header-user-overlay brk-base-bg-gradient-10deg"></span> <i class="fal fa-plus brk-forum-post__header-user-icon text-white font__size-24"></i></a>
+            <div class="brk-forum-post__header-info">
+                <div class="p-name"><?php echo $block->escapeHtml($comment->getAuthor()->getNickname()) ?></div>
+                <div class="p-actions">
+                    <span class="publish-date"><?php echo $block->escapeHtml($comment->getPublishDate('F d, Y')) ?></span>
+                </div>
+                <a href="#" class="reply-action" data-comment="<?php echo $comment->isReply() ? $comment->getParentId() : $comment->getId() ?>" 
+                title="<?php echo __('Reply') ?>"><i class="fas fa-reply"></i> 
+                    <span class="font__weight-bold"> <?php echo __('Reply') ?> </span>
+                </a>
+            </div>
+        </div>
+
+        <div class="p-text brk-dark-font-color font__family-open-sans font__size-16 line__height-26"><?php echo nl2br($block->escapeHtml($comment->getText())) ?></div>        
+        <?php
+            $replies = $block->getRepliesCollection();
+            $commentsCount = count($replies);
+            if ($commentsCount) {
+        ?>
+            <div class="p-replies">
+                <?php $i = 0 ?>
+                <?php foreach ($replies as $reply) { ?>
+                    <?php
+                        $i++;
+                        $reply->setIsHidden($i > $numberOfCommentsToDisplay);
+                    ?>
+                    <?php echo $block->setComment($reply)->toHtml() ?>
+                <?php } ?>
+
+                <?php if ($commentsCount > $numberOfCommentsToDisplay) { ?>
+                <div class="c-more more-comments-action" data-comment="<?php echo $comment->getId() ?>">
+                    <a href="#" ><?php echo __('Show more replies in this thread') ?><i></i></a>
+                </div>
+                <?php } ?>
+            </div>
+        <?php } ?>
+    </div>
+</div>

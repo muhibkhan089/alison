@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../Store/etc/config.xsd">
+    <default>
+        <rg_dailydeal>
+            <general>
+                <dailydeal_enabled>1</dailydeal_enabled>
+            </general>
+        </rg_dailydeal>
+    </default>
+</config>

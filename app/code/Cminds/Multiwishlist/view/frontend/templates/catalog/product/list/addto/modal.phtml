@@ -1,0 +1,99 @@
+<?php
+/** @var Cminds\Multiwishlist\Block\Wishlist\Catalog\ProductList\Item\AddTo\Wishlist $block */
+?>
+<?php $wishlists = $block->getWishlists(); ?>
+<?php if ($block->getWishlistHelper()->isAllow()): ?>
+    <div id="wishlist-popup" style="display:none;">
+        <?php if ($block->isLoggedInCustomer()): ?>
+            <div class="field">
+                <p><label class="label" for="wishlist-select">
+                        <?= __('Choose wishlist') ?>
+                    </label>
+                </p>
+                <div class="control">
+                    <select name="wishlist-select" id="wishlist-select">
+                        <?php foreach ($wishlists as $wishlist): ?>
+                            <option value="<?= $wishlist->getId() ?>">
+                                <?= $wishlist->getTitle() ?>
+                            </option>
+                        <?php endforeach; ?>
+                    </select>
+                </div>
+            </div>
+            <hr/>
+            <div class="field">
+                <p><label class="label" for="wishlist-input">
+                        <?= __('Or create new') ?>
+                    </label>
+                </p>
+                <div class="control">
+                    <input type="text" id="wishlist-input" name="wishlist-input" placeholder="<?= __('Title') ?>"/>
+                </div>
+            </div>
+        <?php else: ?>
+            <p><?= __('You need to log in to be able to add product to wishlist.') ?></p>
+        <?php endif; ?>
+    </div>
+<?php endif; ?>
+<script>
+    require([
+            'jquery',
+            'Magento_Ui/js/modal/modal',
+            'Magento_Wishlist/js/add-to-wishlist',
+            'mage/translate'
+        ], function ($, modal, addToMultyWishlist) {
+            var wishlistButtonSelector = '.towishlist',
+                dataKey = 'data-direct-event';
+
+            $(function () {
+                var wishlistSelector = '#wishlist-select',
+                    wishlistInputSelector = '#wishlist-input',
+                    preventAdding = <?= $block->isLoggedInCustomer() ? 'false' : 'true' ?>,
+                    options = {
+                        type: 'popup',
+                        responsive: true,
+                        innerScroll: true,
+                        title: $.mage.__('Wishlists'),
+                        buttons: [{
+                            text: $.mage.__('Continue'),
+                            click: function () {
+                                if (!preventAdding) {
+                                    addToMultyWishlist()._updateAddToWishlistButton(
+                                        {
+                                            wishlist_id: $(wishlistSelector + ' option:selected').attr('value'),
+                                            wishlist_title: $(wishlistInputSelector).val()
+                                        }
+                                    );
+
+                                    $(wishlistButtonSelector).attr(dataKey, '1');
+
+                                    if(document.targetElemen) $(document.targetElemen).click();
+                                }
+                                this.closeModal();
+                            }
+                        }]
+                    },
+                    $popupElem = $('#wishlist-popup');
+
+                modal(options, $popupElem);
+
+                $(document).on('input', wishlistInputSelector, function () {
+                    var wishlistSelect = $(wishlistSelector);
+                    if ($(this).val()) {
+                        wishlistSelect.attr('disabled', 'disabled');
+                    } else {
+                        wishlistSelect.removeAttr('disabled');
+                    }
+                });
+            });
+
+            $(wishlistButtonSelector).click(function (e) {
+                if (!$(this).attr(dataKey)) {
+                    document.targetElemen = this;
+                    $('#wishlist-popup').modal('openModal');
+                    e.stopImmediatePropagation();
+                }
+            });
+        }
+    );
+</script>

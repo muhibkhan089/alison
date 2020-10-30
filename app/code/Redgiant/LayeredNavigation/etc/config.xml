@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!--
+/**
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <rg_layerednav>
+            <general>
+                <enable>1</enable>
+                <ajax_enable>1</ajax_enable>
+            </general>
+        </rg_layerednav>
+    </default>
+</config>

@@ -1,0 +1,236 @@
+<root>
+<config>
+    <web>
+        <default>
+            <cms_home_page>berserk-shop-drone</cms_home_page>
+            <cms_no_route>berserk-no-route</cms_no_route>
+        </default>
+    </web>
+    <cms>
+        <wysiwyg>
+            <enabled>hidden</enabled>
+        </wysiwyg>
+    </cms>
+    <design>
+        <header>
+            <logo_width>142</logo_width>
+            <logo_height>26</logo_height>
+            <logo_src>default/logo.png</logo_src>
+        </header>
+    </design>
+    <dev>
+        <js>
+            <merge_files>1</merge_files>
+        </js>
+    </dev>
+    <berserk_settings>
+        <header>
+            <header_type>2</header_type>
+            <static_block_top_links>berserk_custom_block_for_top_links_2</static_block_top_links>
+            <static_block>berserk_custom_block_for_header_2</static_block>
+            <sticky_header_logo_src>default/logo_dark.png</sticky_header_logo_src>
+            <more_info_static_block>berserk_custom_block_for_more_info_popup</more_info_static_block>
+        </header>
+        <footer>
+            <footer_top>1</footer_top>
+            <footer_top_custom>berserk_custom_block_for_footer_top_2</footer_top_custom>
+            <footer_bottom>0</footer_bottom>
+            <footer_bottom_custom></footer_bottom_custom>
+        </footer>
+        <catalog>
+            <sidebar_cms_block>berserk_category_sideblock</sidebar_cms_block>
+        </catalog>
+        <product>
+            <content_cms_block>berserk_product_contentblock</content_cms_block>
+            <sidebar_cms_block>berserk_product_sideblock</sidebar_cms_block>
+        </product>
+        <custom_settings>
+            <custom_style><![CDATA[h1, h2, h3, h4, h5, h6 {
+     margin: 0;
+     padding: 0;
+}
+.page-footer {
+    background: transparent;
+    margin: 0;
+    padding: 0;
+}
+.brk-dark-font-color a, .brk-dark-font-color-3 a {
+    color: inherit;
+}
+.brk-form_footer-5 {
+    position: relative;
+}
+.brk-form_footer-5 input {
+    padding: 8px 120px 8px 18px;
+    line-height: 24px;
+    color: #a2a5ad;
+    border-radius: 4px;
+    min-width: 334px;
+    border: none;
+    opacity: 1;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+@media screen and (max-width: 500px) {
+    .brk-form_footer-5 input {
+        width: 100%;
+        min-width: 0;
+    }
+}
+.brk-form_footer-5 button {
+    position: absolute;
+    height: 34px;
+    top: 3px;
+    right: 3px;
+    border-radius: 4px;
+    padding: 0 18px;
+    background-color: #101315;
+    color: #474b54;
+    -webkit-transition: .3s ease color;
+    transition: .3s ease color;
+}
+.brk-form_footer-5 button:hover {
+    color: #fff;
+}
+.brk-form_footer-5-light input {
+    box-shadow: 2px 3px 12px rgba(0, 0, 0, 0.04);
+    border-radius: 2px;
+    background-color: #ffffff;
+    color: #40406c;
+}
+.brk-form_footer-5-light button {
+    color: #fff;
+    background-image: -webkit-gradient(linear, left top, right top, from(#2775ff), to(#7202bb));
+    background-image: linear-gradient(to right, #2775ff, #7202bb);
+}.brk-footer__bg-left {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 50%;
+    height: 100%;
+}
+.brk-footer__bg-left_footer-5 {
+    width: 52%;
+    -webkit-clip-path: polygon(0 0,100% 0,-webkit-calc(100% - 120px) 100%,0% 100%);
+    clip-path: polygon(0 0,100% 0,calc(100% - 120px) 100%,0% 100%);
+    z-index: -1;
+    background-color: #1c2124;
+ }
+ .brk-footer__bg-right {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 50%;
+    height: 100%;
+ }
+.brk-footer__bg-right_footer-5 {
+    width: 100%;
+    z-index: -2;
+    background-color: #161a1d;
+}
+.brk-home-footer2 input#newsletter {
+    color: #a2a5ad;
+    border-radius: 4px;
+    min-width: 334px;
+    border: 0;
+    opacity: 1;
+    background-color: rgba(255,255,255,.1);
+    font-size: 15px;
+    font-weight: 300;
+    line-height: 24px;
+    padding: 8px 120px 8px 12px;
+    height: auto;
+}
+.brk-home-footer2 .block.newsletter .field .control:before {
+  display: none;
+}
+.brk-home-footer2 .block.newsletter  button.action.subscribe.primary {
+    position: absolute;
+    height: 34px;
+    top: 3px;
+    padding: 0 18px;
+    background-color: #101315;
+    color: #474b54;
+    -webkit-transition: .3s ease color;
+    transition: .3s ease color;
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+    margin-left: -1px;
+    white-space: nowrap;
+    outline: none;
+    border: 0;
+    border-radius: 4px;
+    right: 6px;
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: 700;
+    font-family: 'Montserrat',sans-serif;
+}
+.brk-home-footer2 .block.newsletter .form.subscribe {
+  position: relative;
+  width: auto;
+}
+.brk-home-footer2 .block.newsletter button.action.subscribe.primary:hover {
+  color: #fff;
+}
+.brk-home-footer2  ul > li {
+    margin: 0;
+    line-height: 24px;
+}
+@media (min-width: 1230px) {
+    .page-footer {
+        position: fixed;
+        left: 0;
+        right: 0;
+        top: auto;
+        bottom: 0;
+        z-index: 0;
+    }
+    main.page-main {
+        margin-bottom: 620px!important;
+        position: relative;
+        z-index: 1;
+        background-color: #fff;
+    }
+    main.page-main + .berserk-footer {
+        position: relative;
+        z-index: 2;
+        margin-bottom: 620px;
+        margin-top: -620px;
+        background-color: #fff;
+    }
+    body:not(.cms-index-index):not(.cms-page-view) main.page-main:after {
+        content: '';
+        width: 100vw;
+        height: 100%;
+        height: calc(100% + 80px);
+        background-color: #fff;
+        left: calc(591px - 50vw);
+        z-index: 0;
+        position: absolute;
+        top: -80px;
+    }
+    .columns {
+        display: block;
+        position: relative;
+        z-index: 2;
+    }
+    main.page-main > * {
+        position: relative;
+        z-index: 1;
+    }
+}
+@media (max-width: 1439px) {
+    .page-header.type2 .header.content .brk-custom-block {
+        display: none;
+    }
+}]]></custom_style>
+        </custom_settings>
+    </berserk_settings>
+    <berserk_design>
+        <general>
+            <theme_color></theme_color>
+            <theme_color_2></theme_color_2>
+        </general>
+    </berserk_design>
+</config>
+</root>

@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../lib/internal/Magento/Framework/ObjectManager/etc/config.xsd">
+    <type name="Redgiant\Core\Block\Template">
+        <arguments>
+            <argument name="customTemplate" xsi:type="array">
+                <item name="context" xsi:type="string">\Magento\Framework\View\Element\Template\Context</item>
+                <item name="registry" xsi:type="string">\Magento\Framework\Registry</item>
+            </argument>
+        </arguments>
+    </type>
+</config>

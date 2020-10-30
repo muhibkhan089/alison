@@ -1,0 +1,5 @@
+<?php
+/** @var \Magento\Framework\View\Element\Template $block */
+?>
+
+<?= $block->escapeHtml(__('%1 has been added to your wish list "%2".', $block->getData('product_name'), $block->getData('list_title'))) ?> <?= $block->escapeHtml(__('Click <a href="%1">here</a> to continue shopping.', $block->getData('referer')), ['a']);

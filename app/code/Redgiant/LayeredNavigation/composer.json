@@ -1,0 +1,23 @@
+{
+  "name": "Redgiant/layered-navigation",
+  "description": "Layered navigation",
+  "type": "magento2-module",
+  "version": "2.3.4",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "Redgiant",
+      "email": "",
+      "homepage": "",
+      "role": "Technical Support"
+    }
+  ],
+  "autoload": {
+    "files": [
+      "registration.php"
+    ],
+    "psr-4": {
+      "Redgiant\\LayeredNavigation\\": ""
+    }
+  }
+}

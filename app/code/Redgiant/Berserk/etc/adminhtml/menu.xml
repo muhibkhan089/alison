@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../Magento/Backend/etc/menu.xsd">
+    <menu>
+        <add id="Redgiant_Berserk::berserk_theme" title="Berserk 1.0.2" module="Redgiant_Berserk" sortOrder="10" parent="Redgiant_Core::rg_all" resource="Redgiant_Core::all"/>
+        <add id="Redgiant_Berserk::theme_settings" title="Settings Panel" module="Redgiant_Berserk" sortOrder="10" parent="Redgiant_Berserk::berserk_theme" action="adminhtml/system_config/edit/section/berserk_settings" resource="Redgiant_Berserk::theme_settings"/>
+        <add id="Redgiant_Berserk::theme_design" title="Design Panel" module="Redgiant_Berserk" sortOrder="20" parent="Redgiant_Berserk::berserk_theme" action="adminhtml/system_config/edit/section/berserk_design" resource="Redgiant_Berserk::theme_design"/>
+    </menu>
+</config>

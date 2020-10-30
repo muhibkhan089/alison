@@ -1,0 +1,17 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+?>
+
+<?php if ($block->getWishlist()->getItemsCount() && $block->getWishlist()->isSalable()): ?>
+    <button type="button" data-role="all-tocart" title="<?php /* @escapeNotVerified */ echo __('Add All to Cart') ?>" class="action tocart btn btn-inside-out btn-lg border-radius-25 btn-shadow">
+        <span class="before"><?php /* @escapeNotVerified */ echo __('Add All to Cart') ?></span>
+        <span class="text"><?php /* @escapeNotVerified */ echo __('Add All to Cart') ?></span>
+        <span class="after"><?php /* @escapeNotVerified */ echo __('Add All to Cart') ?></span>
+    </button>
+<?php endif;?>

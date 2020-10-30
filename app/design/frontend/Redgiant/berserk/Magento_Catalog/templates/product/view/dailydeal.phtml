@@ -1,0 +1,32 @@
+<?php 
+    $_helper = $this->helper( 'Redgiant\Berserk\Helper\Data' );
+    $_dailyhelper = $this->helper( 'Redgiant\Dailydeals\Helper\Data' );
+    $_product = $_helper->getCurrentProduct();
+    $productSku=$_product->getSku();
+
+    if($_dailyhelper->isDealProduct($_product->getId())) :
+?>
+<div class="countdown__wrapper countdown__flip" data-format="
+           &lt;div class=&apos;countdown__section&apos;&gt;
+             &lt;div class=&apos;time &lt;%= label %&gt;&apos;&gt;
+               &lt;span class=&apos;count curr top&apos;&gt;&lt;%= curr %&gt;&lt;/span&gt;
+               &lt;span class=&apos;count next top&apos;&gt;&lt;%= next %&gt;&lt;/span&gt;
+               &lt;span class=&apos;count next bottom&apos;&gt;&lt;%= next %&gt;&lt;/span&gt;
+               &lt;span class=&apos;count curr bottom&apos;&gt;&lt;%= curr %&gt;&lt;/span&gt;
+             &lt;/div&gt;
+             &lt;span class=&apos;label&apos;&gt;&lt;%= label %&gt;&lt;/span&gt;
+           &lt;/div&gt;
+         " data-time="<?php echo $_dailyhelper->getDailydealToDate($productSku); ?>" data-brk-library="component__countdown"></div>
+<script>
+    require([
+        'jquery',
+        'jquerycountdown',       
+        'countdown',
+    ], function ($) {
+        $(document).ready(function(){
+            Berserk.behaviors.countodwn_init.attach($('.countdown__flip'));
+        });
+    });
+</script>
+
+<?php endif; ?>

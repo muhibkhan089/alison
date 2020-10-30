@@ -1,0 +1,101 @@
+<?php
+use Magento\Framework\App\Action\Action;
+$_productCollection = $block->getLoadedProductCollection();
+$_helper = $this->helper( 'Magento\Catalog\Helper\Output' );
+$_imagehelper = $this->helper('Magento\Catalog\Helper\Image');
+$_berserkhelper = $this->helper( 'Redgiant\Berserk\Helper\Data');
+
+$_colClass = '';
+$_rowClass = '';
+$_sale_label = $_berserkhelper->getConfig('berserk_settings/catalog/sale_label');
+$_new_label = $_berserkhelper->getConfig('berserk_settings/catalog/new_label');
+$_label_type = $_berserkhelper->getConfig('berserk_settings/catalog/label_type'); 
+$_show_review = $this->getData("rating_star");
+if(!$_show_review)
+    $_show_review = $_berserkhelper->getConfig('berserk_settings/catalog/show_review');
+$_review_model = $_berserkhelper->getModel('\Magento\Review\Model\Review');
+$_show_percent = $_berserkhelper->getConfig('berserk_settings/catalog/show_percent');
+$_flipbox = '';
+$aspect_ratio = $this->getData("aspect_ratio");
+if($aspect_ratio == null) {
+    $aspect_ratio = 0;
+}
+$image_width = $this->getData("image_width");
+if(!$image_width) {
+    $image_width = 300;
+}
+$image_height = $this->getData("image_height");
+if($aspect_ratio)
+    $image_height = $image_width;
+if(!$image_height) {
+    $image_height = 300;  
+}
+?>
+<?php if ( !$_productCollection->count() ): ?>
+    <div class="message info empty">
+        <div><?php echo __('We can\'t find products matching the selection.') ?></div>
+    </div>
+<?php else: ?>
+    <div class="brk-sc-tiles-angle__slider">
+        <div class="post-angle-slider arrows-classic-ellipse slick-loading fa-req" data-slick="{&quot;slidesToShow&quot;: 3,&quot;slidesToScroll&quot;: 1,&quot;arrows&quot;: true,
+&quot;autoplaySpeed&quot;: 2800,&quot;centerMode&quot;: true,&quot;autoplay&quot;: true,&quot;centerPadding&quot;: 0,&quot;responsive&quot;: [
+    { &quot;breakpoint&quot;: 1200,&quot;settings&quot;: {&quot;slidesToShow&quot;: 2}},
+    { &quot;breakpoint&quot;: 992,&quot;settings&quot;: {&quot;slidesToShow&quot;: 3}},
+    { &quot;breakpoint&quot;: 768,&quot;settings&quot;: {&quot;slidesToShow&quot;: 2}},
+    { &quot;breakpoint&quot;: 576,&quot;settings&quot;: {&quot;slidesToShow&quot;: 1}}]}" data-brk-library="slider__slick">
+            <?php foreach($_productCollection as $_product): 
+                $image_type = 'category_page_grid';
+                if($aspect_ratio)
+                    $productImage = $_imagehelper->init($_product, $image_type)->constrainOnly(FALSE)->keepAspectRatio(TRUE)->keepFrame(FALSE)->resize($image_width);
+                else
+                    $productImage = $_imagehelper->init($_product, $image_type)->resize($image_width, $image_height);
+                    $productImageUrl = str_replace("\\",'/', $productImage->getUrl());
+            ?>
+            <div class="brk-sc-angle-post" data-brk-library="slider__slick,component__shop_row">
+                <div class="brk-sc-angle-post__container lazyload" style="background-image:url('<?php echo $productImageUrl; ?>')">
+                    <div class="brk-sc-angle-post__container-before brk-base-bg-gradient-10deg"></div>
+                    <a class="brk-sc-angle-post__title brk-white-font-color" href="<?php echo $_product->getProductUrl() ?>">
+                        <?php echo $_helper->productAttribute( $_product, $_product->getName(), 'name' ); ?>
+                    </a>
+                    <div class="brk-sc-angle-post__price brk-white-font-color brk-bg-primary font__family-montserrat">
+                        <?php echo $block->getProductPrice( $_product ); ?>
+                    </div>
+                    <div class="actions-primary brk-sc-angle-post__buy">
+                        <?php if ($_product->isSaleable()): ?>
+                        <?php $postParams = $block->getAddToCartPostParams($_product);  ?>
+                            <form data-role="tocart-form" data-product-sku="<?php echo $block->escapeHtml($_product->getSku()); ?>"
+                                action="<?php echo $block->escapeHtml($postParams['action']); ?>" method="post">
+                                <input type="hidden" name="product" value="<?php echo $postParams['data']['product']; ?>">
+                                <input type="hidden" name="<?php echo Action::PARAM_NAME_URL_ENCODED; ?>" value="<?php  echo $postParams['data'][Action::PARAM_NAME_URL_ENCODED]; ?>">
+                                <?php echo $block->getBlockHtml('formkey')?>
+                                <button type="submit"
+                                        title="<?php echo $block->escapeHtml(__('Add to Cart')); ?>"
+                                        class="action tocart primary ">
+                                    <i class="fas fa-shopping-cart"></i><span><?php echo $block->escapeHtml(__('Buy')); ?></span>
+                                </button>
+                            </form>
+                        <?php else: ?>
+                            <?php if ($_product->getIsSalable()): ?>
+                                <div class="stock available"><span><?php echo __('In stock') ?></span></div>
+                            <?php else: ?>
+                                <div class="stock unavailable"><span><?php echo __('Out of stock') ?></span></div>
+                            <?php endif; ?>
+                        <?php endif; ?>
+                    </div>
+                </div>
+            </div>
+            <?php endforeach; ?>
+        </div>
+    </div>
+    <script>
+        require([
+            'jquery',
+            'slickCarousel',
+            'sliders-skin',
+            'tiles-angle'
+        ], function ($) {
+            Berserk.behaviors.tiles_angle_init.attach($('.tiles_slider_list'));
+            Berserk.behaviors.slick_init.attach($('.brk-sc-tiles-angle__slider'));
+        });
+    </script>
+<?php endif;?>

@@ -1,0 +1,53 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+?>
+<?php echo $block->getChildHtml('form_before')?>
+    <form class="form form-newsletter-manage brk-form-strict brk-form" action="<?php echo $block->escapeUrl($block->getAction()) ?>" method="post" id="form-validate">
+        <fieldset class="fieldset">
+            <?php echo $block->getBlockHtml('formkey')?>
+            <legend class="legend"><span><?php echo $block->escapeHtml(__('Subscription option')) ?></span></legend><br>
+            <div class="field choice">
+                <input type="checkbox" name="is_subscribed" id="subscription" value="1" title="<?php echo $block->escapeHtml(__('General Subscription')) ?>"<?php if ($block->getIsSubscribed()): ?> checked="checked"<?php endif; ?> class="checkbox">
+                <label for="subscription" class="label"><span><?php echo $block->escapeHtml(__('General Subscription')) ?></span></label>
+            </div>
+            <?php /* Extensions placeholder */ ?>
+            <?php echo $block->getChildHtml('customer.form.newsletter.extra')?>
+        </fieldset>
+        <div class="actions-toolbar">
+            <div class="primary">
+                <button type="submit" title="<?php echo $block->escapeHtml(__('Save')) ?>" class="btn btn-inside-out btn-lg border-radius-25 btn-shadow action save primary">
+            <span class="before"><?php echo $block->escapeHtml(__('Save')) ?></span>
+            <span class="text"><?php echo $block->escapeHtml(__('Save')) ?></span>
+            <span class="after"><?php echo $block->escapeHtml(__('Save')) ?></span>
+            </button></div>
+            <div class="secondary"><a class="action back btn btn-inside-out btn-lg border-radius-25 btn-shadow" href="<?php echo $block->escapeUrl($block->getBackUrl()) ?>">
+            <span class="before"><?php echo $block->escapeHtml(__('Back')) ?></span>
+            <span class="text"><?php echo $block->escapeHtml(__('Back')) ?></span>
+            <span class="after"><?php echo $block->escapeHtml(__('Back')) ?></span>
+            </a></div>
+        </div>
+    </form>
+<?php /* Extensions placeholder */ ?>
+<?php echo $block->getChildHtml('customer.form.newsletter.extra2')?>
+<script type="text/javascript">
+    require([
+        'jquery',
+        'form-controls'
+    ], function($) {
+        
+        //$('.form-login').addClass('brk-form-strict');
+        $('.form-newsletter-manage .control').each(function(e) {
+            $(this).find('input').attr('placeholder', $(this).prev().text());
+            $(this).prev().remove();
+        });
+
+        Berserk.behaviors.form_controls.attach($('body'), {timeout_delay: 2000});
+        
+    });
+</script>

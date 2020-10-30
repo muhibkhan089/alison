@@ -1,0 +1,110 @@
+<?php
+use Magento\Framework\App\Action\Action;
+$_productCollection = $block->getLoadedProductCollection();
+$_helper = $this->helper( 'Magento\Catalog\Helper\Output' );
+$_imagehelper = $this->helper('Magento\Catalog\Helper\Image');
+$_berserkhelper = $this->helper( 'Redgiant\Berserk\Helper\Data');
+
+$_colClass = '';
+$_rowClass = '';
+$_sale_label = $_berserkhelper->getConfig('berserk_settings/catalog/sale_label');
+$_new_label = $_berserkhelper->getConfig('berserk_settings/catalog/new_label');
+$_label_type = $_berserkhelper->getConfig('berserk_settings/catalog/label_type'); 
+$_show_review = $this->getData("rating_star");
+if(!$_show_review)
+    $_show_review = $_berserkhelper->getConfig('berserk_settings/catalog/show_review');
+$_review_model = $_berserkhelper->getModel('\Magento\Review\Model\Review');
+$_show_percent = $_berserkhelper->getConfig('berserk_settings/catalog/show_percent');
+$_flipbox = '';
+$aspect_ratio = $this->getData("aspect_ratio");
+if($aspect_ratio == null) {
+    $aspect_ratio = 0;
+}
+$image_width = $this->getData("image_width");
+if(!$image_width) {
+    $image_width = 300;
+}
+$image_height = $this->getData("image_height");
+if($aspect_ratio)
+    $image_height = $image_width;
+if(!$image_height) {
+    $image_height = 300;  
+}
+$_categoryid = $this->getData("category_id");
+if(!$_categoryid) {
+    $_categoryid = $_berserkhelper->getRootCategoryId(); 
+}
+$perrow = $this->getData("per_row");    
+if($perrow == null) {
+    $perrow = 6;
+}
+$_colClass = $_berserkhelper->getColClass( $perrow );
+
+?>
+<?php if ( !$_productCollection->count() ): ?>
+    <div class="message info empty">
+        <div><?php echo __('We can\'t find products matching the selection.') ?></div>
+    </div>
+<?php else: ?>
+<div class="filterproducts brk-slider-cube-container">
+    <div class="brk-slider-cube">
+<div class="brk-slider-cube__overlay"></div>
+    <div class="brk-slider-cube__items swiper-container">
+        <div class="swiper-wrapper">
+            <?php foreach($_productCollection as $_product): ?>
+            <div class="swiper-slide">
+                <?php
+                        $image_type = 'category_page_grid';
+                        if($aspect_ratio)
+                            $productImage = $_imagehelper->init($_product, $image_type)->constrainOnly(FALSE)->keepAspectRatio(TRUE)->keepFrame(FALSE)->resize($image_width);
+                        else
+                            $productImage = $_imagehelper->init($_product, $image_type)->resize($image_width, $image_height);
+                        $productImageUrl = $productImage->getUrl();
+                ?>
+                <div class="slider-item-content">
+                    <div class="product-photo-container">
+                        <img src="<?php echo $productImageUrl; ?>" alt=""/>
+                    </div>
+                    <div class="actions-primary ">
+                        <?php if ($_product->isSaleable()): ?>
+                        <?php $postParams = $block->getAddToCartPostParams($_product);  ?>
+                            <form data-role="tocart-form" data-product-sku="<?php echo $block->escapeHtml($_product->getSku()); ?>"
+                                action="<?php echo $block->escapeHtml($postParams['action']); ?>" method="post">
+                                <input type="hidden" name="product" value="<?php echo $postParams['data']['product']; ?>">
+                                <input type="hidden" name="<?php echo Action::PARAM_NAME_URL_ENCODED; ?>" value="<?php  echo $postParams['data'][Action::PARAM_NAME_URL_ENCODED]; ?>">
+                                <?php echo $block->getBlockHtml('formkey')?>
+                                <?php
+                                    echo $block->getProductPrice( $_product );
+                                ?>
+                                <button type="submit"
+                                        title="<?php echo $block->escapeHtml(__('Add to Cart')); ?>"
+                                        class="action tocart primary ">
+                                    <i class="far fa-plus"></i>
+                                </button>
+                            </form>
+                        <?php else: ?>
+                            <?php if ($_product->getIsSalable()): ?>
+                                <div class="stock available"><span><?php echo __('In stock') ?></span></div>
+                            <?php else: ?>
+                                <div class="stock unavailable"><span><?php echo __('Out of stock') ?></span></div>
+                            <?php endif; ?>
+                        <?php endif; ?>
+                    </div>
+                </div>
+            </div>
+            <?php endforeach;  ?>
+        </div>
+    </div>
+    <div class="brk-slider-cube__pagintaion"></div>
+</div>
+</div>
+    <script>
+        require([
+        'jquery',
+        'swiper',
+        'swiper-skin',
+        ], function ($, Swiper) {
+            Berserk.behaviors.swiper_slider_init.attach($('.filterproducts.brk-slider-cube-container'));
+        });
+    </script>
+<?php endif; ?>

@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../Magento/Backend/etc/menu.xsd">
+    <menu>
+        <add id="Redgiant_Dailydeals::dailydeals" title="Dailydeals" module="Redgiant_Dailydeals" sortOrder="605" parent="Redgiant_Core::rg_all" resource="Redgiant_Core::all"/>
+        <add id="Redgiant_Dailydeals::configration" title="Configuration" module="Redgiant_Dailydeals" sortOrder="10" parent="Redgiant_Dailydeals::dailydeals" action="adminhtml/system_config/edit/section/rg_dailydeal" resource="Redgiant_Dailydeals::config_dailydeals"/>
+        <add id="Redgiant_Dailydeals::dailydeal" title="Dailydeals" module="Redgiant_Dailydeals" sortOrder="20" action="rg_dailydeals/dailydeal" resource="Redgiant_Dailydeals::dailydeal" parent="Redgiant_Dailydeals::dailydeals"/>
+    </menu>
+</config>

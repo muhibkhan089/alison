@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+        <css src="css/bootstrap.css" />
+        <css src="fontawesome5.5/css/all.min.css" />
+        <css src="owlcarousel/assets/owl.carousel.min.css" />
+        <css src="css/image-map-pro.css" />
+        <css src="slickCarousel/css/slick.css" />
+        <css src="jquery-formstyler/jquery.formstyler.css"/>
+        <css src="fancybox/css/jquery.fancybox.min.css"/>
+        <css src="css/styles-m.css"/>
+        <css src="css/styles-l.css" media="screen and (min-width: 992px)"/>
+        <css src="css/print.css" media="print"/>
+        <css src="css/berserk-base.min.css" />
+        <css src="css/custom.css" />
+    </head>
+</page>

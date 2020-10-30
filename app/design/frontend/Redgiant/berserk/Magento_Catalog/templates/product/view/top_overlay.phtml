@@ -1,0 +1,41 @@
+<?php
+$_helper = $this->helper('Redgiant\Berserk\Helper\Data');
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+$_product = $_helper->getCurrentProduct();
+$_pagetype = $_product->getData('brk_page_type');
+if($_pagetype == 'type2') :
+?>
+<div class="fullwidth-row top_overlay" style="background:url(<?php echo $_helper->getBaseUrl() . '/berserk/product/shop-item-bg.png'; ?>) center center no-repeat;background-size:cover;height: 720px;">
+<span class="brk-sc-item-page-header__overlay"></span>
+<span class="brk-sc-item-page-header__svg"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 1920 176" enable-background="new 0 0 1920 176" space="preserve">
+    <g id="Shape_1_3_" enable-background="new    ">
+        <g id="Shape_1">
+            <g>
+                <linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="0" y1="88.0386" x2="1920" y2="88.0386">
+                    <stop offset="0" style="stop-color: #2775ff"></stop>
+                    <stop offset="1" style="stop-color: #b50aff"></stop>
+                </linearGradient>
+                <path fill="url(#SVGID_1_)" d="M1474,3.999C1242.633,14.896,945.797,39.185,689,78.04C316.793,134.359,0,0.078,0,0.078v175.921
+h1920c0,0,0-55.483,0-118.001C1865.432,34.371,1692.556-6.294,1474,3.999z"></path>
+            </g>
+        </g>
+    </g>
+    <g id="Shape_1_2_" enable-background="new    ">
+        <g id="Shape_1_1_">
+            <g>
+                <path fill="#FFFFFF" d="M1421,27.998c-231.366,10.897-475.203,49.169-732,88.024C316.793,172.341,0,100.03,0,100.03v75.969h1920
+c0,0,0-34.484,0-97C1865.432,55.371,1639.556,17.706,1421,27.998z"></path>
+            </g>
+        </g>
+    </g>
+</svg></span>
+</div>
+<script>
+    require([
+        'jquery'
+    ], function ($) {
+        $('body').removeClass('<?php echo $_pagetype; ?>');
+        $('body').addClass('<?php echo $_pagetype; ?>');
+    });
+</script>
+<?php endif; ?>

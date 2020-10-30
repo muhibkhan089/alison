@@ -1,0 +1,155 @@
+html {
+    overflow-x: hidden;
+}
+
+#totop {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    font-size: 0;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    background: #2775ff;
+    border-radius: 50%;
+    overflow: hidden;
+    z-index: 1200;
+    visibility: visible;
+    -webkit-transition: \transform .3s ease;
+    transition: \transform .3s ease;
+    display: none;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+}
+
+@media (min-width: 576px) {
+    #totop {
+        right: 34px;
+        bottom: 80px;
+    }
+}
+
+#totop, #totop:hover {
+    color: #fff;
+    text-decoration: none;
+}
+
+#totop:hover {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+}
+
+#totop:before {
+    font-family: "Font Awesome\ 5 Free";
+    content: '\f106';
+    font-weight: 900;
+    font-size: 26px;
+}
+
+.cms-index-index .page.messages {
+    display: none;
+}
+
+.product-item .flip-box__split-content, .product-item .flip-box__split-overlay {
+    pointer-events: none;
+}
+
+.product-item .flip-box .flip__back .product.name a {
+    pointer-events: all;
+}
+
+.modal-content {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border: 0;
+}
+
+.modal-footer button:hover, .modal-footer button:focus {
+    border: 0;
+    color: #333;
+    background-color: #f1f1f1;
+    box-shadow: none;
+}
+
+.modal-footer button {
+    padding: 10px 20px;
+    border: 0;
+    box-shadow: none;
+}
+
+.filterproducts.isotope-grid .actions-primary:hover .price-box {
+    visibility: hidden;
+}
+button {
+    box-shadow: 0 3px 9px rgba(0,0,0,0.1);
+    color: #272727;
+    display: inline-block;
+    border-radius: 20px;
+    background-color: #fff;
+    position: relative;
+    letter-spacing: 0.26px;
+    font-size: 14px;
+    text-transform: uppercase;
+    outline: none;
+}
+form input[type="text"], 
+form input[type="password"], 
+form input[type="url"], 
+form input[type="tel"], 
+form input[type="search"], 
+form input[type="number"], 
+form input[type="datetime"], 
+form input[type="email"] {
+    border: 1px solid rgba(205,205,205,.2);
+    height: 42px;
+    line-height: 42px;
+    border-radius: 0;
+}
+form input[type="text"]:focus, 
+form input[type="password"]:focus, 
+form input[type="url"]:focus, 
+form input[type="tel"]:focus, 
+form input[type="search"]:focus, 
+form input[type="number"]:focus, 
+form input[type="datetime"]:focus, 
+form input[type="email"]:focus, 
+form input[type="checkbox"]:focus{
+    outline:none;
+    box-shadow: 0 2px 5px rgba(165,165,165,.25);
+    border-color: #00c6ff;
+}
+form input[type="checkbox"] {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 1px solid rgba(159,159,159,.3);
+    background: #fff;
+    vertical-align: middle;
+    margin-top: 0;
+}
+form input[type="checkbox"]:checked:before {
+    content: '\f107';
+    font-family: "Font Awesome 5 Free";
+    color: #2775ff;
+    font-size: 14px;
+    font-weight: 600;
+}
+form input[type="checkbox"]:checked + a {
+    color: #2775ff;
+}
+form input[type="checkbox"]:checked + a:hover {
+    color: #fff;
+}
+
+.footer-top .filterproducts.small-list .product-item-link, .footer-top .filterproducts.small-list .product-item-link:hover, .footer-top .filterproducts.small-list .product-item-link:visited, .footer-top .filterproducts.small-list .product-item-link:active {
+    color: #fff;
+}
+
+.footer-top .brk-base-bg-gradient-right-no-opacity {
+	background-image: none;
+}

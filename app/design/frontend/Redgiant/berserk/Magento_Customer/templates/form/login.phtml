@@ -1,0 +1,57 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+/** @var \Magento\Customer\Block\Form\Login $block */
+?>
+<?php
+/**
+ * Customer login form template
+ *
+ * @see \Magento\Customer\Block\Form\Login
+ * @var $block \Magento\Customer\Block\Form\Login
+ */
+?>
+<div class="block block-customer-login">
+    <div class="block-title">
+        <h1 id="block-customer-login-heading" class="font__family-montserrat font__weight-bold font__size-42 line__height-42 mt-0 mb-45" role="heading" aria-level="2"><?php echo $block->escapeHtml(__('Login')) ?></h1>
+    </div>
+    <div class="block-content" aria-labelledby="block-customer-login-heading">
+        <form class="form form-login"
+              action="<?php echo $block->escapeUrl($block->getPostActionUrl()) ?>"
+              method="post"
+              id="login-form"
+              data-mage-init='{"validation":{}}'>
+            <?php echo $block->getBlockHtml('formkey'); ?>
+            <fieldset class="fieldset login" data-hasrequired="<?php echo $block->escapeHtml(__('* Required Fields')) ?>">
+                <div class="field note"><?php echo $block->escapeHtml(__('If you have an account, sign in with your email address.')) ?></div>
+                <div class="field email required">
+                    <label class="label" for="email"><span><?php echo $block->escapeHtml(__('Email')) ?></span></label>
+                    <div class="control">
+                        <input name="login[username]" value="<?php echo $block->escapeHtml($block->getUsername()) ?>" <?php if ($block->isAutocompleteDisabled()) :?> autocomplete="off"<?php endif; ?> id="email" type="email" class="input-text" title="<?php echo $block->escapeHtml(__('Email')) ?>" data-validate="{required:true, 'validate-email':true}">
+                    </div>
+                </div>
+                <div class="field password required">
+                    <label for="pass" class="label"><span><?php echo $block->escapeHtml(__('Password')) ?></span></label>
+                    <div class="control">
+                        <input name="login[password]" type="password" <?php if ($block->isAutocompleteDisabled()) :?> autocomplete="off"<?php endif; ?> class="input-text" id="pass" title="<?php echo $block->escapeHtml(__('Password')) ?>" data-validate="{required:true}">
+                    </div>
+                </div>
+                <?php echo $block->getChildHtml('form_additional_info'); ?>
+                <div class="actions-toolbar">
+                    <div class="primary">
+                        <button type="submit" class="action login primary btn-backgrounds btn-backgrounds btn-backgrounds_280 btn-backgrounds_white btn-backgrounds_left-icon font__family-montserrat font__weight-bold text-uppercase font__size-13 z-index-2 text-center letter-spacing-20 mt-10 brk-library-rendered" name="send" id="send2">
+                            <span><?php echo $block->escapeHtml(__('Sign In')) ?></span>
+                            <span class="before"><i class="far fa-hand-point-right"></i></span>
+                        </button>
+                    </div>
+                    <div class="secondary"><a class="action remind" href="<?php echo $block->escapeUrl($block->getForgotPasswordUrl()) ?>"><span><?php echo $block->escapeHtml(__('Forgot Your Password?')) ?></span></a></div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div>

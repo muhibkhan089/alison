@@ -1,0 +1,56 @@
+<?php
+/** @var \Cminds\Multiwishlist\Block\Adminhtml\Wishlist\Edit\Products $block */
+?>
+<div>
+    <h2><?= __('Products Settings') ?></h2>
+    <table class="data-grid wishlist-data-grid">
+        <thead>
+        <tr>
+            <th class="data-grid-th">
+                <span class="data-grid-cell-content"><?= __('ID') ?></span>
+            </th>
+            <th class="data-grid-th">
+                <span class="data-grid-cell-content"><?= __('Name') ?></span>
+            </th>
+            <th class="data-grid-th">
+                <span class="data-grid-cell-content"><?= __('SKU') ?></span>
+            </th>
+            <th class="data-grid-th">
+                <span class="data-grid-cell-content"><?= __('Action') ?></span>
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+        <?php /** @var \Magento\Wishlist\Model\Item $item */ ?>
+        <?php foreach ($block->getWishlist()->getItemCollection() as $item) { ?>
+            <?php $product = $item->getProduct() ?>
+            <tr class="data-row">
+                <td>
+                    <input type="hidden" form="edit_form" name="products[]" value="<?= $product->getId() ?>"/>
+                    <?= $product->getId() ?>
+                </td>
+                <td>
+                    <?= $product->getName() ?>
+                </td>
+                <td>
+                    <?= $product->getSku() ?>
+                </td>
+                <td>
+                    <div class="data-grid-cell-content">
+                        <a class="delete-action" href="#"><?= __('Delete') ?></a>
+                    </div>
+                </td>
+            </tr>
+        <?php } ?>
+        <tr class="data-row">
+            <td colspan="4">
+                <span class="data-grid-cell-content">
+                    <a href="<?= $this->getUrl('*/*/add', ['id' => $this->getRequest()->getParam('id')]) ?>">
+                        <?= __('Add New Product(s)') ?>
+                    </a>
+                </span>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>

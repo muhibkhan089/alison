@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <payment>
+            <moneris>
+                <active>0</active>
+                <model>Magenest\Moneris\Model\Method\Adapter</model>
+                <cctypes>VI,MC</cctypes>
+                <store_id backend_model="Magento\Config\Model\Config\Backend\Encrypted"/>
+                <api_token backend_model="Magento\Config\Model\Config\Backend\Encrypted"/>
+                <date_delim>-</date_delim>
+                <cc_year_length>2</cc_year_length>
+                <ccfields>card_cvn,card_expiry_date,card_number</ccfields>
+                <sandbox_flag>1</sandbox_flag>
+                <order_status>pending</order_status>
+                <title>Credit Card (Moneris)</title>
+                <allowspecific>0</allowspecific>
+                <payment_action>authorize_capture</payment_action>
+                <connection_type>direct</connection_type>
+                <moneris_gateway>https://www3.moneris.com/</moneris_gateway>
+                <moneris_gateway_us>https://esplus.moneris.com/</moneris_gateway_us>
+                <sandbox_moneris_gateway>https://esqa.moneris.com/</sandbox_moneris_gateway>
+                <sandbox_moneris_gateway_us>https://esplusqa.moneris.com/</sandbox_moneris_gateway_us>
+                <moneris_path_servlet>gateway2/servlet/MpgRequest</moneris_path_servlet>
+                <moneris_path_servlet_us>gateway_us/servlet/MpgRequest</moneris_path_servlet_us>
+                <moneris_path_preload_request_us>DPHPP/index.php</moneris_path_preload_request_us>
+                <moneris_path_preload_request>HPPDP/index.php</moneris_path_preload_request>
+                <can_initialize>0</can_initialize>
+                <can_cancel>0</can_cancel>
+                <can_void>0</can_void>
+                <can_authorize>1</can_authorize>
+                <can_capture>1</can_capture>
+                <can_capture_partial>0</can_capture_partial>
+                <can_refund>1</can_refund>
+                <can_authorize_vault>1</can_authorize_vault>
+                <debug>0</debug>
+                <can_refund_partial_per_invoice>1</can_refund_partial_per_invoice>
+                <can_use_internal>1</can_use_internal>
+                <can_use_checkout>1</can_use_checkout>
+                <is_gateway>1</is_gateway>
+                <paymentInfoKeys>transaction_type,reference_num,transaction_id,card_number,cc_type,card_expiry_date,fraud_messages,approve_messages,avs_response_code,cvd_response_code</paymentInfoKeys>
+                <privateInfoKeys>card_expiry_date,avs_response_code,cvd_response_code</privateInfoKeys>
+            </moneris>
+            <moneris_cc_vault>
+                <active>1</active>
+                <model>MonerisCreditCardVaultFacade</model>
+                <title>Stored Cards (Moneris)</title>
+            </moneris_cc_vault>
+        </payment>
+    </default>
+</config>

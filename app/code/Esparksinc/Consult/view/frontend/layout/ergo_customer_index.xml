@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="customer_account"/>
+    <head>
+        <title>
+            Customer Query
+        </title>
+    </head>
+    <body>
+        <referenceContainer name="content">
+            <block class="Esparksinc\Consult\Block\Customer\Query" name="customer_query" template="Esparksinc_Consult::query.phtml" cacheable="false"/>
+        </referenceContainer>
+    </body>
+</page>

@@ -1,0 +1,100 @@
+& when (@media-common = true) {
+	.weltpixel-quickview-catalog-product-view, .weltpixel_quickview-catalog_product-view {
+		.box-tocart .action.tocart {
+			width: 100%;
+		}
+		.page-wrapper .page-main {
+			padding: 20px;
+			min-height: 600px;
+		}
+		.reviews-actions .add {
+			display: none;
+		}
+
+		&.page-product-downloadable {
+			.product-options-wrapper,
+			.product-options-bottom {
+				float: none;
+				width: 100%;
+			}
+			.product-options-bottom {
+				.price-box {
+					display: none;
+				}
+			}
+		}
+		.product-info-main .product-options-bottom .box-tocart {
+			margin-top: 0;
+		}
+		.product-info-main .product-add-form .addthis_inline_share_toolbox {
+			margin-top: 30px;
+		}
+		.box-tocart {
+            display: inline-block;
+            vertical-align: middle;
+            margin: 0;
+        }
+        .box-gotoproduct {
+            margin-left: 20px;
+            vertical-align: middle;
+            display: inline-block;
+            .action {
+                font-size: 16px !important;
+                color: #2775ff;
+                font-weight: bold;
+                padding: 15px 33px !important;
+                border: 0 !important;
+                box-shadow: 0 5px 16px rgba(0,0,0,0.1);
+                border-radius: 25px;
+            }
+        }
+	}
+
+	.box-gotoproduct #product-gotoproduct-button {
+		width: 100%;
+		padding: 14px 17px;
+		font-size: 1.8rem;
+		text-align: center;
+		border: 1px solid transparent;
+	}
+
+	.page-products .product-item .weltpixel-quickview {
+		display: block;
+	}
+
+	.weltpixel-quickview-catalog-product-view, .weltpixel_quickview-catalog_product-view {
+		.page-wrapper {
+			min-height: auto !important;
+		}
+		.column.main {
+			padding-bottom: 0;
+			width: 100% !important;
+		}
+		.sidebar {
+		    display: none !important;
+		}
+		&.catalog-product-view .page-title-wrapper {
+			h1 {
+				font-size: 22px !important;
+			}
+		}
+	}
+
+}
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+
+	.weltpixel-quickview-catalog-product-view, .weltpixel_quickview-catalog_product-view {
+		&.catalog-product-view .breadcrumbs,
+		&.catalog-product-view .columns,
+		&.catalog-product-view .page.messages,
+		&.catalog-product-view .page-title-wrapper {
+			max-width: 100%;
+			width: 100%;
+			margin: 0 auto;
+		}
+	}
+}
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__s) {
+	
+}

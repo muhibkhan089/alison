@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magefan (support@magefan.com). All rights reserved.
+ * See LICENSE.txt for license details (http://opensource.org/licenses/osl-3.0.php).
+ *
+ * Glory to Ukraine! Glory to the heroes!
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="2columns-right" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="Magefan_Blog::css/comments.css" />
+        <attribute name="class" value="blog-page" />
+    </head>
+    <body>
+        <referenceContainer name="sidebar.additional">
+            <block class="Magefan\Blog\Block\Sidebar" name="blog.sidebar" template="sidebar.phtml">
+                <referenceBlock name="blog.sidebar.search" remove="true" />
+                <referenceBlock name="blog.sidebar.category" remove="true" />
+                
+                <block class="Magefan\Blog\Block\Sidebar\Featured" name="blog.sidebar.featured" template="sidebar/featured.phtml">
+                    <action method="setCacheLifetime">
+                        <argument name="time" xsi:type="string">86400</argument>
+                    </action>
+                </block>
+
+                <block class="Magefan\Blog\Block\Sidebar\Featured" name="blog.sidebar.popular" template="sidebar/popular.phtml">
+                    <action method="setCacheLifetime">
+                        <argument name="time" xsi:type="string">86400</argument>
+                    </action>
+                </block>
+
+                <block class="Magefan\Blog\Block\Sidebar\Recent" name="blog.sidebar.recent" template="sidebar/recent.phtml" />
+                <referenceBlock name="blog.sidebar.archive" remove="true" />
+
+                
+                <block class="Magefan\Blog\Block\Sidebar\TagClaud" name="blog.sidebar.tagclaud" template="sidebar/tag_claud.phtml">
+                    <action method="setCacheLifetime">
+                        <argument name="time" xsi:type="string">86400</argument>
+                    </action>
+                </block>
+                
+
+            </block>
+            <referenceBlock name="catalog.compare.sidebar" remove="true"/>
+            <referenceBlock name="wishlist_sidebar" remove="true"/>
+        </referenceContainer>
+    </body>
+</page>

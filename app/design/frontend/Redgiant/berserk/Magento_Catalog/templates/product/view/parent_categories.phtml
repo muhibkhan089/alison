@@ -1,0 +1,42 @@
+<?php
+$_helper = $this->helper('Redgiant\Berserk\Helper\Data');
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+$_product = $_helper->getCurrentProduct();
+?>
+<?php
+    $_categoryIds = $_product->getCategoryIds();
+    $category = "";
+    if(count($_categoryIds) > 0) { 
+        $category = $objectManager->create('Magento\Catalog\Model\Category')->load($_categoryIds[0]);
+    }
+    if($category && $_categoryIds[0] != $_helper->getRootCategoryId()): 
+        $subcats = $category->getChildrenCategories();
+        if(!count($subcats)){
+            $category = $category->getParentCategory();
+            $subcats = $category->getChildrenCategories();
+        }
+        $_helper = $this->helper('Magento\Catalog\Helper\Output');
+        if(count($subcats)>0){
+?>
+<div class="block-category-list">
+    <div class="block-title">
+        <strong><?php echo $category->getName() ?></strong>
+    </div>
+    <div class="block-content">
+        <ol class="items">
+        <?php
+        foreach($subcats as $subcat){ 
+        ?>
+            <li class="item">
+                <a href="<?php echo $subcat->getUrl() ?>"><?php echo $subcat->getName() ?><span class="count"><?php echo $subcat->getProductCount() ?></span></a>
+            </li>
+        <?php
+            }
+        ?>
+        </ol>
+    </div>
+</div>
+<?php
+    }
+?>
+<?php endif; ?>

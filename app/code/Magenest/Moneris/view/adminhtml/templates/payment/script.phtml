@@ -1,0 +1,22 @@
+<?php
+
+/** @var Magenest\Moneris\Block\Payment $block */
+// @codingStandardsIgnoreFile
+?>
+<script>
+    //<![CDATA[
+    require(
+        [
+            'Magenest_Moneris/js/moneris/direct',
+            'jquery',
+            'domReady!'
+        ], function(Moneris, $) {
+            var config = <?php /* @noEscape */ echo $block->getPaymentConfig() ?>,
+                payment,
+                form = $('#payment_form_<?php /* @noEscape */ echo $block->getCode() ?>');
+
+            config.active = form.length > 0 && !form.is(':hidden');
+            payment = new Moneris(config);
+        });
+    //]]>
+</script>

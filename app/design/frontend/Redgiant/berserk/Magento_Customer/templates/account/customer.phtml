@@ -1,0 +1,25 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+/** @var Magento\Customer\Block\Account\Customer $block */
+?>
+<?php if($block->customerLoggedIn()): ?>
+    <li class="customer-welcome">
+        <span class="customer-name"
+              role="link"
+              tabindex="0"
+              data-bind="scope: 'customer'">
+            <span data-bind="text: customer().fullname"></span>
+            <i class="fa fa-caret-down" aria-hidden="true"></i>
+        </span>
+        <?php if($block->getChildHtml()):?>
+        <div class="customer-menu">
+            <?php echo $block->getChildHtml();?>
+        </div>
+        <?php endif; ?>
+    </li>
+<?php endif; ?>

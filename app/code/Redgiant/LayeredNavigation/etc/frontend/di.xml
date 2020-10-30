@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<!--
+/**
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <virtualType name="Redgiant\LayeredNavigation\Api\Search\DocumentFactory" type="Magento\Framework\Api\Search\DocumentFactory">
+        <arguments>
+            <argument name="instanceName" xsi:type="string">Redgiant\LayeredNavigation\Api\Search\Document</argument>
+        </arguments>
+    </virtualType>
+    <type name="Magento\Framework\Search\SearchResponseBuilder">
+        <arguments>
+            <argument name="documentFactory" xsi:type="object">Redgiant\LayeredNavigation\Api\Search\DocumentFactory</argument>
+        </arguments>
+    </type>
+    <preference for="Magento\CatalogSearch\Controller\Result\Index" type="Redgiant\LayeredNavigation\Controller\Search\Result\Index"/>
+    <type name="Magento\Catalog\Model\Layer\Filter\Item">
+        <plugin name="layer_filter_item_url" type="Redgiant\LayeredNavigation\Plugin\Model\Layer\Filter\Item" sortOrder="1"/>
+    </type>
+    <type name="Magento\Swatches\Block\LayeredNavigation\RenderLayered">
+        <plugin name="layer_filter_item_swatch_url" type="Redgiant\LayeredNavigation\Plugin\Block\Swatches\RenderLayered" sortOrder="1"/>
+    </type>
+    <type name="Magento\CatalogSearch\Model\Adapter\Mysql\Filter\Preprocessor">
+        <plugin name="layer_filter_item_swatch_url" type="Redgiant\LayeredNavigation\Plugin\Model\Adapter\Preprocessor" sortOrder="1"/>
+    </type>
+
+    <!--Plugin ajax load add to compare & wishlist-->
+    <type name="Magento\Catalog\Controller\Product\Compare\Add">
+        <plugin name="layer_add_to_compare" type="Redgiant\LayeredNavigation\Plugin\Controller\Product\CompareWishlist" sortOrder="1"/>
+    </type>
+    <type name="Magento\Wishlist\Controller\Index\Add">
+        <plugin name="layer_add_to_wishlist" type="Redgiant\LayeredNavigation\Plugin\Controller\Product\CompareWishlist" sortOrder="1"/>
+    </type>
+</config>

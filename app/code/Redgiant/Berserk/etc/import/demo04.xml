@@ -1,0 +1,140 @@
+<root>
+<config>
+    <web>
+        <default>
+            <cms_home_page>berserk-shop-modern</cms_home_page>
+            <cms_no_route>berserk-no-route</cms_no_route>
+        </default>
+    </web>
+    <cms>
+        <wysiwyg>
+            <enabled>hidden</enabled>
+        </wysiwyg>
+    </cms>
+    <design>
+        <header>
+            <logo_width>142</logo_width>
+            <logo_height>26</logo_height>
+            <logo_src>default/logo.png</logo_src>
+        </header>
+    </design>
+    <dev>
+        <js>
+            <merge_files>1</merge_files>
+        </js>
+    </dev>
+    <berserk_settings>
+        <header>
+            <header_type>4</header_type>
+            <static_block_top_links></static_block_top_links>
+            <static_block>berserk_custom_block_for_header_4</static_block>
+            <sticky_header_logo_src>default/logo_dark.png</sticky_header_logo_src>
+            <more_info_static_block>berserk_custom_block_for_more_info_popup</more_info_static_block>
+        </header>
+        <footer>
+            <footer_top>1</footer_top>
+            <footer_top_custom>berserk_custom_block_for_footer_top_4</footer_top_custom>
+            <footer_bottom>0</footer_bottom>
+            <footer_bottom_custom></footer_bottom_custom>
+        </footer>
+        <catalog>
+            <sidebar_cms_block>berserk_category_sideblock</sidebar_cms_block>
+        </catalog>
+        <product>
+            <content_cms_block>berserk_product_contentblock</content_cms_block>
+            <sidebar_cms_block>berserk_product_sideblock</sidebar_cms_block>
+        </product>
+        <custom_settings>
+            <custom_style><![CDATA[.page-footer {
+     background: none;
+     padding: 0;
+}
+.page-footer:before {
+     background-image: none;
+}
+.page-footer .brk-map_extra {
+    box-shadow: inset -3px 3px 10px rgba(0,0,0,.1);
+}
+.shop-elec-subscribe {
+    z-index: 2;
+    position: relative;
+            display: flex;
+    align-items: center;
+     justify-content: stretch;
+}
+.shop-elec-subscribe .newsletter{
+    margin: 0;
+    flex: 1;
+}
+@media (max-width: 728px) {
+    .shop-elec-subscribe .content {
+        width: 100%;
+        padding: 0 15px;
+    }
+}
+input#newsletter {
+    height: 54px;
+    border-radius: 27px;
+    font-size: 14px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, .1);
+    padding: 0 15px 0 30px;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+    background-color: rgba(255, 255, 255, .12);
+    color: #fff;
+    border: 2px solid rgba(255, 255, 255, .2);
+}
+input#newsletter:focus {
+    border-color: #fff;
+}
+.shop-elec-subscribe .block.newsletter .action.subscribe {
+    margin-left: -23px;
+    display: inline-block;
+    text-align: center;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    cursor: pointer;
+    vertical-align: middle;
+    position: relative;
+    text-decoration: none;
+    text-transform: uppercase;
+    border-radius: 25px;
+    outline: none;
+    background: #fff;
+    color: #2775ff;
+    border: 0;
+    padding: 15px 33px;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 24px;
+}
+.shop-elec-subscribe .block.newsletter .field .control:before {
+    display: none;
+}
+
+.shop-elec-subscribe .block.newsletter .action.subscribe:hover {
+    background: #2775ff;
+    color: #fff;
+}
+.brk-map_extra .brk-map__canvas {
+       width: 100%;
+}
+.brk-map:before {
+       display: none;
+}
+.page-footer a{
+   color:#9f9f9f;
+}
+.page-footer a:hover{
+   color:rgba(0,0,0,.7);
+}]]></custom_style>
+        </custom_settings>
+    </berserk_settings>
+    <berserk_design>
+        <general>
+            <theme_color></theme_color>
+            <theme_color_2></theme_color_2>
+        </general>
+    </berserk_design>
+</config>
+</root>

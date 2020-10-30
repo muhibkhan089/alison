@@ -1,0 +1,14 @@
+/**
+ * WARNING: Do not change this file. Your changes will be lost.
+ * <?php echo date("Y-m-d H:i:s"); ?>
+ */
+<?php
+    $s = $this->getConfig("berserk_settings",$this->_coreRegistry->registry('cssgen_store'));
+    $_helper = $this->helper('Redgiant\Berserk\Helper\Cssconfig');
+?>
+<?php
+if(isset($s['custom_settings']['custom_style']) && $s['custom_settings']['custom_style'])
+    echo $s['custom_settings']['custom_style'];
+if(isset($s['custom_settings']['custom_style_2']) && $s['custom_settings']['custom_style_2'])
+    echo $s['custom_settings']['custom_style_2'];
+?>

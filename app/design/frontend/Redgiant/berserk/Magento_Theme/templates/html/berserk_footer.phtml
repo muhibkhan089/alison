@@ -1,0 +1,37 @@
+<?php 
+    $_helper = $this->helper('Redgiant\Berserk\Helper\Data');
+    $footer = $_helper->getConfig("berserk_settings/footer");
+?>
+<footer class="page-footer">
+	<?php if ($footer['footer_top']): ?>
+    <div class="footer-top">
+		<?php
+            if (isset($footer['footer_top_custom']) && $footer['footer_top_custom']) {
+                $block = $this->getLayout()->createBlock('Magento\Cms\Block\Block');
+                if ($block) {
+                    $block->setBlockId($footer['footer_top_custom']);
+                }
+                if ($block) {
+                    echo $block->toHtml();
+                }
+            }
+        ?>
+    </div>
+	<?php endif; ?>
+    <?php if ($footer['footer_bottom']): ?>
+    <div class="footer-bottom">
+        <?php
+            if (isset($footer['footer_bottom_custom']) && $footer['footer_bottom_custom']) {
+                $block = $this->getLayout()->createBlock('Magento\Cms\Block\Block');
+                if ($block) {
+                    $block->setBlockId($footer['footer_bottom_custom']);
+                }
+                if ($block) {
+                    echo $block->toHtml();
+                }
+            }
+        ?>
+    </div>
+    <?php endif; ?>
+</footer>
+<a href="javascript:void(0)" id="totop" style="display: none;"></a>

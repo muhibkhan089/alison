@@ -1,0 +1,61 @@
+<?php
+/**
+ * Copyright © Magefan (support@magefan.com). All rights reserved.
+ * See LICENSE.txt for license details (http://opensource.org/licenses/osl-3.0.php).
+ *
+ * Glory to Ukraine! Glory to the heroes!
+ */
+?>
+<?php
+/**
+ * Blog sidebar recent posts template
+ *
+ * @var $block \Magefan\Blog\Block\Sidebar\Featured
+ */
+?>
+
+<?php
+    $_postCollection = $block->getPostCollection();
+?>
+<?php if ($_postCollection->count()) { ?>
+<div class="widget block block-recent-posts block-hot-news" data-bind="scope: 'recent-posts'">
+    <div class="block-title brs-sidebar__title">
+
+        <i class="fab fa-hotjar brs-sidebar__title-icon"></i>
+	    <h3 class="font__family-montserrat font__size-21 font__weight-bold line__height-22"><?php echo __('Hot News') ?></h3>
+							
+    </div>
+    <div class="block-content owl-carousel">
+        <?php foreach ($_postCollection as $_post) { ?>            
+            <?php $_postDate = $_post->getData("publish_time"); $post_link = $_post->getPostUrl(); $post_title = $block->escapeHtml($_post->getTitle()); ?>
+            <div class="brs-post brs-post_mini-vertical" ><a href="#" class="brs-post__img-container"><img src="<?php echo $_post->getFeaturedImage(); ?>" alt="alt" class="brs-post__img"></a>
+                <div class="brs-post__about"><a href="#" class="brs-post__date"><i class="far fa-clock brs-post__date-icon"></i> <span class="font__family-montserrat font__weight-normal font__size-13 line__height-14"><?php echo date("M d, y", strtotime($_postDate)); ?></span></a>
+                    <h2 class="brs-post__title font__family-montserrat font__size-16 font_weight-light line__height-18"><?php echo  $post_title; ?></h2><a href="<?php echo $post_link;?>" class="brs-post__link"><i class="fal fa-angle-right brs-post__link-icon"></i></a>
+                </div>
+            </div>
+        <?php } ?>
+    </div>
+</div>                     
+<?php } ?>
+
+<script type="text/javascript">
+    require([
+                'jquery',
+                'owlcarousel',
+            ], function ($) {
+                $(".block-hot-news .owl-carousel").owlCarousel({
+                    nav: true,
+                    dots: true,
+                    items: 1,
+                    nav: false,
+                    responsive : {                    
+                        0 : { items: 1, dots:  true}
+                    }                   
+                });
+            });
+</script>
+    <ul class="nav nav-tabs brs-tab__header" role="tablist">
+        <li class="nav-item brs-tab__header-item"><a class="nav-link brs-tab__header-title font__family-montserrat font__size-16 font__weight-bold line__height-18"  data-toggle="tab" href="#popular" role="tab" aria-controls="popular" aria-selected="true"><i class="fal fa-bolt brs-tab__header-title-icon"></i>Popular</a></li>
+        <li class="nav-item brs-tab__header-item"><a class="nav-link brs-tab__header-title font__family-montserrat font__size-16 font__weight-bold line__height-18" data-toggle="tab" href="#recentposts" role="tab" aria-controls="recent" aria-selected="false"><i class="far fa-clock brs-tab__header-title-icon"></i>Recent</a></li>
+    </ul>
+          

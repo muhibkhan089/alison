@@ -1,0 +1,18 @@
+<?php
+/**
+ * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+?>
+<?php 
+    $_product = $block->getProduct();
+    $_berserkhelper = $this->helper( 'Redgiant\Berserk\Helper\Data' );
+    $_show = $_berserkhelper->getConfig('berserk_settings/product/show_addto_links');
+?>
+<?php if ($block->canEmailToFriend() && $_show): ?>
+    <a href="<?php /* @escapeNotVerified */ echo $this->helper('Magento\Catalog\Helper\Product')->getEmailToFriendUrl($_product) ?>"
+       class="action mailto friend"><span><?php /* @escapeNotVerified */ echo __('Email') ?></span></a>
+<?php endif; ?>

@@ -1,0 +1,207 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="payment">
+            <group id="moneris" translate="label" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Moneris</label>
+                <field id="active" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="environment" translate="label" type="select" sortOrder="15" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Environment</label>
+                    <source_model>Magenest\Moneris\Model\Adminhtml\Source\Environment</source_model>
+                </field>
+                <field id="title" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Title</label>
+                </field>
+                <field id="sandbox_flag" translate="label" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Sandbox Mode</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="connection_type" translate="label" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Connection Type</label>
+                    <source_model>Magenest\Moneris\Model\Adminhtml\Source\ConnectionType</source_model>
+                </field>
+                <field id="moneris_cc_vault_active" translate="label" type="select" sortOrder="35" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Enable Moneris Saved Card</label>
+                    <depends>
+                        <field id="connection_type">direct</field>
+                    </depends>
+                    <config_path>payment/moneris_cc_vault/active</config_path>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="store_id" translate="label" type="obscure" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Store ID</label>
+                    <backend_model>Magento\Config\Model\Config\Backend\Encrypted</backend_model>
+                </field>
+                <field id="api_token" translate="label" type="obscure" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Api Token</label>
+                    <backend_model>Magento\Config\Model\Config\Backend\Encrypted</backend_model>
+                </field>
+                <field id="hpp_id" translate="label" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>HPP ID or PS STORE ID</label>
+                    <depends>
+                        <field id="connection_type">redirect</field>
+                    </depends>
+                    <comment><![CDATA[<a target="_blank" href="https://www3.moneris.com">Click here to log in to your Canada store</a><br><a href="https://esplus.moneris.com" target="_blank">Click here to log in to your US store</a>]]></comment>
+                    <tooltip>Get the hpp_id when logging in to your store</tooltip>
+                </field>
+                <field id="hpp_key" translate="label" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>HPP KEY</label>
+                    <depends>
+                        <field id="connection_type">redirect</field>
+                    </depends>
+                    <tooltip>Get the hpp_key when logging in to your store</tooltip>
+                </field>
+                <field id="approved_url" translate="label" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Approved Url</label>
+                    <frontend_model>Magenest\Moneris\Model\Config\Config</frontend_model>
+                    <depends>
+                        <field id="connection_type">redirect</field>
+                        <field id="environment">CA</field>
+                    </depends>
+                    <tooltip>Use this Url when configuring your hosted pay page</tooltip>
+                    <attribute type="readonly">readonly</attribute>
+                </field>
+                <field id="response_url" translate="label" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Response Url</label>
+                    <frontend_model>Magenest\Moneris\Model\Config\Config</frontend_model>
+                    <depends>
+                        <field id="connection_type">redirect</field>
+                        <field id="environment">US</field>
+                    </depends>
+                    <tooltip>Use this Url when configuring your hosted pay page</tooltip>
+                    <attribute type="readonly">readonly</attribute>
+                </field>
+                <field id="declined_url" translate="label" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Declined Url</label>
+                    <frontend_model>Magenest\Moneris\Model\Config\Config</frontend_model>
+                    <depends>
+                        <field id="connection_type">redirect</field>
+                        <field id="environment">CA</field>
+                    </depends>
+                    <tooltip>Use this Url when configuring your hosted pay page</tooltip>
+                    <attribute type="readonly">readonly</attribute>
+                </field>
+                <field id="cancel_url" translate="label" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Cancel Button Url</label>
+                    <frontend_model>Magenest\Moneris\Model\Config\Config</frontend_model>
+                    <depends>
+                        <field id="connection_type">redirect</field>
+                        <field id="environment">CA</field>
+                    </depends>
+                    <tooltip>Use this Url when configuring your hosted pay page</tooltip>
+                    <attribute type="readonly">readonly</attribute>
+                </field>
+                <field id="payment_action" translate="label" type="select" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Payment Action</label>
+                    <source_model>Magenest\Moneris\Model\Adminhtml\Source\PaymentAction</source_model>
+                    <depends>
+                        <field id="connection_type">direct</field>
+                    </depends>
+                </field>
+                <field id="cctypes" translate="label" type="multiselect" sortOrder="140" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Credit Card Types</label>
+                    <source_model>Magenest\Moneris\Model\Adminhtml\Source\Cctype</source_model>
+                    <depends>
+                        <field id="connection_type">direct</field>
+                    </depends>
+                </field>
+                <field id="avs_enable" translate="label" type="select" sortOrder="143" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Enable AVS check on Customer Billing Address</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends>
+                        <field id="connection_type">direct</field>
+                    </depends>
+                    <comment><![CDATA[<a target="_blank" href="https://developer.moneris.com/More/Testing/E-Fraud%20Simulator">Click here</a> to see credit card numbers used to Simulate E-Fraud]]></comment>
+                    <tooltip>Perform AVS check on Customer Billing: Street Number, Street Name, ZipCode</tooltip>
+                </field>
+                <field id="avs_street_fail_zip_fail" translate="label" type="select" sortOrder="144" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>AVS Street and Zipcode Check Failed</label>
+                    <source_model>Magenest\Moneris\Model\Adminhtml\Source\OrderHandlerAction</source_model>
+                    <depends>
+                        <field id="avs_enable">1</field>
+                        <field id="connection_type">direct</field>
+                    </depends>
+                </field>
+                <field id="avs_street_fail_zip_pass" translate="label" type="select" sortOrder="145" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>AVS Street Check Failed and Zipcode Check Passed</label>
+                    <source_model>Magenest\Moneris\Model\Adminhtml\Source\OrderHandlerAction</source_model>
+                    <depends>
+                        <field id="avs_enable">1</field>
+                        <field id="connection_type">direct</field>
+                    </depends>
+                </field>
+                <field id="avs_street_pass_zip_fail" translate="label" type="select" sortOrder="146" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>AVS Street Check Passed and Zipcode Check Failed</label>
+                    <source_model>Magenest\Moneris\Model\Adminhtml\Source\OrderHandlerAction</source_model>
+                    <depends>
+                        <field id="avs_enable">1</field>
+                        <field id="connection_type">direct</field>
+                    </depends>
+                </field>
+                <field id="avs_street_zip_null" translate="label" type="select" sortOrder="147" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>AVS Street and Zipcode could not be verified</label>
+                    <source_model>Magenest\Moneris\Model\Adminhtml\Source\OrderHandlerAction</source_model>
+                    <depends>
+                        <field id="avs_enable">1</field>
+                        <field id="connection_type">direct</field>
+                    </depends>
+                </field>
+                <field id="cvd_enable" translate="label" type="select" sortOrder="148" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Enable CVD check on Checkout</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends>
+                        <field id="connection_type">direct</field>
+                    </depends>
+                    <comment><![CDATA[<a target="_blank" href="https://developer.moneris.com/More/Testing/E-Fraud%20Simulator">Click here</a> to see credit card numbers used to Simulate E-Fraud]]></comment>
+                    <tooltip>Perform CVD check on Customer Entered Creditcard Verification Number</tooltip>
+                </field>
+                <field id="cvd_fail" translate="label" type="select" sortOrder="149" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>CVD Check Failed</label>
+                    <source_model>Magenest\Moneris\Model\Adminhtml\Source\OrderHandlerAction</source_model>
+                    <depends>
+                        <field id="cvd_enable">1</field>
+                        <field id="connection_type">direct</field>
+                    </depends>
+                </field>
+                <field id="cvd_null" translate="label" type="select" sortOrder="150" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>CVD could not be verified</label>
+                    <source_model>Magenest\Moneris\Model\Adminhtml\Source\OrderHandlerAction</source_model>
+                    <depends>
+                        <field id="cvd_enable">1</field>
+                        <field id="connection_type">direct</field>
+                    </depends>
+                </field>
+
+                <field id="allowspecific" translate="label" type="allowspecific" sortOrder="155" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Payment from Applicable Countries</label>
+                    <source_model>Magento\Payment\Model\Config\Source\Allspecificcountries</source_model>
+                    <depends>
+                        <field id="connection_type">direct</field>
+                    </depends>
+                </field>
+                <field id="specificcountry" translate="label" type="multiselect" sortOrder="160" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Payment from Specific Countries</label>
+                    <source_model>Magento\Directory\Model\Config\Source\Country</source_model>
+                </field>
+                <field id="debug" translate="label" type="select" sortOrder="165" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Debug</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends>
+                        <field id="connection_type">direct</field>
+                    </depends>
+                </field>
+                <field id="sort_order" translate="label" type="text" sortOrder="170" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Sort Order</label>
+                    <frontend_class>validate-number</frontend_class>
+                    <depends>
+                        <field id="connection_type">direct</field>
+                    </depends>
+                </field>
+
+            </group>
+        </section>
+    </system>
+</config>

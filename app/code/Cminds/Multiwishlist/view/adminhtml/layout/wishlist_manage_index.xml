@@ -1,0 +1,90 @@
+<?xml version="1.0"?>
+<layout xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/layout_generic.xsd">
+    <container name="root">
+        <block class="Magento\Backend\Block\Widget\Grid" name="customer.wishlist.view.tab">
+            <arguments>
+                <argument name="dataSource" xsi:type="object">Cminds\Multiwishlist\Model\ResourceModel\Wishlist\Collection\Grid</argument>
+                <argument name="id" xsi:type="string">wishlistGrid</argument>
+                <argument name="use_ajax" xsi:type="string">true</argument>
+                <argument name="default_sort" xsi:type="string">wishlist_id</argument>
+                <argument name="grid_url" xsi:type="url" path="wishlist/manage/index">
+                    <param name="_current">1</param>
+                </argument>
+                <argument name="product_configuration_helpers" xsi:type="array">
+                    <item name="default" xsi:type="string">Magento\Catalog\Helper\Product\Configuration</item>
+                </argument>
+            </arguments>
+            <block class="Magento\Backend\Block\Widget\Grid\ColumnSet" as="grid.columnSet" name="customer.wishlist.view.tab.columnSet">
+                <arguments>
+                    <argument name="rowUrl" xsi:type="array">
+                        <item name="path" xsi:type="string">wishlist/manage/view</item>
+                        <item name="extraParamsTemplate" xsi:type="array">
+                            <item name="id" xsi:type="string">getWishlistId</item>
+                        </item>
+                    </argument>
+                    <argument name="empty_text" xsi:type="string" translate="true">No Items Found</argument>
+                </arguments>
+
+                <block class="Magento\Backend\Block\Widget\Grid\Column" name="customer.wishlist.view.tab.columnSet.wishlist_id" as="wishlist_id">
+                    <arguments>
+                        <argument name="header" xsi:type="string" translate="true">Wishlist ID</argument>
+                        <argument name="id" xsi:type="string">wishlist_id</argument>
+                        <argument name="index" xsi:type="string">wishlist_id</argument>
+                        <argument name="column_css_class" xsi:type="string">col-name</argument>
+                        <argument name="header_css_class" xsi:type="string">col-name</argument>
+                    </arguments>
+                </block>
+                <block class="Magento\Backend\Block\Widget\Grid\Column" name="customer.wishlist.view.tab.columnSet.title" as="title">
+                    <arguments>
+                        <argument name="header" xsi:type="string" translate="true">Title</argument>
+                        <argument name="index" xsi:type="string">title</argument>
+                        <argument name="type" xsi:type="string">text</argument>
+                        <argument name="id" xsi:type="string">title</argument>
+                    </arguments>
+                </block>
+                <block class="Magento\Backend\Block\Widget\Grid\Column" name="customer.wishlist.edit.tab.columnSet.products" as="products">
+                    <arguments>
+                        <argument name="header" xsi:type="string" translate="true">Products</argument>
+                        <argument name="id" xsi:type="string">products</argument>
+                        <argument name="sortable" xsi:type="boolean">false</argument>
+                        <argument name="filter" xsi:type="boolean">false</argument>
+                        <argument name="renderer" xsi:type="string">Cminds\Multiwishlist\Block\Adminhtml\Edit\Tab\Wishlist\Grid\Renderer\Products</argument>
+                    </arguments>
+                </block>
+                <block class="Magento\Backend\Block\Widget\Grid\Column" name="customer.wishlist.view.tab.columnSet.updated_at" as="updated_at">
+                    <arguments>
+                        <argument name="header" xsi:type="string" translate="true">Updated At</argument>
+                        <argument name="index" xsi:type="string">updated_at</argument>
+                        <argument name="type" xsi:type="string">datetime</argument>
+                        <argument name="filter" xsi:type="boolean">false</argument>
+                        <argument name="id" xsi:type="string">updated_at</argument>
+                    </arguments>
+                </block>
+                <block class="Magento\Backend\Block\Widget\Grid\Column" name="customer.wishlist.edit.tab.columnSet.action" as="action">
+                    <arguments>
+                        <argument name="header" xsi:type="string" translate="true">Action</argument>
+                        <argument name="index" xsi:type="string">wishlist_id</argument>
+                        <argument name="renderer" xsi:type="string">Magento\Customer\Block\Adminhtml\Grid\Renderer\Multiaction</argument>
+                        <argument name="sortable" xsi:type="string">0</argument>
+                        <argument name="filter" xsi:type="string">0</argument>
+                        <argument name="actions" xsi:type="array">
+                            <item name="view" xsi:type="array">
+                                <item name="caption" xsi:type="string" translate="true">View</item>
+                                <item name="onclick" xsi:type="string">return wishlistLinks.viewList($wishlist_id);</item>
+                            </item>
+                            <item name="delete" xsi:type="array">
+                                <item name="caption" xsi:type="string" translate="true">Delete</item>
+                                <item name="onclick" xsi:type="string">return wishlistLinks.removeList($wishlist_id);</item>
+                            </item>
+                        </argument>
+                    </arguments>
+                </block>
+            </block>
+            <block class="Magento\Framework\View\Element\Template" name="customer.wishlist.view.tab.grid_js" as="grid.js">
+                <arguments>
+                    <argument name="template" xsi:type="string">Cminds_Multiwishlist::customer/edit/tab/wishlist/view.phtml</argument>
+                </arguments>
+            </block>
+        </block>
+    </container>
+</layout>

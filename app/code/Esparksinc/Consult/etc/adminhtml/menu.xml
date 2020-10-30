@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        
+        <add id="Esparksinc_Consult::manager" title="Esparksinc" module="Esparksinc_Consult" sortOrder="10" resource="Esparksinc_Consult::manager" />
+
+        <add id="Esparksinc_Consult::query" title="Query List" module="Esparksinc_Consult" sortOrder="20" parent="Esparksinc_Consult::manager" action="consult/query" resource="Esparksinc_Consult::manager"/>
+
+        <add id="Esparksinc_Consult::email" title="Notification Configuration" module="Esparksinc_Consult" sortOrder="30" parent="Esparksinc_Consult::manager" action="adminhtml/system_config/edit/section/esparksinc" resource="Esparksinc_Consult::manager"/>
+    </menu>
+</config>

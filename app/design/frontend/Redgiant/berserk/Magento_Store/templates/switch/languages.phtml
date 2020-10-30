@@ -1,0 +1,59 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+?>
+<?php
+/**
+ * Language switcher template
+ */
+?>
+
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+?>
+<?php
+/**
+ * Language switcher template
+ */
+?>
+<?php
+    $is_demo = 1;
+?>
+<?php if (count($block->getStores())>1 || $is_demo == 1): ?>
+<div class="brk-lang brk-header__item switcher switcher-language language">
+    <span class="brk-switcher__selected"><?php echo $block->escapeHtml($block->getStoreName()) ?></span>
+    <ul class="brk-switcher__option">
+        <?php foreach ($block->getStores() as $_lang): ?>
+            <?php if ($_lang->getId() != $block->getCurrentStoreId()): ?>
+                <li>
+                    <a href="#" data-post='<?php /* @escapeNotVerified */ echo $block->getTargetStorePostData($_lang); ?>'><?php echo $block->escapeHtml($_lang->getName()) ?></a>
+                </li>
+            <?php endif; ?>
+        <?php endforeach; ?>
+            <?php if($is_demo == 1 && count($block->getStores())<=1): ?>
+                <li class="view-demo_ua switcher-option">
+                    <a href="javascript:void(0)" data-post="" title="It will be automatically added once you set up more multi store views.">UA</a>
+                </li>
+                <li class="view-demo_pl switcher-option">
+                    <a href="javascript:void(0)" data-post="" title="It will be automatically added once you set up more multi store views.">PL</a>
+                </li>
+                <li class="view-demo_es switcher-option">
+                    <a href="javascript:void(0)" data-post="" title="It will be automatically added once you set up more multi store views.">ES</a>
+                </li>
+            <?php endif; ?>
+    </ul>
+    <i class="fa fa-caret-down" aria-hidden="true"></i>
+</div>
+<?php endif; ?>
+

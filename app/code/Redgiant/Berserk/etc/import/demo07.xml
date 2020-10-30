@@ -1,0 +1,221 @@
+<root>
+<config>
+    <web>
+        <default>
+            <cms_home_page>berserk-shop-sports</cms_home_page>
+            <cms_no_route>berserk-no-route</cms_no_route>
+        </default>
+    </web>
+    <cms>
+        <wysiwyg>
+            <enabled>hidden</enabled>
+        </wysiwyg>
+    </cms>
+    <design>
+        <header>
+            <logo_width>142</logo_width>
+            <logo_height>26</logo_height>
+            <logo_src>default/logo.png</logo_src>
+        </header>
+    </design>
+    <dev>
+        <js>
+            <merge_files>1</merge_files>
+        </js>
+    </dev>
+    <berserk_settings>
+        <header>
+            <header_type>7</header_type>
+            <static_block_top_links>berserk_custom_block_for_top_links_7</static_block_top_links>
+            <static_block>berserk_custom_block_for_header_7</static_block>
+            <sticky_header_logo_src>default/logo_dark.png</sticky_header_logo_src>
+            <more_info_static_block>berserk_custom_block_for_more_info_popup</more_info_static_block>
+        </header>
+        <footer>
+            <footer_top>1</footer_top>
+            <footer_top_custom>berserk_custom_block_for_footer_top_7</footer_top_custom>
+            <footer_bottom>1</footer_bottom>
+            <footer_bottom_custom>berserk_custom_block_for_footer_bottom_7</footer_bottom_custom>
+        </footer>
+        <catalog>
+            <sidebar_cms_block>berserk_category_sideblock</sidebar_cms_block>
+        </catalog>
+        <product>
+            <content_cms_block>berserk_product_contentblock</content_cms_block>
+            <sidebar_cms_block>berserk_product_sideblock</sidebar_cms_block>
+        </product>
+        <custom_settings>
+            <custom_style><![CDATA[.page-footer {
+    background: transparent;
+    padding: 0;
+}
+.page-footer:before {
+    display: none
+}
+.brk-base-bg-gradient-24 {
+    background-image: -webkit-gradient(linear,left bottom,left top,from(#09ceff),to(#2c9cff));
+    background-image: linear-gradient(to top,#09ceff 0%,#2c9cff 100%);
+}
+.brk-footer__bg-left {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 50%;
+    height: 100%;
+}
+.brk-base-bg-gradient-bottom, .brk-base-bg-gradient-top {
+    background-image: -webkit-gradient(linear,left top,left bottom,from(#0f5ae0),to(#de2f95));
+    background-image: linear-gradient(to bottom,#0f5ae0,#de2f95);
+}
+.brk-footer__bg-right {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 50%;
+    height: 100%;
+}
+.brk-footer__bg-container {
+    position: relative;
+}
+.brk-social-links {
+    display: -webkit-inline-box;
+    display: inline-flex;
+    -webkit-box-align: center;
+    align-items: center;
+}
+a.brk-social-links__item {
+    margin-right: 26px;
+    line-height: 24px;
+    font-size: 15px;
+}
+a.brk-social-links__item i {
+    line-height: inherit;
+}
+a.brk-social-links__item:hover {
+    color: #de2f95;
+}
+footer .btn-prime {
+    color: #815ce3;
+}
+footer  .btn-prime:hover {
+    color: #815ce3!important;
+}
+.btn-prime_footer-4 {
+    background-color: transparent!important;
+    color: #fff!important;
+    font-size: 16px!important;
+}
+footer .btn-prime .border-btn {
+    border-color: #fff;
+}
+.brk-base-bg-gradient-26 {
+    background-image: -webkit-gradient(linear,left bottom,left top,from(rgba(23,27,38,.92)),to(rgba(39,45,62,.92)));
+    background-image: linear-gradient(to top,rgba(23,27,38,.92) 0%,rgba(39,45,62,.92) 100%);
+}
+.brk-footer__border-gradient, .brk-footer__border-gradient-1 {
+    position: relative;
+}
+.brk-footer__border-gradient::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 3px;
+    width: 100%;
+    background-image: -webkit-gradient(linear,right top,left top,from(#6e50c2),to(#b50aff));
+    background-image: linear-gradient(to left,#6e50c2 0%,#b50aff 100%);
+}
+@media (min-width: 1230px) {
+    .page-footer {
+        position: fixed;
+        left: 0;
+        right: 0;
+        top: auto;
+        bottom: 0;
+        z-index: 0;
+    }
+    main.page-main {
+        margin-bottom: 348px;
+        position: relative;
+        z-index: 1;
+        background-color: #fff;
+    }
+    main.page-main + .berserk-footer {
+        position: relative;
+        z-index: 2;
+        margin-bottom: 348px;
+        margin-top: -348px;
+        background-color: #fff;
+    }
+    body:not(.cms-index-index):not(.cms-page-view) main.page-main:after {
+        content: '';
+        width: 100vw;
+        height: 100%;
+        height: calc(100% + 80px);
+        background-color: #fff;
+        left: calc(591px - 50vw);
+        z-index: 0;
+        position: absolute;
+        top: -80px;
+    }
+    .columns {
+        display: block;
+        position: relative;
+        z-index: 2;
+    }
+    main.page-main > * {
+        position: relative;
+        z-index: 1;
+    }
+}
+.block.newsletter .action.subscribe:before {
+    content: "\f1d8";
+    display: block;
+    font-family: "Font Awesome\ 5 Free" !important;
+    font-weight: 900;
+    font-size: 16px;
+    color: #b50aff;
+}
+.block.newsletter .action.subscribe span {
+    display: none;
+}
+.block.newsletter .action.subscribe {
+    border: 0;
+    width: 42px;
+    height: 42px;
+    border-radius: 21px;
+    background-color: #fff;
+    position: absolute;
+    right: 0;
+    bottom: 20px;
+}
+.block.newsletter .actions {
+    position: relative;
+}
+.block.newsletter .field .control:before {
+    content: "\f0e0";
+    display: block;
+    font-family: "Font Awesome\ 5 Free" !important;
+    position: absolute;
+    top: 16px;
+    left: 5px;
+    font-weight: 900;
+    font-size: 16px;
+    color: #aaa;
+}
+.block.newsletter input {
+    color: #fff;
+}
+body:not(.cms-index-index) .page-wrapper .top-container {
+    padding-top: 160px;
+}]]></custom_style>
+        </custom_settings>
+    </berserk_settings>
+    <berserk_design>
+        <general>
+            <theme_color></theme_color>
+            <theme_color_2></theme_color_2>
+        </general>
+    </berserk_design>
+</config>
+</root>

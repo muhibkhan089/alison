@@ -1,0 +1,463 @@
+<?php
+/**
+ * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+/* @var $block \Magento\Catalog\Block\Product\AbstractProduct */
+?>
+
+<?php
+$_berserkhelper = $this->helper( 'Redgiant\Berserk\Helper\Data' );
+$_helper = $this->helper( 'Magento\Catalog\Helper\Output' );
+$_imagehelper = $this->helper('Magento\Catalog\Helper\Image');
+
+
+$perrow = $_berserkhelper->getConfig( 'berserk_settings/catalog/product_per_row' );
+$show_related_products = $_berserkhelper->getConfig( 'berserk_settings/product/show_related_products' );
+$show_upsell_products = $_berserkhelper->getConfig( 'berserk_settings/product/show_upsell_products' );
+$_show_addto_links = $_berserkhelper->getConfig( 'berserk_settings/product/show_addto_links' );
+$_grid_style = $_berserkhelper->getConfig('berserk_settings/catalog/grid_style');
+$aspect_ratio = $_berserkhelper->getConfig("berserk_settings/catalog/enable_aspect_ratio");
+$_sale_label = $_berserkhelper->getConfig('berserk_settings/catalog/sale_label');
+$_new_label = $_berserkhelper->getConfig('berserk_settings/catalog/new_label');
+$_label_type = $_berserkhelper->getConfig('berserk_settings/catalog/label_type'); 
+$_show_review = $_berserkhelper->getConfig('berserk_settings/catalog/show_review');
+
+$_category_label = '';
+$_show = false;
+$_flipbox = 'flip-box';
+$_alternative_img = 'category_page_grid_altimage';
+
+if(empty($aspect_ratio)) {
+    $aspect_ratio = 0;
+}
+$image_width = $_berserkhelper->getConfig("berserk_settings/catalog/image_width");
+if(empty($image_width)) {
+    $image_width = 300;
+}
+$image_height = $_berserkhelper->getConfig("berserk_settings/catalog/image_height");
+if($aspect_ratio)
+    $image_height = $image_width;
+if(empty($image_height)) {
+    $image_height = 300;
+}
+
+
+
+switch ($type = $block->getType()) {
+
+    case 'related-rule':
+        if ($exist = $block->hasItems()) {
+            $type = 'related';
+            $class = $type;
+
+            $image = 'related_products_list';
+            $title = __('Related Products');
+            $items = $block->getAllItems();
+            $limit = $block->getPositionLimit();
+            $shuffle = (int) $block->isShuffled();
+            $canItemsAddToCart = $block->canItemsAddToCart();
+
+            $showAddTo = true;
+            $showCart = false;
+            $templateType = null;
+            $description = false;
+        }
+    break;
+
+    case 'related':
+        /** @var \Magento\Catalog\Block\Product\ProductList\Related $block */
+        if ($exist = $block->getItems()->getSize()) {
+            $type = 'related';
+            $class = $type;
+
+            $image = 'related_products_list';
+            $title = __('Related Products');
+            $items = $block->getItems();
+            $limit = 0;
+            $shuffle = 0;
+            $canItemsAddToCart = $block->canItemsAddToCart();
+
+            $showAddTo = true;
+            $showCart = false;
+            $templateType = null;
+            $description = false;
+
+            $_show = $show_related_products;
+        }
+    break;
+
+    case 'upsell-rule':
+        if ($exist = $block->hasItems()) {
+            $type = 'upsell';
+            $class = $type;
+
+            $image = 'upsell_products_list';
+            $title = __('We found other products you might like!');
+            $items = $block->getAllItems();
+            $limit = $block->getPositionLimit();
+            $shuffle = (int) $block->isShuffled();
+
+            $showAddTo = false;
+            $showCart = false;
+            $templateType = null;
+            $description = false;
+            $canItemsAddToCart = false;
+        }
+    break;
+
+    case 'upsell':
+        /** @var \Magento\Catalog\Block\Product\ProductList\Upsell $block */
+        if ($exist = count($block->getItemCollection()->getItems())) {
+            $type = 'upsell';
+            $class = $type;
+
+            $image = 'upsell_products_list';
+            $title = __('Upsell Products');
+            $items = $block->getItemCollection()->getItems();
+            $limit = $block->getItemLimit('upsell');
+            $shuffle = 0;
+
+            $showAddTo = false;
+            $showCart = false;
+            $templateType = null;
+            $description = false;
+            $canItemsAddToCart = false;
+
+            $_show = $show_upsell_products;
+        }
+    break;
+
+    case 'crosssell-rule':
+        /** @var \Magento\Catalog\Block\Product\ProductList\Crosssell $block */
+        if ($exist = $block->hasItems()) {
+            $type = 'crosssell';
+            $class = $type;
+
+            $image = 'cart_cross_sell_products';
+            $title = __('More Choices:');
+            $items = $block->getItemCollection();
+
+            $showAddTo = true;
+            $showCart = true;
+            $templateType = \Magento\Catalog\Block\Product\ReviewRendererInterface::SHORT_VIEW;
+            $description = false;
+            $canItemsAddToCart = false;
+        }
+    break;
+
+    case 'crosssell':
+        /** @var \Magento\Catalog\Block\Product\ProductList\Crosssell $block */
+        if ($exist = $block->getItemCount()) {
+            $type = 'crosssell';
+            $class = $type;
+
+            $image = 'cart_cross_sell_products';
+            $title = __('More Choices:');
+            $items = $block->getItems();
+
+            $showAddTo = true;
+            $showCart = true;
+            $templateType = \Magento\Catalog\Block\Product\ReviewRendererInterface::SHORT_VIEW;
+            $description = false;
+            $canItemsAddToCart = false;
+        }
+    break;
+
+    case 'new':
+        if ($exist = $block->getProductCollection()) {
+            $type = 'new';
+            $mode = 'grid';
+            $type = $type . ' ' . $mode;
+
+            $class = 'widget' . ' ' . $type;
+
+            $image = 'new_products_content_widget_grid';
+            $title = __('New Products');
+            $items = $exist;
+
+            $showAddTo = true;
+            $showCart = true;
+            $templateType = \Magento\Catalog\Block\Product\ReviewRendererInterface::SHORT_VIEW;
+            $description = ($mode == 'list') ? true : false;
+            $canItemsAddToCart = false;
+        }
+    break;
+
+    case 'other':
+    break;
+}
+?>
+<?php if (($exist) && $_show) :?>
+
+    <?php if ($type == 'related' || $type == 'upsell'): ?>
+        <?php if ($type == 'related'): ?>
+            <div class="block <?php /* @escapeNotVerified */ echo $class; ?>" data-mage-init='{"relatedProducts":{"relatedCheckbox":".related.checkbox"}}' data-limit="<?php /* @escapeNotVerified */ echo $limit; ?>" data-shuffle="<?php /* @escapeNotVerified */ echo $shuffle; ?>">
+        <?php else: ?>
+            <div class="block <?php /* @escapeNotVerified */ echo $class; ?>" data-mage-init='{"upsellProducts":{}}' data-limit="<?php /* @escapeNotVerified */ echo $limit; ?>" data-shuffle="<?php /* @escapeNotVerified */ echo $shuffle; ?>">
+        <?php endif; ?>
+    <?php else: ?>
+        <div class="block <?php /* @escapeNotVerified */ echo $class; ?>">
+    <?php endif; ?>
+    <div class="block-title title">
+        <div id="block-<?php /* @escapeNotVerified */ echo $class?>-heading" class="block-<?php /* @escapeNotVerified */ echo $class?>-heading" role="heading" aria-level="2"><?php /* @escapeNotVerified */ echo $title; ?></div>
+    </div>
+    <div class="block-content content" aria-labelledby="block-<?php /* @escapeNotVerified */ echo $class?>-heading">
+        <?php if ($type == 'related' && $canItemsAddToCart): ?>
+        <div class="block-actions">
+            <?php /* @escapeNotVerified */ echo __('Check items to add to the cart or') ?>
+            <button type="button" class="action select" role="select-all"><span><?php /* @escapeNotVerified */ echo __('select all') ?></span></button>
+        </div>
+        <?php endif; ?>
+        <div class="products wrapper grid products-grid products-<?php /* @escapeNotVerified */ echo $type; ?>">
+            <ol class="products list items product-items owl-carousel">
+                <?php $iterator = 1; ?>
+                <?php foreach ($items as $_item): ?>
+                <?php $available = ''; ?>
+                <?php if (!$_item->isComposite() && $_item->isSaleable() && $type == 'related'): ?>
+                    <?php if (!$_item->getRequiredOptions()): ?>
+                        <?php $available = 'related-available'; ?>
+                    <?php endif; ?>
+                <?php endif; ?>
+                <?php if ($type == 'related' || $type == 'upsell'): ?>
+                    <?php /* @escapeNotVerified */ echo($iterator++ == 1) ? '<li class="item product product-item" style="display: none;">' : '</li><li class="item product product-item" style="display: none;">' ?>
+                <?php else: ?>
+                    <?php /* @escapeNotVerified */ echo($iterator++ == 1) ? '<li class="item product product-item">' : '</li><li class="item product product-item">' ?>
+                <?php endif; ?>
+                <div class="product-item-info <?php /* @escapeNotVerified */ echo $available; ?> <?php echo $_flipbox ?> <?php echo $_grid_style; ?>">
+                    <?php /* @escapeNotVerified */ echo '<!-- ' . $image . '-->' ?>
+                    
+                    <?php
+                        
+                        $flip_direction = 'flip_vertical';
+                        if( $iterator % 2 == 0 ) $flip_direction = 'flip_horizontal';
+                    ?>
+                    <div class="flip <?php echo $flip_direction; ?> flip-box__split">
+                        <div class="flip__front">
+                            <div class="product-photo-container">
+                            <?php
+                                if($aspect_ratio)
+                                    $productImage = $_imagehelper->init($_item, $image)->constrainOnly(FALSE)->keepAspectRatio(TRUE)->keepFrame(FALSE)->resize($image_width);
+                                else
+                                    $productImage = $_imagehelper->init($_item, $image)->resize($image_width, $image_height);
+                                $productImageUrl = $productImage->getUrl();
+                            ?>
+                                <a href="<?php /* @escapeNotVerified */ echo $block->getProductUrl($_item) ?>" class="product photo product-item-photo">
+                                    <img class="product-image-photo default_image" src="<?php echo $productImageUrl; ?>"/>
+                                </a>
+                                <?php
+                                    $product_label = "";
+                                    if($_sale_label) {
+                                        $orgprice = $_item->getPrice();
+                                        $specialprice = $_item->getSpecialPrice();
+                                        $specialfromdate = $_item->getSpecialFromDate();
+                                        $specialtodate = $_item->getSpecialToDate();
+                                        $today = time();
+                                        if(!$specialprice)
+                                            $specialprice = $orgprice;
+                                        if($specialprice < $orgprice) {
+                                            if((is_null($specialfromdate) && is_null($specialtodate)) || ($today >= strtotime($specialfromdate) && is_null($specialtodate)) || ($today <= strtotime($specialtodate) && is_null($specialfromdate)) || ($today >= strtotime($specialfromdate) && $today <= strtotime($specialtodate))){
+                                                $percent = number_format ( ($specialprice - $orgprice) / $orgprice * 100) . '%';
+                                                if($_show_percent) $_sale_label = $percent;
+                                                $product_label .= '<div class="product-label sale-label brk-sc-card-label">';
+                                                $product_label .= '<span class="brk-white-font-color font__family-montserrat font__size-13 font__weight-bold line__height-14 text-uppercase brk-sc-card-label__text">'. $_sale_label .'</span>';
+                                                $product_label .= '<span class="brk-sc-card-label__additional-1"></span><span class="brk-sc-card-label__additional-2"></span><span class="brk-sc-card-label__additional-3"></span>';
+                                                $product_label .= '</div>';
+                                            }
+                                        }
+                                    }
+                                    if($_new_label) {
+                                        $now = date("Y-m-d");
+                                        $newsFrom= substr($_item->getData('news_from_date'),0,10);
+                                        $newsTo=  substr($_item->getData('news_to_date'),0,10);
+                                        if ($newsTo != '' || $newsFrom != ''){
+                                            if (($newsTo != '' && $newsFrom != '' && $now>=$newsFrom && $now<=$newsTo) || ($newsTo == '' && $now >=$newsFrom) || ($newsFrom == '' && $now<=$newsTo)) {
+                                                $product_label .= '<div class="product-label new-label brk-sc-card-label">';
+                                                $product_label .= '<span class="brk-white-font-color font__family-montserrat font__size-13 font__weight-bold line__height-14 text-uppercase brk-sc-card-label__text">'. $_new_label .'</span>';
+                                                $product_label .= '<span class="brk-sc-card-label__additional-1"></span><span class="brk-sc-card-label__additional-2"></span><span class="brk-sc-card-label__additional-3"></span>';
+                                                $product_label .= '</div>';
+                                            }
+                                        }
+                                    }
+                                    if($product_label){
+                                        switch ($_label_type) {
+                                            case 1:
+                                                echo '<div class="product-labels brk-sc-card-labels top-labels">'.$product_label.'</div>';
+                                                break;
+                                            case 2:
+                                                echo '<div class="product-labels brk-sc-card-labels side-labels">'.$product_label.'</div>';
+                                                break;
+                                            default:
+                                                echo '<div class="product-labels brk-sc-card-labels side-labels-cornered">'.$product_label.'</div>';
+                                                break;
+                                        }
+                                        
+                                    }
+                                ?>   
+                            </div>
+                            <div class="flip-box__split-info">
+                            <?php if($_grid_style == 'type5') echo $_category_label; ?>
+                                <strong class="product name product-item-name">
+                                    <a class="product-item-link"
+                                    href="<?php echo $_item->getProductUrl() ?>">
+                                        <?php echo $block->escapeHtml($_item->getName()); ?>
+                                    </a>
+                                </strong>
+                                <?php echo $block->getProductPrice( $_item ) ?>
+                            </div>
+                        </div>
+                            <div class="flip__back">
+                            <div class="flip-box__split-overlay brk-base-bg-gradient-10deg"></div>
+                            <?php if($_grid_style == 'type3' || $_grid_style == 'type4' || $_grid_style == 'type5'): ?>
+                                <div class="product-photo-container">
+                                    <a href="<?php echo $_item->getProductUrl() ?>" class="product photo product-item-photo" tabindex="-1">
+                                        <?php 
+                                            if($aspect_ratio)
+                                                $productImage = $_imagehelper->init($_item, $_alternative_img)->constrainOnly(FALSE)->keepAspectRatio(TRUE)->keepFrame(FALSE)->resize($image_width);
+                                            else
+                                                $productImage = $_imagehelper->init($_item, $_alternative_img)->resize($image_width, $image_height);
+                                            $productImageUrl = $productImage->getUrl();
+                                        ?>
+                                        <img class="product-image-photo" src="<?php echo $productImageUrl; ?>"/>
+                                    </a>
+                                </div>
+                            <?php endif; ?>
+                    <div class="product details product-item-details flip-box__split-content">
+
+                        <div class="flip-box__split-info">
+                        <?php if($_grid_style == 'type5') echo $_category_label; ?>
+                            <strong class="product name product-item-name">
+                                <a class="product-item-link" href="<?php echo $_item->getProductUrl() ?>">
+                                    <?php echo $block->escapeHtml($_item->getName()) ?>
+                                </a>
+                            </strong>
+                            <?php
+                                echo $block->getProductPrice( $_item );
+                            ?>
+                        </div>
+                        <div class="product description product-item-description flip-box__split-list">
+                            <?php echo $_helper->productAttribute($_item, $_item->getShortDescription(), 'short_description') ?>
+                        </div>
+                        <?php if ($templateType && !empty($_show_review)): ?>
+                                <?php echo $block->getReviewsSummaryHtml($_item, $templateType) ?>
+                        <?php endif; ?>
+
+                            <?php if (!$_item->isComposite() && $_item->isSaleable() && $type == 'related'): ?>
+                                <?php if (!$_item->getRequiredOptions()): ?>
+                                    <div class="field choice related">
+                                        <input type="checkbox" class="checkbox related" id="related-checkbox<?php /* @escapeNotVerified */ echo $_item->getId() ?>" name="related_products[]" value="<?php /* @escapeNotVerified */ echo $_item->getId() ?>" />
+                                        <label class="label" for="related-checkbox<?php /* @escapeNotVerified */ echo $_item->getId() ?>"><span><?php /* @escapeNotVerified */ echo __('Add to Cart') ?></span></label>
+                                    </div>
+                                <?php endif; ?>
+                            <?php endif; ?>
+
+                            <?php if ($showAddTo || $showCart): ?>
+                                <div class="product-item-inner">
+                                    <?php if ($showCart): ?>
+                                        <div class="actions-primary">
+                                            <?php if($_grid_style == 'type1') :?>
+                                            <?php $_html = '<i class="far fa-shopping-basket icon-inside"></i>'; $_style=""; ?>
+                                            <?php else: ?>
+                                            <?php 
+                                                $_btntext = __('BUY IT');
+                                                if($_grid_style == 'type2')
+                                                    $_btntext = $_item->getFinalPrice() > 0 ? $this->helper('Magento\Framework\Pricing\Helper\Data')->currency($_item->getFinalPrice(),true,false) : $_btntext; 
+                                                if($_grid_style == 'type4' || $_grid_style == 'type5')
+                                                    $_btntext = "";
+                                                $_html = '<i class="far fa-shopping-basket icon-inside"></i><span class="before">' . $_btntext . '</span><span class="text">' . __('Buy It') . '</span><span class="after">'
+                                                        . $_btntext . '</span>';
+                                                $_style = "btn btn-inside-out btn-md";
+                                            ?>
+                                            <?php endif; ?>
+                                            <?php if ($_item->isSaleable()): ?>
+                                                <?php if ($_item->getTypeInstance()->hasRequiredOptions($_item)): ?>
+                                                    <button class="action tocart primary <?php echo $_style; ?>" data-mage-init='{"redirectUrl": {"url": "<?php /* @escapeNotVerified */ echo $block->getAddToCartUrl($_item) ?>"}}' type="button" title="<?php /* @escapeNotVerified */ echo __('Add to Cart') ?>">
+                                                        <?php echo $_html; ?>
+                                                    </button>
+                                                <?php else: ?>
+                                                    <?php $postDataHelper = $this->helper('Magento\Framework\Data\Helper\PostHelper');
+                                                    $postData = $postDataHelper->getPostData($block->getAddToCartUrl($_item), ['product' => $_item->getEntityId()])
+                                                    ?>
+                                                    <button class="action tocart primary <?php echo $_style; ?>"
+                                                            data-post='<?php /* @escapeNotVerified */ echo $postData; ?>'
+                                                            type="button" title="<?php /* @escapeNotVerified */ echo __('Add to Cart') ?>">
+                                                        <?php echo $_html; ?>
+                                                    </button>
+                                                <?php endif; ?>
+                                            <?php else: ?>
+                                                <?php if ($_item->getIsSalable()): ?>
+                                                    <div class="stock available"><span><?php /* @escapeNotVerified */ echo __('In stock') ?></span></div>
+                                                <?php else: ?>
+                                                    <div class="stock unavailable"><span><?php /* @escapeNotVerified */ echo __('Out of stock') ?></span></div>
+                                                <?php endif; ?>
+                                            <?php endif; ?>
+                                        </div>
+                                    <?php endif; ?>
+
+                                    <?php if ($showAddTo && $_show_addto_links): ?>
+                                        <div class="secondary-addto-links actions-secondary" data-role="add-to-links">
+                                            <?php if ($addToBlock = $block->getChildBlock('addto')): ?>
+                                                <?php echo $addToBlock->setProduct($_item)->getChildHtml(); ?>
+                                            <?php endif; ?>
+                                        </div>
+                                    <?php endif; ?>
+                                </div>
+                            <?php endif; ?>
+                        </div>
+                    </div></div>
+                    
+                    <?php if($_grid_style == 'type4'): ?>
+                        <div class="brk-sc-flip-three__title">
+                            <strong class="product name product-item-name">
+                                <a class="product-item-link" href="<?php echo $_item->getProductUrl() ?>">
+                                    <?php echo $block->escapeHtml($_item->getName()) ?>
+                                </a>
+                            </strong>
+                        </div>
+                    <?php endif; ?>
+                </div>
+                    <?php echo($iterator == count($items)+1) ? '</li>' : '' ?>
+                <?php endforeach ?>
+            </ol>
+            <?php if ($type == 'related' || $type == 'upsell' || $type == 'crosssell'): ?>
+            <script type="text/javascript">
+                var config = {
+                    paths:{
+                        "carousel":"owlcarousel/owl.carousel.min"
+                    }
+                };
+                require.config(config);
+                require([
+                    'jquery',
+                    'owlcarousel'
+                ], function ($) {
+                    var relatedproducts = $('ol.owl-carousel').owlCarousel({
+                        items: 4,
+                        autoplay: false,
+                        autoplayHoverPause: false,
+                        lazyLoad: true,
+                        nav: true,
+                        dots: true,
+                        navText: ["<i class='fa fa-angle-left'></i>","<i class='fa fa-angle-right'></i>"],
+                        responsive:{
+                            0:{
+                                items:1
+                            },
+			                768:{
+                                items:3
+                            },
+                            992:{
+                                items: 4
+                            }
+                        }
+                    });
+                });
+            </script>
+            <?php endif; ?>
+        </div>
+    </div>
+</div>
+<?php endif;?>

@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../Magento/Backend/etc/menu.xsd">
+    <menu>
+        <add id="Redgiant_LayeredNavigation::layerednav" title="Layered Navigation" module="Redgiant_LayeredNavigation" sortOrder="705" parent="Redgiant_Core::rg_all" resource="Redgiant_Core::all"/>
+        <add id="Redgiant_LayeredNavigation::configration" title="Configuration" module="Redgiant_LayeredNavigation" sortOrder="100" parent="Redgiant_LayeredNavigation::layerednav" action="adminhtml/system_config/edit/section/rg_layerednav" resource="Redgiant_LayeredNavigation::config_layerednav"/>
+    </menu>
+</config>

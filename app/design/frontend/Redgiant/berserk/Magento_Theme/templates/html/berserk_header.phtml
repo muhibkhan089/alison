@@ -1,0 +1,386 @@
+<?php 
+    $_helper = $this->helper('Redgiant\Berserk\Helper\Data');
+    $header_type = $_helper->getConfig('berserk_settings/header/header_type');
+?>
+<header class="page-header container-fluid type<?php echo $header_type; ?>">
+<?php if($header_type == 2): ?>
+    <div class="header panel">
+    	<?php
+    		$static_block_top_links = $_helper->getConfig('berserk_settings/header/static_block_top_links');
+            if (isset($static_block_top_links) && $static_block_top_links) {
+                $block = $this->getLayout()->createBlock('Magento\Cms\Block\Block');
+                if ($block) {
+                    $block->setBlockId($static_block_top_links);
+                }
+                if ($block) {
+                    echo '<div class="brk-custom-block">' . $block->toHtml() . '</div>';
+                }
+            }
+        ?>
+		<div class="links-area">
+			<?php echo $this->getChildHtml("minicart"); ?>
+			<div class="account-links-area">
+				<a href="javascript:void(0)"><i class="fa fa-user"></i><span class="brk-header__element--label font__weight-medium">Login</span></a>
+        		<?php echo $this->getChildHtml("header.links"); ?>
+        	</div>
+			<?php echo $this->getChildHtml("store_language"); ?>
+			<?php echo $this->getChildHtml("currency"); ?>
+        </div>
+    </div>
+	<div class="header content">
+		<div class="header-content">
+			<div class="row align-items-center">
+				<div class="col-8 col-lg-1 col-xl-2 align-self-center text-center text-lg-left order-2 order-lg-1 logo-area">
+					<?php if($_helper->getConfig('berserk_settings/header/more_info')): ?>
+				    <div class="brk-info-menu-open brk-info-menu-open_skin-2 brk-header__item"><span class="brk-lines"><span class="brk-center-line"></span></span>
+						<div class="brk-info-menu-open__title">Side Menu</div>
+					</div>
+				    <?php endif; ?>
+					<?php echo $this->getChildHtml("logo"); ?>
+				</div>
+				<div class="col-2 col-lg align-self-stretch text-left text-lg-center order-1 order-lg-2">
+					<span data-action="toggle-nav" class="action nav-toggle"><span></span></span>
+					<?php echo $this->getChildHtml("navigation.sections"); ?>
+			    </div>
+			    <div class="col-2 col-lg-2 align-self-stretch text-right order-3 order-lg-3">
+			    	<div class="header-right-area">
+				    	<?php
+				    		$static_block = $_helper->getConfig('berserk_settings/header/static_block');
+				            if (isset($static_block) && $static_block) {
+				                $block = $this->getLayout()->createBlock('Magento\Cms\Block\Block');
+				                if ($block) {
+				                    $block->setBlockId($static_block);
+				                }
+				                if ($block) {
+				                    echo '<div class="brk-custom-block">' . $block->toHtml() . '</div>';
+				                }
+				            }
+				        ?>
+				        <div class="search-area">
+					    	<a href="javascript:void(0)"><i class="fa fa-search"></i></a>
+					    	<?php echo $this->getChildHtml("top.search"); ?>
+					    </div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+<?php elseif($header_type == 3): ?>
+    <div class="header panel">
+    	<?php
+    		$static_block_top_links = $_helper->getConfig('berserk_settings/header/static_block_top_links');
+            if (isset($static_block_top_links) && $static_block_top_links) {
+                $block = $this->getLayout()->createBlock('Magento\Cms\Block\Block');
+                if ($block) {
+                    $block->setBlockId($static_block_top_links);
+                }
+                if ($block) {
+                    echo '<div class="brk-custom-block">' . $block->toHtml() . '</div>';
+                }
+            }
+        ?>
+		<div class="links-area">
+			<?php echo $this->getChildHtml("minicart"); ?>
+			<?php echo $this->getChildHtml("store_language"); ?>
+			<?php echo $this->getChildHtml("currency"); ?>
+        	<?php echo $this->getChildHtml("header.links"); ?>
+        </div>
+    </div>
+	<div class="header content">
+		<div class="header-content">
+			<div class="row align-items-center">
+				<div class="col-8 col-lg-2 align-self-center text-center text-lg-left order-2 order-lg-1">
+					<?php echo $this->getChildHtml("logo"); ?>
+				</div>
+				<div class="col-2 col-lg align-self-stretch text-left text-lg-center order-1 order-lg-2">
+					<span data-action="toggle-nav" class="action nav-toggle"><span></span></span>
+					<?php echo $this->getChildHtml("navigation.sections"); ?>
+			    </div>
+			    <div class="col-2 col-lg-3 align-self-stretch text-right order-3 order-lg-3">
+			    	<div class="header-right-area">
+					    <div class="search-area">
+					    	<a href="javascript:void(0)"><i class="fa fa-search"></i></a>
+					    	<?php echo $this->getChildHtml("top.search"); ?>
+					    </div>
+				    	<?php
+				    		$static_block = $_helper->getConfig('berserk_settings/header/static_block');
+				            if (isset($static_block) && $static_block) {
+				                $block = $this->getLayout()->createBlock('Magento\Cms\Block\Block');
+				                if ($block) {
+				                    $block->setBlockId($static_block);
+				                }
+				                if ($block) {
+				                    echo '<div class="brk-custom-block">' . $block->toHtml() . '</div>';
+				                }
+				            }
+				        ?>
+				        <?php if($_helper->getConfig('berserk_settings/header/more_info')): ?>
+					    <div class="brk-info-menu-open brk-info-menu-open_skin-2 brk-header__item"><span class="brk-lines"><span class="brk-center-line"></span></span>
+							<div class="brk-info-menu-open__title">Side Menu</div>
+						</div>
+					    <?php endif; ?>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+<?php elseif($header_type == 4): ?>
+	<div class="header content">
+		<div class="header-content">
+			<div class="row align-items-center justify-content-between">
+				<div class="col-3 col-lg-4 align-self-stretch text-left">
+					<span data-action="toggle-nav" class="action nav-toggle"><span></span></span>
+					<div class="brk-header-popup-menu__open-close font__family-montserrat font__weight-light font__size-14 letter-spacing-40">
+						<div class="brk-open"><i class="fa fa-bars"></i> Menu</div>
+						<div class="brk-close"><i class="fa fa-times"></i> Close</div>
+					</div>
+					<?php echo $this->getChildHtml("store_language"); ?>
+					<?php echo $this->getChildHtml("currency"); ?>
+					<div class="menu-area">
+						<?php echo $this->getChildHtml("navigation.sections"); ?>
+					</div>
+				</div>
+				<div class="col-6 col-lg-4 align-self-center text-center">
+					<?php echo $this->getChildHtml("logo"); ?>
+			    </div>
+			    <div class="col-3 col-lg-4 align-self-stretch text-right">
+			    	<div class="header-right-area">
+				    	<?php
+				    		$static_block = $_helper->getConfig('berserk_settings/header/static_block');
+				            if (isset($static_block) && $static_block) {
+				                $block = $this->getLayout()->createBlock('Magento\Cms\Block\Block');
+				                if ($block) {
+				                    $block->setBlockId($static_block);
+				                }
+				                if ($block) {
+				                    echo '<div class="brk-custom-block">' . $block->toHtml() . '</div>';
+				                }
+				            }
+				        ?>
+				        <?php echo $this->getChildHtml("minicart"); ?>
+				        <div class="search-area">
+					    	<a href="javascript:void(0)"><i class="fa fa-search"></i></a>
+					    	<?php echo $this->getChildHtml("top.search"); ?>
+					    </div>
+					    <div class="links-area">
+					    	<a href="javascript:void(0)"><i class="fa fa-user"></i></a>
+					    	<?php echo $this->getChildHtml("header.links"); ?>
+					    </div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+<?php elseif($header_type == 5): ?>
+	<div class="header content">
+		<div class="header-content">
+			<div class="row align-items-center">
+				<div class="col-4 d-lg-none">
+					<span data-action="toggle-nav" class="action nav-toggle"><span></span></span>
+				</div>
+				<div class="col-4 col-lg-auto align-self-center text-center text-lg-left">
+					<?php if($_helper->getConfig('berserk_settings/header/more_info')): ?>
+				    <div class="brk-info-menu-open brk-info-menu-open_skin-2 brk-header__item"><span class="brk-lines"><span class="brk-center-line"></span></span>
+						<div class="brk-info-menu-open__title">Side Menu</div>
+					</div>
+				    <?php endif; ?>
+					<?php echo $this->getChildHtml("logo"); ?>
+				</div>
+				<div class="col-auto col-lg align-self-lg-stretch nav-area">
+					<?php echo $this->getChildHtml("navigation.sections"); ?>
+				</div>
+			    <div class="col-4 col-lg-auto align-self-stretch text-right">
+			    	<div class="header-right-area">
+			    		<?php echo $this->getChildHtml("minicart"); ?>
+					    <div class="search-area">
+					    	<a href="javascript:void(0)"><i class="fa fa-search"></i></a>
+					    	<?php echo $this->getChildHtml("top.search"); ?>
+					    </div>
+					    <div class="links-area">
+					    	<a href="javascript:void(0)"><i class="fa fa-user"></i></a>
+					    	<?php echo $this->getChildHtml("header.links"); ?>
+					    </div>
+					    <?php echo $this->getChildHtml("store_language"); ?>
+						<?php echo $this->getChildHtml("currency"); ?>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+<?php elseif($header_type == 6): ?>
+	<div class="header content menu-type-2">
+		<div class="header-content">
+			<div class="row align-items-center">
+				<div class="col-4 col-xs-3 col-lg align-self-lg-stretch">
+					<?php if($_helper->getConfig('berserk_settings/header/more_info')): ?>
+				    <div class="brk-info-menu-open brk-info-menu-open_skin-2 brk-header__item"><span class="brk-lines"><span class="brk-center-line"></span></span>
+						<div class="brk-info-menu-open__title">Side Menu</div>
+					</div>
+				    <?php endif; ?>
+					<span data-action="toggle-nav" class="action nav-toggle"><span></span></span>
+					<?php echo $this->getChildHtml("navigation.sections"); ?>
+				</div>
+				<div class="col-4 col-xs-6 col-lg-2 align-self-center text-center text-lg-left">
+					<?php echo $this->getChildHtml("logo"); ?>
+				</div>
+			    <div class="col-4 col-xs-3 col-lg-5 align-self-stretch text-right">
+			    	<div class="header-right-area">
+			    		<?php echo $this->getChildHtml("minicart"); ?>
+					    <div class="search-area">
+					    	<a href="javascript:void(0)"><i class="fa fa-search"></i></a>
+					    	<?php echo $this->getChildHtml("top.search"); ?>
+					    </div>
+					    <div class="links-area">
+					    	<a href="javascript:void(0)"><i class="fa fa-user"></i></a>
+					    	<?php echo $this->getChildHtml("header.links"); ?>
+					    </div>
+					    <?php
+				    		$static_block = $_helper->getConfig('berserk_settings/header/static_block');
+				            if (isset($static_block) && $static_block) {
+				                $block = $this->getLayout()->createBlock('Magento\Cms\Block\Block');
+				                if ($block) {
+				                    $block->setBlockId($static_block);
+				                }
+				                if ($block) {
+				                    echo '<div class="brk-custom-block">' . $block->toHtml() . '</div>';
+				                }
+				            }
+				        ?>
+					    <?php echo $this->getChildHtml("store_language"); ?>
+						<?php echo $this->getChildHtml("currency"); ?>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+<?php elseif($header_type == 7): ?>
+	<div class="header content menu-type-2">
+		<div class="header-content">
+			<div class="container">
+				<div class="row align-items-center">
+					<div class="col-4 d-lg-none">
+						<span data-action="toggle-nav" class="action nav-toggle"><span></span></span>
+					</div>
+					<div class="col-4 col-lg-auto align-self-center text-center text-lg-left">
+						<?php echo $this->getChildHtml("logo"); ?>
+					</div>
+					<div class="col-4 col-lg align-self-lg-stretch custom-block-area text-right">
+						<?php
+				    		$static_block = $_helper->getConfig('berserk_settings/header/static_block');
+				            if (isset($static_block) && $static_block) {
+				                $block = $this->getLayout()->createBlock('Magento\Cms\Block\Block');
+				                if ($block) {
+				                    $block->setBlockId($static_block);
+				                }
+				                if ($block) {
+				                    echo '<div class="brk-custom-block">' . $block->toHtml() . '</div>';
+				                }
+				            }
+				        ?>
+				        <div class="header-right-area">
+				        	<?php echo $this->getChildHtml("minicart"); ?>
+						    <div class="search-area">
+						    	<a href="javascript:void(0)"><i class="fa fa-search"></i></a>
+						    	<?php echo $this->getChildHtml("top.search"); ?>
+						    </div>
+						    <div class="links-area">
+						    	<a href="javascript:void(0)"><i class="fa fa-user"></i></a>
+						    	<?php echo $this->getChildHtml("header.links"); ?>
+						    </div>
+						    <?php echo $this->getChildHtml("store_language"); ?>
+							<?php echo $this->getChildHtml("currency"); ?>
+				        </div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="nav-area">
+			<div class="container">
+				<?php if($_helper->getConfig('berserk_settings/header/more_info')): ?>
+			    <div class="brk-info-menu-open brk-info-menu-open_skin-2 brk-header__item"><span class="brk-lines"><span class="brk-center-line"></span></span>
+					<div class="brk-info-menu-open__title">Side Menu</div>
+				</div>
+			    <?php endif; ?>
+				<?php echo $this->getChildHtml("navigation.sections"); ?>
+			</div>
+		</div>
+	</div>
+<?php else: ?>
+	<div class="header panel">
+    	<?php
+    		$static_block_top_links = $_helper->getConfig('berserk_settings/header/static_block_top_links');
+            if (isset($static_block_top_links) && $static_block_top_links) {
+                $block = $this->getLayout()->createBlock('Magento\Cms\Block\Block');
+                if ($block) {
+                    $block->setBlockId($static_block_top_links);
+                }
+                if ($block) {
+                    echo '<div class="brk-custom-block">' . $block->toHtml() . '</div>';
+                }
+            }
+        ?>
+		<div class="links-area">
+        	<?php echo $this->getChildHtml("header.links"); ?>
+        </div>
+    </div>
+	<div class="header content">
+		<div class="header-content">
+			<div class="row align-items-center">
+				<div class="col-4 col-md-5 align-self-stretch">
+					<span data-action="toggle-nav" class="action nav-toggle"><span></span></span>
+					<?php echo $this->getChildHtml("navigation.sections"); ?>
+				</div>
+				<div class="col-4 col-md-2 align-self-center">
+					<div class="text-center">
+			    		<?php echo $this->getChildHtml("logo"); ?>
+			    	</div>
+			    </div>
+			    <div class="col-4 col-md-5 align-self-stretch text-right pr-lg-20">
+			    	<div class="header-right-area">
+				    	<?php
+				    		$static_block = $_helper->getConfig('berserk_settings/header/static_block');
+				            if (isset($static_block) && $static_block) {
+				                $block = $this->getLayout()->createBlock('Magento\Cms\Block\Block');
+				                if ($block) {
+				                    $block->setBlockId($static_block);
+				                }
+				                if ($block) {
+				                    echo '<div class="brk-custom-block">' . $block->toHtml() . '</div>';
+				                }
+				            }
+				        ?>
+						<?php echo $this->getChildHtml("store_language"); ?>
+						<?php echo $this->getChildHtml("currency"); ?>
+				    	<?php echo $this->getChildHtml("minicart"); ?>
+				    	
+					    <div class="search-area">
+					    	<a href="javascript:void(0)"><i class="fa fa-search"></i></a>
+					    	<?php echo $this->getChildHtml("top.search"); ?>
+					    </div>
+
+					    <?php if($_helper->getConfig('berserk_settings/header/more_info')): ?>
+					    <div class="brk-info-menu-open brk-info-menu-open_skin-1 brk-header__item"><span class="brk-lines"><span class="brk-center-line"></span></span>
+							<div class="brk-info-menu-open__title">Side Menu</div>
+						</div>
+					    <?php endif; ?>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+<?php endif; ?>
+</header>
+<?php
+if($_helper->getConfig('berserk_settings/header/more_info')) {
+	$static_block = $_helper->getConfig('berserk_settings/header/more_info_static_block');
+    if (isset($static_block) && $static_block) {
+        $block = $this->getLayout()->createBlock('Magento\Cms\Block\Block');
+        if ($block) {
+            $block->setBlockId($static_block);
+        }
+        if ($block) {
+            echo '<div class="brk-info-menu">' . $block->toHtml() . '</div><div class="brk-info-menu-overlay"></div>';
+        }
+    }
+}
+?>

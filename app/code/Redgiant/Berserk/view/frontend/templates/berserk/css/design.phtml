@@ -1,0 +1,253 @@
+/**
+ * WARNING: Do not change this file. Your changes will be lost.
+ * <?php echo date("Y-m-d H:i:s"); ?>
+ */
+
+<?php
+    $d = $this->getConfig("berserk_design",$this->_coreRegistry->registry('cssgen_store'));
+    $_helper = $this->helper('Redgiant\Berserk\Helper\Cssconfig');
+?>
+<?php if(isset($d['general']['theme_color']) && $d['general']['theme_color']): ?>
+<?php
+    $primary_color = '#'.$d['general']['theme_color'];
+?>
+a, a:hover, a:visited, a:active, .minicart-items .product-item-details .price, .minicart-items .action.edit:before, .minicart-items .action.delete:before, .block-minicart .block-content>.actions>.secondary a.action.viewcart, .page-header.type3 .block-search .block-content .action.search:before, .brk-info-menu__close, .brk-info-menu__close:hover, .brk-info-menu__close:visited, .list-inline-7 li a:hover .list-inline-7__before i, .account a, .product-item .price-box .price, .product-item .flip-box.type1 .flip__back .product-item-inner .tocart, .product-item .flip-box.type1 .flip__back .product-item-inner>a.weltpixel-quickview, .product-item .flip-box.type1 .flip__back .product-item-inner>a.weltpixel-quickview:hover, .product-item .flip-box.type1 .flip__back .product-item-inner>a.weltpixel-quickview:visited, .product-item .flip-box.type1 .flip__back .product-item-inner>a.weltpixel-quickview:active, .product-item .flip-box.type1 .flip__back .product-item-inner .actions-primary+.actions-secondary>.action, .toolbar .sorter-action, .block-category-list a .count, .block-category-list a:after, .infinite-loader a, .infinite-loader a:hover, .infinite-loader a:visited, .infinite-loader a:active, .filter-actions a, .products-quicknav .product-nav>a i, .brk-base-font-color, .btn-prime, .fotorama-item .fotorama__thumb__arr .fotorama__thumb--icon, .fotorama-item .fotorama-sprite, .fotorama-item .fotorama__zoom-in, .fotorama-item .fotorama__zoom-out, .fotorama-item .fotorama__arr .fotorama__arr__arr, .fotorama-item .fotorama__fullscreen-icon, .fotorama-item .fotorama__thumb__arr, .cart.table-wrapper .price-excluding-tax .cart-price, .cart-totals tbody>.grand.totals .amount, .brk-pricing-horizontal:hover .h-button, .shape-box__wrapper-wave figcaption .icon i, .dots-wrap button, .brk-map__infoicon_layout-one .brk-map__infoicon--text ul, .block.newsletter .action.subscribe:before, .brk-sc-honeycomb-five__read-more i, .arrows-classic-ellipse .slick-arrow:before, .filterproducts .flip-box.type7 .flip-box__split .flip__back .product-item-inner .action.tocart span.text, .filterproducts .flip-box.type7 .flip-box__split .flip__back .product-item-inner .action.tocart i
+{
+    color: <?php echo $primary_color; ?>;
+}
+.btn-prime:hover, .icon__btn_reverse
+{
+    color: <?php echo $primary_color; ?> !important;
+}
+.minicart-items .action.edit:hover, .minicart-items .action.delete:hover, .block-minicart .block-content>.actions>.primary .action.primary, .list-inline-7 li a:hover, .btn-inside-out>.after, .btn-inside-out>.before, .btn-inside-out>.after, article.brk-team-mc.brk-mc-light-blue .mc-btn-bg-action span, article.brk-team-mc.brk-mc-base .mc-btn-bg-action span, article.brk-team-mc.brk-mc-light-blue .mc-btn-bg-action:before, article.brk-team-mc.brk-mc-light-blue .mc-btn-bg-action:after, article.brk-team-mc.brk-mc-base .mc-btn-bg-action:before, article.brk-team-mc.brk-mc-base .mc-btn-bg-action:after, article.brk-team-mc.brk-mc-light-blue h4, article.brk-team-mc.brk-mc-base h4, .toolbar .modes.brk-sc-view-swiper .brk-sc-view-swiper__btn.active:after, .block-category-list a:hover, .ln_slider_container .ui-slider-horizontal .ui-slider-range.ui-widget-header.ui-corner-all, .icon__btn>.before, .btn-prime>.after, .btn-prime>.before, .shape-box__wrapper-wave figcaption>.wave-circle-1, .dots-landscape-skin .dots-wrap .slick-dots li button, .social__icon-round .brk-icon, .social__icon-round:hover .icon-wrap, .social__icon-round .brk-icon, .social__icon-round:hover .icon-wrap, .brk-map__infoicon_layout-one:before, .divider-dots span, .swiper-base-arrow, .swiper-base-arrow-md, .filterproducts .flip-box.type7 .flip-box__split .flip__front .flip-box__split-info, .filterproducts.tiles_slider_list .brk-sc-angle-post .brk-sc-angle-post__buy, .brk-bg-primary, .filterproducts.tiles_slider_list .brk-sc-tiles-angle .brk-sc-tiles-angle__loading .before, .social__icon-round .icon-wrap:hover .brk-icon, .social__icon-round:hover .brk-icon
+{
+    background-color: <?php echo $primary_color; ?>;
+}
+.btn-inside-out-invert-light>.after, .btn-inside-out-invert-light>.before, .btn-inside-out-invert>.after, .btn-inside-out-invert>.before {
+    color: #fff;
+}
+.ln_slider_container .ui-slider-horizontal .ui-slider-handle, .filter-options .filter-options-item[attribute="price"] .filter-options-content .item:hover a
+{
+    background: <?php echo $primary_color; ?>;
+}
+.shape-box__wrapper-wave>.before
+{
+    background: rgba(<?php echo $_helper->convertRGB($primary_color); ?>,.94);
+}
+.filterproducts .flip-box.type7 .flip-box__split .flip__back .flip-box__split-overlay
+{
+    background: rgba(<?php echo $_helper->convertRGB($primary_color); ?>,.75) !important;
+}
+.brk-base-bg-gradient-13, .brk-pricing-horizontal .h-button
+{
+    background-image: -webkit-gradient(linear,left top,right top,from(#00c6ff),to(<?php echo $primary_color; ?>));
+    background-image: linear-gradient(to right,#00c6ff, <?php echo $primary_color; ?>);
+}
+.btn-prime .border-btn, .account .block-collapsible-nav .item.current a, .account .block-collapsible-nav .item.current>strong
+{
+    border-color: <?php echo $primary_color; ?>;
+}
+.fotorama-item .fotorama__nav-wrap .fotorama__thumb-border
+{
+    border-color: <?php echo $primary_color; ?> !important;
+}
+.brk-info-menu, article.brk-team-mc.brk-mc-light-blue h4:after, article.brk-team-mc.brk-mc-base h4:after
+{
+    border-top-color: <?php echo $primary_color; ?>;
+}
+.rg-megamenu.navigation li.level0.classic .submenu, .rg-megamenu.navigation li.level0.classic .subchildmenu .subchildmenu, .rg-megamenu.navigation li.level0.fullwidth>.submenu, .rg-megamenu.navigation li.level0.staticwidth>.submenu, article.brk-team-mc.brk-mc-light-blue h4:before, article.brk-team-mc.brk-mc-base h4:before, .brk-form-wrap-active [type=email], .brk-form-wrap-active [type=password], .brk-form-wrap-active [type=search], .brk-form-wrap-active [type=tel], .brk-form-wrap-active [type=text]
+{
+    border-bottom-color: <?php echo $primary_color; ?>;
+}
+.account .block-collapsible-nav .item:hover>a, .account .block-collapsible-nav .item:hover>strong
+{
+    border-left-color: <?php echo $primary_color; ?>;
+}
+@media (min-width: 992px) {
+    .customer-welcome .customer-menu .links>li>a:hover, .block-category-list a .count, .block-category-list a:after, .menu-type-2 .rg-megamenu.navigation li.level0.fullwidth .submenu .subchildmenu .subchildmenu a:hover, .menu-type-2 .rg-megamenu.navigation li.level0.staticwidth .submenu .subchildmenu .subchildmenu a:hover
+    {
+        color: <?php echo $primary_color; ?>;
+    }
+    .steps__wrapper-checkers .steps__dot>.after, .menu-type-2 .rg-megamenu.navigation li.level0 .submenu a:before, .menu-type-2 .rg-megamenu.navigation li.level0.fullwidth .submenu .subchildmenu .subchildmenu a:before, .menu-type-2 .rg-megamenu.navigation li.level0.staticwidth .submenu .subchildmenu .subchildmenu a:before
+    {
+        background-color: <?php echo $primary_color; ?>;
+    }
+    .page-header.brk-header_scroll.type3 .navigation li.level0>.level-top:before, .block-category-list a:hover, .ln_slider_container .ui-slider-horizontal .ui-slider-range.ui-widget-header.ui-corner-all, .page-header.brk-header_scroll.type2 .navigation li.level0>.level-top:before, .page-header.brk-header_scroll.type5 .navigation li.level0>.level-top:before, .page-header.brk-header_scroll.type3 .navigation li.level0>.level-top:before
+    {
+        background-color: rgba(<?php echo $_helper->convertRGB($primary_color); ?>,0.7);
+    }
+    .customer-welcome .customer-menu
+    {
+        box-shadow: inset 0 3px 5px rgba(0,0,0,0.03), inset 0 -3px <?php echo $primary_color; ?>;
+    }
+}
+.minicart-items .product-item>.product:hover 
+{
+    box-shadow: 0 6px 30px rgba(0,0,0,0.12), inset 3px 0 <?php echo $primary_color; ?>;
+}
+.page-header.type1 .block-search, .page-header.type2 .block-search, .page-header.type3 .block-search, .page-header.type4 .block-search, .page-header.type5 .block-search, .page-header.type6 .block-search, .page-header.type7 .block-search
+{
+    box-shadow: inset 0 3px 5px rgba(0,0,0,0.03), inset 0 -3px <?php echo $primary_color; ?>;
+}
+.block-minicart .block-content>.actions>.primary .action.primary, .toolbar .modes.brk-sc-view-swiper .brk-sc-view-swiper__btn.active:after, .filterproducts .flip-box.type7 .flip-box__split .flip__front .flip-box__split-info, .filterproducts.tiles_slider_list .brk-sc-angle-post .brk-sc-angle-post__buy, .brk-bg-primary
+{
+    box-shadow: 0 5px 16px rgba(<?php echo $_helper->convertRGB($primary_color); ?>,0.5);
+}
+.products-quicknav .product-nav .product-pop, .minicart-wrapper .block-minicart, .page-header.type2 .account-links-area>.header.links, .page-header.type4 .links-area>.header.links, .page-header.type5 .links-area>.header.links, .page-header.type6 .links-area>.header.links, .page-header.type7 .links-area>.header.links
+{
+    box-shadow: 0 6px 30px rgba(0,0,0,0.12), inset 0 -3px <?php echo $primary_color; ?>;
+}
+<?php endif; ?>
+<?php if(isset($d['general']['theme_color_2']) && $d['general']['theme_color_2']): ?>
+<?php
+    $secondary_color = '#'.$d['general']['theme_color_2'];
+?>
+.extra__heading-2 .btn.btn-inside-out-invert>.before, .extra__heading-2 .btn.btn-inside-out-invert>.after, .extra__heading-2 .btn .icon-left, .brk-pricing-horizontal__list-options .options-active i
+{
+    color: <?php echo $secondary_color; ?>;
+}
+.btn-inside-out:hover, .side-labels .brk-sc-card-label.sale-label:nth-child(1) .brk-sc-card-label__additional-1, .side-labels .brk-sc-card-label.sale-label:nth-child(2) .brk-sc-card-label__additional-1, .side-labels .brk-sc-card-label.sale-label:nth-child(1) .brk-sc-card-label__additional-2, .side-labels .brk-sc-card-label.sale-label:nth-child(2) .brk-sc-card-label__additional-2, .side-labels .brk-sc-card-label.sale-label:nth-child(1) .brk-sc-card-label__additional-3, .side-labels .brk-sc-card-label.sale-label:nth-child(2) .brk-sc-card-label__additional-3, .side-labels .brk-sc-card-label.sale-label, .minicart-wrapper .action.showcart .counter.qty, .btn-gradient, .shape-box__wrapper-wave figcaption>.wave-circle-2, .filmstrip-slider .brk-scrollbar-track, .filmstrip-slider .brk-scrollbar-drag, .highlight-trend, .divider-cross span, .divider-layers>.before, .product-item .flip-box.type4 .flip__back .product-item-inner .tocart:hover
+{
+    background-color: <?php echo $secondary_color; ?>;
+}
+.rg-megamenu.navigation li.level0.fullwidth .submenu li.level1>a, .rg-megamenu.navigation li.level0.staticwidth .submenu li.level1>a
+{
+    border-bottom-color: <?php echo $secondary_color; ?>;
+}
+.btn-inside-out:hover, .product-item .flip-box.type4 .flip__back .product-item-inner .tocart:hover
+{
+    box-shadow: 0 5px 10px -2px <?php echo $secondary_color; ?>;
+}
+.block-minicart .subtotal, .page-header.type1 .block-search .block-title, .page-header.type2 .block-search .block-title, .page-header.type3 .block-search .block-title, .page-header.type4 .block-search .block-title, .page-header.type5 .block-search .block-title, .page-header.type6 .block-search .block-title, .page-header.type7 .block-search .block-title, .minicart-wrapper .block-minicart .block-title
+{
+    box-shadow: 0 6px 30px rgba(0,0,0,0.12), inset 0 -2px <?php echo $secondary_color; ?>;
+}
+<?php endif; ?>
+<?php if(isset($d['general']['theme_color']) && $d['general']['theme_color'] && isset($d['general']['theme_color_2']) && $d['general']['theme_color_2']): ?>
+<?php
+    $primary_color = '#'.$d['general']['theme_color'];
+    $secondary_color = '#'.$d['general']['theme_color_2'];
+?>
+.brk-base-bg-gradient-10deg, .page-footer:before, .brk-sc-honeycomb-five__thumb:before
+{
+    background-image: linear-gradient(10deg, rgba(<?php echo $_helper->convertRGB($primary_color); ?>, .92), rgba(<?php echo $_helper->convertRGB($secondary_color); ?>, .92));
+}
+.brk-base-bg-gradient-90deg, .brk-bg-alt-gradient-90deg-92
+{
+    background-image: -webkit-gradient(linear,left top,right top,from(rgba(<?php echo $_helper->convertRGB($primary_color); ?>,.92)),to(rgba(<?php echo $_helper->convertRGB($secondary_color); ?>,.92))) !important;
+    background-image: linear-gradient(90deg,rgba(<?php echo $_helper->convertRGB($primary_color); ?>,.92),rgba(<?php echo $_helper->convertRGB($secondary_color); ?>,.92)) !important;
+}
+.dots-rounded-skin .slick-dots li button
+{
+    background-image: -webkit-gradient(linear,left top,right top,from(rgba(<?php echo $_helper->convertRGB($primary_color); ?>,.92)),to(rgba(<?php echo $_helper->convertRGB($secondary_color); ?>,.92))) ;
+    background-image: linear-gradient(90deg,rgba(<?php echo $_helper->convertRGB($primary_color); ?>,.92),rgba(<?php echo $_helper->convertRGB($secondary_color); ?>,.92));
+}
+.brk-base-bg-gradient-90deg-96, .brk-map__infoicon_layout-one:before
+{
+    background-image: -webkit-gradient(linear,left top,right top,from(rgba(<?php echo $_helper->convertRGB($primary_color); ?>,.96)),to(rgba(<?php echo $_helper->convertRGB($secondary_color); ?>,.96)));
+    background-image: linear-gradient(90deg,rgba(<?php echo $_helper->convertRGB($primary_color); ?>,.96),rgba(<?php echo $_helper->convertRGB($secondary_color); ?>,.96));
+}
+.brk-bg-gradient-0deg-90
+{
+    background-image: -webkit-gradient(linear,left bottom,left top,from(rgba(<?php echo $_helper->convertRGB($primary_color); ?>,.9)),to(rgba(<?php echo $_helper->convertRGB($secondary_color); ?>,.9)));
+    background-image: linear-gradient(0deg,rgba(<?php echo $_helper->convertRGB($primary_color); ?>,.9) 0%,rgba(<?php echo $_helper->convertRGB($secondary_color); ?>,.9) 100%);
+}
+.rev_slider .hesperiden .tp-thumb:before
+{
+    background: <?php echo $primary_color; ?>;
+    background: -moz-linear-gradient(left,rgba(<?php echo $_helper->convertRGB($primary_color); ?>,0.92) 0%,rgba(<?php echo $_helper->convertRGB($secondary_color); ?>,0.92) 100%);
+    background: -webkit-linear-gradient(left,rgba(<?php echo $_helper->convertRGB($primary_color); ?>,0.92) 0%,rgba(<?php echo $_helper->convertRGB($secondary_color); ?>,0.92) 100%);
+    background: linear-gradient(to right,rgba(<?php echo $_helper->convertRGB($primary_color); ?>,0.92) 0%,rgba(<?php echo $_helper->convertRGB($secondary_color); ?>,0.92) 100%);
+}
+.brk-base-bg-gradient-0deg-a
+{
+    background-image: -webkit-gradient(linear,left top,left bottom,from(0),color-stop(30%,rgba(<?php echo $_helper->convertRGB($primary_color); ?>,.92)),color-stop(70%,rgba(<?php echo $_helper->convertRGB($secondary_color); ?>,.92)));
+    background-image: linear-gradient(0, rgba(<?php echo $_helper->convertRGB($primary_color); ?>,.92) 30%, rgba(<?php echo $_helper->convertRGB($secondary_color); ?>,.92) 70%);
+}
+.brk-base-bg-gradient-right-no-opacity, .brk-bg-grad, .hot-panel
+{
+    background-image: -webkit-gradient(linear,left top,right top,from(<?php echo $primary_color; ?>),to(<?php echo $secondary_color; ?>));
+    background-image: linear-gradient(to right,<?php echo $primary_color; ?>,<?php echo $secondary_color; ?>);
+}
+.brk-base-bg-gradient-40-no-opacity
+{
+    background-image: linear-gradient(40deg,<?php echo $primary_color; ?>,<?php echo $secondary_color; ?>);
+}
+.checkout-cart-index .coupon-wrapper:after, .checkout-cart-index .cart-summary:after, .opc-sidebar .modal-content:after, .overlay__grad:after, .overlay__gradient .overlay_after, .brk-base-bg-gradient-14
+{
+    background-image: linear-gradient(to right, <?php echo $primary_color; ?> 0%, <?php echo $secondary_color; ?> 100%);
+}
+.brk-base-bg-gradient-50deg-a
+{
+    background-image: linear-gradient(50deg,rgba(<?php echo $_helper->convertRGB($primary_color); ?>,.92) 30%,rgba(<?php echo $_helper->convertRGB($secondary_color); ?>,.92) 70%);
+}
+.brk-base-bg-gradient-right, .slider-thumbnailed-nav .brk-slid__overlay, .image-popup-gradient:after
+{
+    background-image: -webkit-gradient(linear, left top, right top, from(rgba(<?php echo $_helper->convertRGB($primary_color); ?>, .84)), to(rgba(<?php echo $_helper->convertRGB($secondary_color); ?>, .84)));
+    background-image: linear-gradient(to right, rgba(<?php echo $_helper->convertRGB($primary_color); ?>, .84), rgba(<?php echo $_helper->convertRGB($secondary_color); ?>, .84));
+}
+.brk-team-persone-circle__bg-overlay:before
+{
+    background-image: -webkit-gradient(linear, left top, right top, from(rgba(<?php echo $_helper->convertRGB($primary_color); ?>, .92)), to(rgba(<?php echo $_helper->convertRGB($secondary_color); ?>, .92)));
+    background-image: linear-gradient(to right, rgba(<?php echo $_helper->convertRGB($primary_color); ?>, .92), rgba(<?php echo $_helper->convertRGB($secondary_color); ?>, .92));
+}
+.brk-base-bg-gradient--30deg-96
+{
+    background-image: linear-gradient(-30deg,rgba(<?php echo $_helper->convertRGB($primary_color); ?>,.92),rgba(<?php echo $_helper->convertRGB($secondary_color); ?>,.92));
+}
+.landscape-slider-nav:before
+{
+    background-image: -webkit-gradient(linear, left bottom, left top, from(rgba(<?php echo $_helper->convertRGB($primary_color); ?>, 0.84)), to(rgba(<?php echo $_helper->convertRGB($secondary_color); ?>, 0.84)));
+    background-image: linear-gradient(to top, rgba(<?php echo $_helper->convertRGB($primary_color); ?>, 0.84), rgba(<?php echo $_helper->convertRGB($secondary_color); ?>, 0.84));
+}
+<?php endif; ?>
+<?php
+if(isset($d['font']['custom']) && $d['font']['custom']==1){
+?>
+html, body { 
+<?php
+    if(isset($d['font']['font_size']) && $d['font']['font_size']){
+?>
+        font-size: <?php echo $d['font']['font_size']; ?>; 
+<?php
+    }
+    if(isset($d['font']['font_family']) && $d['font']['font_family'] == 'google'){
+?>
+        font-family: <?php echo $d['font']['google_font_family']; ?>;
+<?php
+    }
+    elseif (isset($d['font']['font_family']) && $d['font']['font_family'] == 'custom') {
+        if($d['font']['custom_font_family']) {
+?>
+        font-family: <?php echo $d['font']['custom_font_family']; ?>;
+<?php
+        }
+    }
+    else {
+?>
+        font-family: <?php echo $d['font']['font_family']; ?>;
+<?php
+    }
+?>
+}
+<?php
+}
+if(isset($d['colors']['custom']) && $d['colors']['custom']==1){
+    if(isset($d['colors']['text_color']) && $d['colors']['text_color']){
+?>
+html,body{color:<?php if (strlen($d['colors']['text_color']) == 6): echo "#"; endif; ?><?php echo $d['colors']['text_color']; ?>}
+<?php
+    }
+    if(isset($d['colors']['link_color']) && $d['colors']['link_color']){
+?>
+a, a:focus {color:<?php if (strlen($d['colors']['link_color']) == 6): echo "#"; endif; ?><?php echo $d['colors']['link_color']; ?>}
+<?php
+    }
+    if(isset($d['colors']['link_hover_color']) && $d['colors']['link_hover_color']){
+?>
+a:hover{color:<?php if (strlen($d['colors']['link_hover_color']) == 6): echo "#"; endif; ?><?php echo $d['colors']['link_hover_color']; ?>}
+<?php
+    }
+?>
+<?php
+}

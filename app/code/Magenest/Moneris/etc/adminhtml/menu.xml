@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2015 Magenest. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="../../../../Magento/Backend/etc/menu.xsd">
+    <menu>
+        <add id="Magenest_Moneris::moneris" title="Moneris"
+             module="Magenest_Moneris" sortOrder="50"
+             dependsOnModule="Magenest_Moneris" resource="Magenest_Moneris::moneris"/>
+        <add id="Magenest_Moneris::configuration" title="Configuration"
+             module="Magenest_Moneris" sortOrder="50" parent="Magenest_Moneris::moneris"
+             action="adminhtml/system_config/edit/section/payment/moneris"
+             resource="Magenest_Moneris::configuration"/>
+    </menu>
+</config>

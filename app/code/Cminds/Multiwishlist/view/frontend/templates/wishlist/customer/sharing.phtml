@@ -1,0 +1,104 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+/** @var \Cminds\Multiwishlist\Block\Wishlist\Customer\Sharing $block */
+?>
+<form class="form wishlist share"
+action="<?= $block->escapeUrl($block->getSendUrl()) ?>"
+id="form-validate"
+method="post"
+data-hasrequired="<?= $block->escapeHtmlAttr(__('* Required Fields')) ?>"
+data-mage-init='{"validation":{}}'>
+<fieldset class="fieldset">
+    <?= $block->getBlockHtml('formkey') ?>
+    <legend class="legend"><span><?= $block->escapeHtml(__('Sharing Information')) ?></span></legend><br />
+    <div class="field text">
+        <label class="label" for="message"><span><?= $block->escapeHtml(__('Wishlist')) ?></span></label>
+        <div class="control">
+            <span id="wishlist" name="wishlist" cols="60" rows="5"><?= /* @noEscape */ $block->getEnteredData('message') ?></span>
+            <input type="hidden" name="wishlist_id" value="<?= $block->escapeHtml($block->getCurrentWishlistId()) ?>">
+        </div>
+    </div>
+
+    <!-- Add code by Muhib -->
+    <?php
+    $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+    $customerSession = $objectManager->create('Magento\Customer\Model\Session');
+    $ergoId=$customerSession->getCustomer()->getId();
+    $unique = $block->getCustomerEmails($ergoId);
+    $uniqueArray = [];
+    foreach ($unique as $key => $value)
+    {
+        $uniqueArray[] = $value['customer_email'];
+    }
+    ?>
+
+    <select id="box1" multiple>
+
+        <?php foreach (array_unique($uniqueArray) as $key => $value): ?>
+            <option><?php echo $value;?></option>
+        <?php endforeach; ?>
+    </select>
+    <input value="<?= $block->escapeHtml(__('Add Emails')) ?>" id="write" type="button">
+
+    <!-- End code by Muhib -->
+
+    <div class="field emails required">
+        <label class="label" for="email_address"><span><?= $block->escapeHtml(__('Email addresses, separated by commas')) ?></span></label>
+        <div class="control">
+            <textarea name="emails" cols="60" rows="5" id="email_address" data-validate="{required:true,'validate-emails':true}"><?= /* @noEscape */ $block->getEnteredData('emails') ?></textarea>
+        </div>
+    </div>
+    <div class="field text">
+        <label class="label" for="message"><span><?= $block->escapeHtml(__('Message')) ?></span></label>
+        <div class="control">
+            <textarea id="message" name="message" cols="60" rows="5"><?= /* @noEscape */ $block->getEnteredData('message') ?></textarea>
+        </div>
+    </div>
+    <?php if ($this->helper('Magento\Wishlist\Helper\Rss')->isRssAllow()): ?>
+    <div class="field choice rss">
+        <input type="checkbox" name="rss_url" id="rss_url" value="1" title="<?= $block->escapeHtmlAttr(__('Check here to link an RSS feed to your Wish List.')) ?>" class="checkbox">
+        <label class="label" for="rss_url">
+            <span>
+                <?= $block->escapeHtml(__('Check here to link an RSS feed to your Wish List.')) ?>
+            </span>
+        </label>
+    </div>
+<?php endif; ?>
+</fieldset>
+<div class="actions-toolbar">
+    <div class="primary">
+        <button type="submit" title="<?= $block->escapeHtmlAttr(__('Share Wish List')) ?>" class="action submit primary">
+            <span><?= $block->escapeHtml(__('Share Wish List')) ?></span>
+        </button>
+    </div>
+    <div class="secondary">
+        <a class="action back" href="<?= $block->escapeUrl($block->getBackUrl()) ?>"><span><?= $block->escapeHtml(__('Back')) ?></span></a>
+    </div>
+</div>
+</form>
+
+<!-- Add code by Muhib -->
+<script type="text/javascript">
+//<![CDATA[
+require([
+    'jquery'
+    ], function($) {
+       $("#write").click(function() {
+        var myCAPtext = document.getElementById('email_address');
+        var select_1 = $("#box1").val();
+
+        var CAPtext = select_1.join(",");
+        myCAPtext.value = CAPtext;
+    });
+   }
+   );
+//]]>
+</script>
+
+<!-- End code by Muhib -->

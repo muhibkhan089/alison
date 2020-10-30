@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page layout="2columns-right" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="content">
+            <block class="Redgiant\Berserk\Block\Template" name="product_view_share_links" template="Magento_Catalog::product/view/share.phtml"/>
+        </referenceContainer>
+        <referenceContainer name="sidebar.main">
+            <block class="Redgiant\Berserk\Block\Template" name="custom_sideblock" before="-" template="Magento_Catalog::product/view/custom_sideblock.phtml"></block>
+        </referenceContainer>
+        <referenceContainer name="columns.top">
+            <block class="Magento\Catalog\Block\Product\View" name="products-quicknav" template="Magento_Catalog::product/view/quick_nav.phtml" before="-"/>
+            <block class="Magento\Catalog\Block\Product\View" name="top-overlay" template="Magento_Catalog::product/view/top_overlay.phtml" before="-"/>
+        </referenceContainer>
+        <referenceContainer name="page.wrapper">
+            <container name="berserk-footer" htmlTag="div" before="footer-container" htmlClass="berserk-footer">
+                <block class="Redgiant\Berserk\Block\Template" name="product_view_custom_block" after="product.info.details" template="Magento_Catalog::product/view/custom_block.phtml"/>
+            </container>
+            <block class="Redgiant\Berserk\Block\Template" name="brk_tabs" after="berserk-footer" template="Magento_Catalog::product/view/brk_tabs.phtml" />
+            <container name="berserk_container" htmlTag="div" label="Berserk Option Container" htmlClass="berserk_container" after="product.info.options.wrapper">
+            </container>
+            <block class="Redgiant\Berserk\Block\Template" name="brk_dailydeal" ifconfig="rg_dailydeal/general/dailydeal_enabled" template="Magento_Catalog::product/view/dailydeal.phtml" />
+        </referenceContainer>
+        
+        <move element="page.main.title" destination="product.info.main" before="-"/>
+        <move element="product.info.review" destination="product.info.main" after="page.main.title"/>
+        <move element="products-quicknav" destination="product.info.main" before="-"/>
+        
+        <move element="berserk_container" destination="product.info.form.options" after="product.info.options.wrapper" />
+        <move element="product.info.price" destination="berserk_container" after="-" />
+        <move element="product.info.overview" destination="product.info.main" after="product.info.price"/>
+         
+        <move element="product.info.social" destination="product.info.options.wrapper.bottom" after="-"/>
+        <move element="product_view_share_links" destination="product.info.options.wrapper.bottom" after="product.info.social" />
+
+        <move element="brk_dailydeal" destination="product.info.main" after="product.info.form" />
+        
+        <move element="catalog.product.related" destination="brk_tabs" before="-" />
+        <move element="product.info.upsell" destination="brk_tabs" after="-" />
+        
+        <referenceBlock name="catalog.compare.sidebar" remove="true"/>
+        <referenceContainer name="sidebar.additional" remove="true" />
+    </body>
+</page>

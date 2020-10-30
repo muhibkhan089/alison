@@ -1,0 +1,34 @@
+<?php $_helper = $this->helper('Redgiant\Berserk\Helper\Data'); 
+    $contacts_config = $_helper->getConfig('berserk_settings/contacts');
+    $_enable = $contacts_config['enable'];
+    if($_enable):
+        $_apikey = $contacts_config['api_key'];
+        $_zoom = $contacts_config['zoom'];
+        $_center_lat = $contacts_config['latitude'];
+        $_center_lng = $contacts_config['longitude'];
+        $_infoblock = $contacts_config['infoblock'];
+
+?>
+
+<div class="brs-post__map-container pb-30">
+    <div class="brk-map" data-height="520" data-brk-library="component__map">
+        <div class="brk-map__section">
+            <div class="brk-map__canvas" data-zoom="<?php echo $_zoom; ?>" data-type="roadmap" data-marker="<?php echo $_helper->getBaseUrl() . 'wysiwyg/berserk/blog/gm-1.png' ?>" data-offset-lat="" data-style="silver" data-lat="<?php echo $_center_lat; ?>" data-lng="<?php echo $_center_lng;  ?>"></div>
+        </div>
+        <div class="brk-map__infoicon brk-map__infoicon_layout-one text-center"><span class="marker"><img src="<?php echo $_helper->getBaseUrl() . 'wysiwyg/berserk/blog/gm-1.png' ?>" alt="alt"></span>
+            <?php echo $_infoblock; ?>    
+            <a href="#" class="btn border-radius-25 font__family-open-sans font__weight-bold btn-inside-out" data-brk-library="component__button">
+                <span class="before">Get directions</span> <span class="text">Get directions</span> <span class="after">Get directions</span>
+            </a>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="//maps.googleapis.com/maps/api/js?<?php if($_apikey): ?>key=<?php echo $_apikey; ?><?php else: ?>v=3.17<?php endif; ?>"></script>
+<script type="text/javascript">
+    require(["jquery",  "google-maps"], function($) {
+    Berserk.behaviors.google_maps.attach($("body"), {timeout_delay: 2000});
+});
+</script>    
+
+<?php  endif; ?>

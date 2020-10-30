@@ -1,0 +1,82 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../Store/etc/config.xsd">
+    <default>
+        <berserk_settings>
+            <general>
+                <lazyload>1</lazyload>
+            </general>
+            <header>
+                <header_type>1</header_type>
+                <static_block>berserk_custom_block_for_header</static_block>
+                <static_block_top_links>berserk_custom_block_for_top_links</static_block_top_links>
+                <sticky_header>1</sticky_header>
+                <sticky_header_logo_src>default/logo-dark.png</sticky_header_logo_src>
+                <mobile_sticky_header>1</mobile_sticky_header>
+                <more_info>1</more_info>
+                <more_info_static_block>berserk_custom_block_for_more_info_popup</more_info_static_block>
+            </header>
+            <footer>
+                <footer_top>1</footer_top>
+                <footer_top_custom>berserk_custom_block_for_footer_top</footer_top_custom>
+                <footer_bottom>1</footer_bottom>
+                <footer_bottom_custom>berserk_custom_block_for_footer_bottom</footer_bottom_custom>
+            </footer>
+            <catalog>
+                <layout>2columns-right</layout>
+                <product_per_row>3</product_per_row>
+                <grid_style>type1</grid_style>
+                <enable_aspect_ratio>0</enable_aspect_ratio>
+                <image_width>300</image_width>
+                <image_height>300</image_height>
+                <new_label>New</new_label>
+                <sale_label>Sale</sale_label>
+                <label_type>2</label_type>
+                <show_percent>0</show_percent>
+                <show_review>1</show_review>
+                <show_infinite>1</show_infinite>
+                <sidebar_cms_block>berserk_category_sideblock</sidebar_cms_block>
+            </catalog>
+            <product>
+                <enable_aspect_ratio>1</enable_aspect_ratio>
+                <image_width>600</image_width>
+                <image_height>600</image_height>
+                <show_addto_links>1</show_addto_links>
+                <show_related_products>1</show_related_products>
+                <show_upsell_products>1</show_upsell_products>
+                <quicknav>1</quicknav>
+                <prev_text><![CDATA[<i class="fa fa-angle-left"></i>]]></prev_text>
+                <next_text><![CDATA[<i class="fa fa-angle-right"></i>]]></next_text>
+                <content_cms_block>berserk_product_contentblock</content_cms_block>
+                <sidebar_cms_block>berserk_product_sideblock</sidebar_cms_block>
+                <custom_social><![CDATA[<div class="addthis_inline_share_toolbox"><label>Share this on:</label></div>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-55d6907796e30f69"></script>]]></custom_social>
+            </product>
+            <contacts>
+                <enable>1</enable>
+                <berserk_settings_contacts_api_key></berserk_settings_contacts_api_key>
+                <latitude>-34.398</latitude>
+                <longitude>150.884</longitude>
+                <zoom>18</zoom>
+                <infoblock><![CDATA[<h4 class="font__family-montserrat font__weight-bold font__size-21 line__height-22">Chicago, USA</h4>
+												
+<div class="brk-map__infoicon--text">
+													
+<ul class="font__size-15 line__height-21">
+														
+<li><i class="fas fa-phone"></i><a href="tel:8800123456789">+88(0) 344 956 40</a>
+</li>
+														
+<li><i class="far fa-clock"></i> <span>Mon - Sat 8:00 - 18:00<br>Sunday CLOSED</span>
+</li>
+													
+</ul>
+												
+</div>]]></infoblock>
+            </contacts>
+            <custom_settings>
+                <custom_style></custom_style>
+                <custom_style_2></custom_style_2>
+            </custom_settings>
+        </berserk_settings>
+    </default>
+</config>

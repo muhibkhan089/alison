@@ -1,0 +1,300 @@
+<?php
+/**
+ * Copyright © 2015 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+use Magento\Framework\App\Action\Action;
+
+// @codingStandardsIgnoreFile
+?>
+<?php
+/**
+ * Product list template
+ *
+ * @var $block \Redgiant\Filterproducts\Block\
+ */
+?>
+<?php
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+$_productCollection = $block->getLoadedProductCollection();
+$_helper = $this->helper( 'Magento\Catalog\Helper\Output' );
+$_imagehelper = $this->helper('Magento\Catalog\Helper\Image');
+$_berserkhelper = $this->helper( 'Redgiant\Berserk\Helper\Data');
+$_lazyload = $_berserkhelper->getConfig('berserk_settings/general/lazyload');
+$_category_label = "";
+
+$_colClass = '';
+$_rowClass = '';
+$_sale_label = $_berserkhelper->getConfig('berserk_settings/catalog/sale_label');
+$_new_label = $_berserkhelper->getConfig('berserk_settings/catalog/new_label');
+$_label_type = $_berserkhelper->getConfig('berserk_settings/catalog/label_type'); 
+$_show_review = $this->getData("rating_star");
+if(!$_show_review)
+    $_show_review = $_berserkhelper->getConfig('berserk_settings/catalog/show_review');
+$_review_model = $_berserkhelper->getModel('\Magento\Review\Model\Review');
+$_show_percent = $_berserkhelper->getConfig('berserk_settings/catalog/show_percent');
+$_flipbox = '';
+$aspect_ratio = $this->getData("aspect_ratio");
+if($aspect_ratio == null) {
+    $aspect_ratio = 0;
+}
+$image_width = $this->getData("image_width");
+if(!$image_width) {
+    $image_width = 400;
+}
+$image_height = $this->getData("image_height");
+if($aspect_ratio)
+    $image_height = $image_width;
+if(!$image_height) {
+    $image_height = 400;  
+}
+?>
+<?php if ( !$_productCollection->count() ): ?>
+    <div class="message info empty">
+        <div><?php echo __('We can\'t find products matching the selection.') ?></div>
+    </div>
+<?php else: ?>
+    <?php
+    $viewMode = 'grid';
+    $image = 'category_page_grid';
+    $templateType = \Magento\Catalog\Block\Product\ReviewRendererInterface::SHORT_VIEW;
+    $_flipbox = 'flip-box';
+    $_grid_style = $this->getData('item_type');
+    if($_grid_style == null) {
+        $_grid_style = 'type1';
+    } else {
+        $_grid_style = 'type' . $_grid_style;
+    }
+    ?>
+    <div class="products wrapper <?php echo $viewMode; ?> products-<?php echo $viewMode; ?>">
+        <?php $iterator = 1; ?>
+        <div class="owl-carousel filterproducts products list">
+            <?php /** @var $_product \Magento\Catalog\Model\Product */ ?>
+            <?php foreach ( $_productCollection as $_product ): ?>
+                <?php $iterator++ == 1; ?>
+                <?php
+                        $product_label = "";
+                        if($_sale_label) {
+                            $orgprice = $_product->getPrice();
+                            $specialprice = $_product->getSpecialPrice();
+                            $specialfromdate = $_product->getSpecialFromDate();
+                            $specialtodate = $_product->getSpecialToDate();
+                            $today = time();
+                            if(!$specialprice)
+                                $specialprice = $orgprice;
+                            if($specialprice < $orgprice) {
+                                if((is_null($specialfromdate) && is_null($specialtodate)) || ($today >= strtotime($specialfromdate) && is_null($specialtodate)) || ($today <= strtotime($specialtodate) && is_null($specialfromdate)) || ($today >= strtotime($specialfromdate) && $today <= strtotime($specialtodate))){
+                                    $percent = number_format ( ($specialprice - $orgprice) / $orgprice * 100) . '%';
+                                    if($_show_percent) $_sale_label = $percent;
+                                    $product_label .= '<div class="product-label sale-label brk-sc-card-label">';
+                                    $product_label .= '<span class="brk-white-font-color font__family-montserrat font__size-13 font__weight-bold line__height-14 text-uppercase brk-sc-card-label__text">'. $_sale_label .'</span>';
+                                    $product_label .= '<span class="brk-sc-card-label__additional-1"></span><span class="brk-sc-card-label__additional-2"></span><span class="brk-sc-card-label__additional-3"></span>';
+                                    $product_label .= '</div>';
+                                }
+                            }
+                        }
+                        if($_new_label) {
+                            $now = date("Y-m-d");
+                            $newsFrom= substr($_product->getData('news_from_date'),0,10);
+                            $newsTo=  substr($_product->getData('news_to_date'),0,10);
+                            if ($newsTo != '' || $newsFrom != ''){
+                                if (($newsTo != '' && $newsFrom != '' && $now>=$newsFrom && $now<=$newsTo) || ($newsTo == '' && $now >=$newsFrom) || ($newsFrom == '' && $now<=$newsTo)) {
+                                    $product_label .= '<div class="product-label new-label brk-sc-card-label">';
+                                    $product_label .= '<span class="brk-white-font-color font__family-montserrat font__size-13 font__weight-bold line__height-14 text-uppercase brk-sc-card-label__text">'. $_new_label .'</span>';
+                                    $product_label .= '<span class="brk-sc-card-label__additional-1"></span><span class="brk-sc-card-label__additional-2"></span><span class="brk-sc-card-label__additional-3"></span>';
+                                    $product_label .= '</div>';
+                                }
+                            }
+                        }
+                        if($product_label){
+                            switch ($_label_type) {
+                                case 1:
+                                $product_label = '<div class="product-labels brk-sc-card-labels top-labels">'.$product_label.'</div>';
+                                    break;
+                                case 2:
+                                $product_label = '<div class="product-labels brk-sc-card-labels side-labels">'.$product_label.'</div>';
+                                    break;
+                                default:
+                                $product_label = '<div class="product-labels brk-sc-card-labels side-labels-cornered">'.$product_label.'</div>';
+                                    break;
+                            }
+                            
+                        }
+                    ?>
+
+                <?php echo '<div class="item product product-item">'; ?>
+                
+                <div class="product-item-info <?php echo $_flipbox ?> <?php echo $_grid_style; ?>" data-container="product-grid">
+                    <?php
+                        if($aspect_ratio)
+                            $productImage = $_imagehelper->init($_product, $image)->constrainOnly(FALSE)->keepAspectRatio(TRUE)->keepFrame(FALSE)->resize($image_width);
+                        else
+                            $productImage = $_imagehelper->init($_product, $image)->resize($image_width, $image_height);
+                        $productImageUrl = $productImage->getUrl();
+                        $_categoryIds = $_product->getCategoryIds();
+ 
+                        if(count($_categoryIds) > 0 && $_categoryIds[0] != $_berserkhelper->getRootCategoryId() ) {
+                            $category = $objectManager->create('Magento\Catalog\Model\Category')->load($_categoryIds[0]);
+                            $_category_label = '<span class="brk-sc-flip-four__cat font__family-montserrat brk-bg-primary brk-white-font-color">' . $category->getName() . '</span>';
+                        }
+                    ?>
+                    <?php
+                        $flip_direction = 'flip_vertical';
+                        if( $iterator % 2 == 0 ) $flip_direction = 'flip_horizontal';
+                    ?>
+                    <div class="flip <?php echo $flip_direction; ?> flip-box__split">
+                        <div class="flip__front">
+                            <div class="product-photo-container">
+                                <a href="<?php echo $_product->getProductUrl() ?>" class="product photo product-item-photo" tabindex="-1">
+                                    <img class="product-image-photo default_image <?php if($_lazyload): ?>berserk-lazyload<?php endif;?>" <?php if($_lazyload): ?>src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-<?php endif; ?>src="<?php echo $productImageUrl; ?>" alt=""/>
+                                </a>
+                                <?php if($_grid_style != 'type5') echo $product_label; ?>   
+                            </div>
+                            <div class="flip-box__split-info">
+                            <?php if($_grid_style == 'type5') echo '<div>' . $_category_label . $product_label; ?>
+                            <?php if($_grid_style == 'type3') echo $_category_label; ?>
+                                <strong class="product name product-item-name">
+                                    <a class="product-item-link"
+                                    href="<?php echo $_product->getProductUrl() ?>">
+                                        <?php echo $_helper->productAttribute( $_product, $_product->getName(), 'name' ); ?>
+                                    </a>
+                                </strong>
+                                <?php 
+                                    if($_show_review & $_grid_style == 'type3') {
+                                        $_review_model->getEntitySummary($_product);
+                                        echo $block->getReviewsSummaryHtml( $_product, $templateType );
+                                    }
+                                ?>
+                                <?php if($_grid_style == 'type5') echo '</div>'; ?>
+                                <?php echo $block->getProductPrice( $_product ) ?>
+                            </div>
+                        </div>
+                        <div class="flip__back">
+                            <div class="flip-box__split-overlay brk-base-bg-gradient-10deg"></div>
+                            <?php if($_grid_style == 'type3' || $_grid_style == 'type4' || $_grid_style == 'type5'): ?>
+                                <div class="product-photo-container">
+                                    <a href="<?php echo $_product->getProductUrl() ?>" class="product photo product-item-photo" tabindex="-1">
+                                        <img class="product-image-photo <?php if($_lazyload): ?>berserk-lazyload<?php endif;?>" <?php if($_lazyload): ?>src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-<?php endif; ?>src="<?php echo $productImageUrl; ?>" alt=""/>
+                                    </a>
+                                </div>
+                            <?php endif; ?>
+
+                            <div class="product details product-item-details flip-box__split-content">
+                                <div class="flip-box__split-info">
+                                <?php if($_grid_style == 'type5') echo $_category_label . $product_label; ?>
+                                    <strong class="product name product-item-name">
+                                        <a class="product-item-link"
+                                        href="<?php echo $_product->getProductUrl() ?>">
+                                            <?php echo $_helper->productAttribute( $_product, $_product->getName(), 'name' ); ?>
+                                        </a>
+                                    </strong>
+                                    <?php
+                                        echo $block->getProductPrice( $_product );
+                                    ?>
+                                </div>
+                                <div class="product description product-item-description flip-box__split-list">
+                                    <?php echo $_helper->productAttribute($_product, $_product->getShortDescription(), 'short_description') ?>
+                                </div>
+                                <?php if($_show_review && $_grid_style != 'type3'): ?>
+                                    <?php
+                                        $_review_model->getEntitySummary($_product);
+                                        echo $block->getReviewsSummaryHtml($_product, $templateType);
+                                    ?>
+                                <?php endif; ?>
+                                <div class="product-item-inner">
+                                    <?php echo $block->getProductDetailsHtml( $_product ); ?>
+                                    <div class="actions-primary ">
+                                        <?php if ($_product->isSaleable()): ?>
+                                        <?php $postParams = $block->getAddToCartPostParams($_product); ?>
+                                        <form data-role="tocart-form" data-product-sku="<?php echo $block->escapeHtml($_product->getSku()); ?>"
+                                            action="<?php echo $block->escapeHtml($postParams['action']); ?>" method="post">
+                                            <input type="hidden" name="product" value="<?php /* @escapeNotVerified */ echo $postParams['data']['product']; ?>">
+                                            <input type="hidden" name="<?php /* @escapeNotVerified */ echo Action::PARAM_NAME_URL_ENCODED; ?>" value="<?php /* @escapeNotVerified */ echo $postParams['data'][Action::PARAM_NAME_URL_ENCODED]; ?>">
+                                            <?php echo $block->getBlockHtml('formkey')?>
+                                            <?php if($_grid_style == 'type1') :?>
+                                            <button type="submit"
+                                                    title="<?php echo $block->escapeHtml(__('Add to Cart')); ?>"
+                                                    class="action tocart primary ">
+                                                <i class="fas fa-shopping-cart"></i>
+                                            </button>
+                                            <?php else: ?>
+                                            <?php 
+                                                $_btntext = __('BUY IT');
+                                                if($_grid_style == 'type2')
+                                                    $_btntext = $_product->getFinalPrice() > 0 ? $this->helper('Magento\Framework\Pricing\Helper\Data')->currency($_product->getFinalPrice(),true,false) : $_btntext; 
+                                                if($_grid_style == 'type4' || $_grid_style == 'type5')
+                                                    $_btntext = "";
+                                            ?>
+                                            <button type="submit"
+                                                    title="<?php echo $block->escapeHtml(__('Add to Cart')); ?>"
+                                                    class="action tocart primary btn btn-inside-out btn-md">
+                                                <i class="far fa-shopping-basket icon-inside"></i>
+                                                <span class="before"><?php echo $_btntext; ?></span>
+                                                <span class="text"><?php echo __('BUY IT'); ?></span>
+                                                <span class="after"><?php echo $_btntext; ?></span>
+                                            </button>
+                                            <?php endif; ?>
+                                        </form>
+                                        <?php else: ?>
+                                            <?php if ($_product->getIsSalable()): ?>
+                                                <div class="stock available"><span><?php /* @escapeNotVerified */ echo __('In stock') ?></span></div>
+                                            <?php else: ?>
+                                                <div class="stock unavailable"><span><?php /* @escapeNotVerified */ echo __('Out of stock') ?></span></div>
+                                            <?php endif; ?>
+                                        <?php endif; ?>
+                                    </div>
+                                    <div data-role="add-to-links" class="actions-secondary">
+                                        <?php if ($this->helper('Magento\Wishlist\Helper\Data')->isAllow()): ?>
+                                            <a href="#"
+                                               class="action towishlist actions-secondary"
+                                               title="<?php echo $block->escapeHtml(__('Add to Wish List')); ?>"
+                                               aria-label="<?php echo $block->escapeHtml(__('Add to Wish List')); ?>"
+                                               data-post='<?php echo $block->getAddToWishlistParams($_product); ?>'
+                                               data-action="add-to-wishlist"
+                                               role="button">
+                                                <i class="fas fa-heart"></i>
+                                            </a>
+                                        <?php endif; ?>
+                                        <?php
+                                        $compareHelper = $this->helper('Magento\Catalog\Helper\Product\Compare');
+                                        ?>
+                                        <a href="#"
+                                           class="action tocompare actions-secondary"
+                                           title="<?php echo $block->escapeHtml(__('Add to Compare')); ?>"
+                                           aria-label="<?php echo $block->escapeHtml(__('Add to Compare')); ?>"
+                                           data-post='<?php echo $compareHelper->getPostDataParams($_product); ?>'
+                                           role="button">
+                                            <i class="fas fa-exchange-alt"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <?php if($_grid_style == 'type4'): ?>
+                        <div class="brk-sc-flip-three__title">
+                            <strong class="product name product-item-name">
+                                <a class="product-item-link" href="<?php echo $_product->getProductUrl() ?>">
+                                    <?php echo $_helper->productAttribute( $_product, $_product->getName(), 'name' ); ?>
+                                </a>
+                            </strong>
+                        </div>
+                    <?php endif; ?>
+                </div>
+                </div>
+            <?php endforeach; ?>
+        </div>
+    </div>
+    <?php if (!$block->isRedirectToCartEnabled()) : ?>
+        <script type="text/x-magento-init">
+        {
+            "[data-role=tocart-form], .form.map.checkout": {
+                "catalogAddToCart": {
+                    "product_sku": "<?php /* @escapeNotVerified */  echo $_product->getSku() ?>"
+                }
+            }
+        }
+        </script>
+    <?php endif; ?>
+<?php endif; ?>

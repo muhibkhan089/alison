@@ -1,0 +1,49 @@
+<?php
+/**
+ * Copyright © 2015 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+?>
+
+<div class="mt-30">
+    <h3 class="brk-reply__header font__family-montserrat font__size-21 font__weight-bold line__height-60 text-center"><?php echo __('Write Us') ?></h3>
+</div>
+<form class="form contact brk-form-strict"
+      action="<?php echo $block->getFormAction(); ?>"
+      id="contact-form"
+      method="post"
+      data-hasrequired="<?php echo __('* Required Fields') ?>"
+      data-mage-init='{"validation":{}}'>
+
+      <div class="row">
+        <div class="col-lg-6 col-12"><input name="name" id="name" placeholder="<?php echo __('Name') ?>" title="<?php echo __('Name') ?>" value="<?php echo $block->escapeHtml($this->helper('Magento\Contact\Helper\Data')->getUserName()) ?>" class="input-text" type="text" data-validate="{required:true}"/>
+        </div>
+        <div class="col-lg-6 col-12"><input name="name" id="name" placeholder="<?php echo __('Email') ?>" title="<?php echo __('Name') ?>" value="<?php echo $block->escapeHtml($this->helper('Magento\Contact\Helper\Data')->getUserName()) ?>" class="input-text" type="text" data-validate="{required:true}"/></div>
+
+        <div class="col-lg-6 col-12"><input name="telephone" id="telephone" placeholder="<?php echo __('Phone Number') ?>" title="<?php echo __('Phone Number') ?>" value="" class="input-text" type="text" /></div>
+
+        <div class="col-12"><textarea name="textarea" placeholder="<?php echo __('What’s on your mind?') ?>"></textarea></div>
+    </div>
+    
+    <div class="actions-toolbar">
+        <div class="primary">
+            <input type="hidden" name="hideit" id="hideit" value="" />
+            <button type="submit" title="<?php echo __('Submit') ?>" class="action submit primary btn btn-inside-out btn-md btn-icon border-radius-25 font__family-open-sans font__weight-bold">
+                <span class="before"><?php echo __('Submit') ?></span>
+                <span class="text"><?php echo __('Submit') ?></span>
+                <span class="after"><?php echo __('Submit') ?></span>
+            </button>
+        </div>
+    </div>
+</form>
+<script type="text/javascript">
+    require([
+        'jquery',        
+        'form-controls'
+    ], function ($) {
+        Berserk.behaviors.form_controls.attach($(".form.contact"), {timeout_delay: 2000});
+    });
+</script>

@@ -1,0 +1,91 @@
+<?php
+/** @var \Cminds\Multiwishlist\Block\Wishlist\Manage\Table $block */
+?>
+<?php $collection = $block->getCollection() ?>
+
+<?php if ($collection->getSize()): ?>
+    <div class="table-wrapper">
+        <table class="data table table-order-items">
+            <caption class="table-caption"><?= __('WIshlists') ?></caption>
+            <thead>
+            <tr>
+                <th scope="col" class="col"><?= __('ID') ?></th>
+                <th scope="col" class="col"><?= __('Title') ?></th>
+                <th scope="col" class="col"><?= __('Products') ?></th>
+                <th scope="col" class="col"><?= __('Actions') ?></th>
+            </tr>
+            </thead>
+            <tbody>
+            <?php /** @var \Magento\Wishlist\Model\WIshlist $list */ ?>
+            <?php $i=0; ?>
+            <?php foreach ($collection as $list): ?>
+                <?php if($i!=0) {
+                   ?>
+                    <tr>
+                        <td class="col"><?= $list->getId() ?></td>
+                        <td class="col"><?= $list->getTitle() ?></td>
+                        <td class="col">
+                            <ul>
+                                <?php /** @var \Magento\Wishlist\Model\Item $listItem */ ?>
+                                <?php foreach ($list->getItemCollection() as $listItem): ?>
+                                    <?php $product = $listItem->getProduct(); ?>
+                                    <li>
+                                        <?= $product->getName() ?> (<?= $product->getSku() ?>)
+                                    </li>
+                                <?php endforeach; ?>
+                            </ul>
+                        </td>
+                        <td class="col actions">
+                            <a href="<?= $block->escapeUrl($block->getListViewUrl($list->getId())) ?>" class="action view">
+                                <span><?= __('View') ?></span>
+                            </a>
+                            <a href="<?= $block->escapeUrl($block->getListDeleteUrl($list->getId())) ?>"
+                               class="action delete">
+                                <span><?= __('Delete') ?></span>
+                            </a>
+                        </td>
+                    </tr><?php  
+                }
+                $i++;
+                ?>
+            <?php endforeach; ?>
+            </tbody>
+        </table>
+        <br/>
+    </div>
+<?php else: ?>
+    <div class="message info empty">
+        <span><?= __('You have no lists created.') ?></span>
+    </div>
+<?php endif; ?>
+<div>
+    <form class="form form-add-product-list"
+          action="<?= $block->escapeUrl($block->getFormActionUrl()) ?>"
+          method="post"
+          autocomplete="off">
+        <?= $block->getBlockHtml('formkey') ?>
+        <fieldset class="fieldset">
+            <legend class="legend">
+                <span><?= __('Add New Wishlist') ?></span>
+            </legend>
+            <div class="field">
+                <label class="label" for="title"><?= __('Title') ?></label>
+
+                <div class="control">
+                    <input type="text" name="title" required="required" id="title" class="input-text"/>
+                </div>
+            </div>
+        </fieldset>
+        <div class="actions-toolbar">
+            <div class="primary">
+                <button type="submit"
+                        class="action save primary"
+                        title="<?= __('Add') ?>">
+                    <span><?= __('Add') ?></span>
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
+
+

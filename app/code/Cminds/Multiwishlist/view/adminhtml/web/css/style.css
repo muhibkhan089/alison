@@ -1,0 +1,17 @@
+.config-nav-block.cminds-icon div::before {
+    content: '';
+    background-size: auto 18px;
+    background: url('../images/cminds-icon.png') no-repeat;
+    padding-left: 20px;
+}
+.multiwishlist-block{
+    border-top: 1px solid #e3e3e3;
+}
+
+.multiwishlist-block:first-child{
+    margin: 0;
+    border-top: none;
+}
+.order-sidebar .create-order-sidebar-block .sidebar-title-block.multiwishlist{
+    margin: 2.4rem 0 2.4rem;
+}

@@ -1,0 +1,114 @@
+<root>
+<config>
+    <web>
+        <default>
+            <cms_home_page>berserk-shop-clothes</cms_home_page>
+            <cms_no_route>berserk-no-route</cms_no_route>
+        </default>
+    </web>
+    <cms>
+        <wysiwyg>
+            <enabled>hidden</enabled>
+        </wysiwyg>
+    </cms>
+	<design>
+		<header>
+			<logo_width>142</logo_width>
+			<logo_height>26</logo_height>
+			<logo_src>default/logo.png</logo_src>
+		</header>
+	</design>
+	<dev>
+		<js>
+			<merge_files>1</merge_files>
+		</js>
+	</dev>
+    <berserk_settings>
+        <header>
+            <header_type>3</header_type>
+            <static_block_top_links>berserk_custom_block_for_top_links_3</static_block_top_links>
+            <static_block>berserk_custom_block_for_header_3</static_block>
+            <sticky_header_logo_src>default/logo_dark.png</sticky_header_logo_src>
+            <more_info_static_block>berserk_custom_block_for_more_info_popup</more_info_static_block>
+        </header>
+        <footer>
+            <footer_top>1</footer_top>
+            <footer_top_custom>berserk_custom_block_for_footer_top_1</footer_top_custom>
+            <footer_bottom>1</footer_bottom>
+            <footer_bottom_custom>berserk_custom_block_for_footer_bottom_1</footer_bottom_custom>
+        </footer>
+        <catalog>
+            <sidebar_cms_block>berserk_category_sideblock</sidebar_cms_block>
+        </catalog>
+        <product>
+            <content_cms_block>berserk_product_contentblock</content_cms_block>
+            <sidebar_cms_block>berserk_product_sideblock</sidebar_cms_block>
+        </product>
+        <custom_settings>
+            <custom_style><![CDATA[body:not(.cms-index-index) .page-wrapper .top-container {
+    padding-top: 100px;
+}
+a.product.photo.product-item-photo {
+    display: block;
+}
+.footer-top .product-image-photo {
+    margin: 0;
+    position: static;
+}
+
+.footer-top .product-image-wrapper {
+    padding: 0!important;
+    height: 100%;
+}
+.footer-top .filterproducts.small-list .product-item-link {
+    color: #fff!important;
+}
+.footer-top .product-item .price-box .price {
+    color: #fff!important;
+    font-weight: 400;
+    font-size: 14px;
+}
+.footer-top .filterproducts.small-list .product-item {
+    margin-bottom: 30px;
+}
+.page-footer {
+   background: none;
+   padding: 0;
+margin: 0;
+}
+h6 {
+     margin: 0; padding: 0;
+}
+.brk-footer__borders_footer-10 .brk-footer__bordered-col.h-100 {
+    position: relative;
+}
+.brk-social-links-wide__item > a {
+    color: inherit;
+}
+.brk-social-links-wide__item > a:hover{
+     color: rgba(0,0,0,.7);
+}
+.brk-social-links-wide__item > a:hover i {
+   color: inherit;
+}
+@media (max-width: 1199px) {
+    .page-header.type3 .header.content .brk-custom-block {
+        display: none;
+    }
+}
+.cms-page-view .page-header {
+    background: rgba(255,255,255,0.7);
+}
+.cms-page-view .top-container {
+    display: none !important;
+}]]></custom_style>
+        </custom_settings>
+    </berserk_settings>
+    <berserk_design>
+        <general>
+            <theme_color></theme_color>
+            <theme_color_2></theme_color_2>
+        </general>
+    </berserk_design>
+</config>
+</root>

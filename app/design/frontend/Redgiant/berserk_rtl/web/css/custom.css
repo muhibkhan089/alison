@@ -1,0 +1,4 @@
+html {
+    overflow-x: hidden;
+}
+body{direction:rtl;unicode-bidi:embed;}

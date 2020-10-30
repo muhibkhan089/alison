@@ -1,0 +1,284 @@
+// /**
+//  * Copyright © Magento, Inc. All rights reserved.
+//  * See COPYING.txt for license details.
+//  */
+
+//
+//  Variables
+//  _____________________________________________
+
+@checkout-progress-bar__font-size: 18px;
+@checkout-progress-bar__font-weight: @font-weight__light;
+@checkout-progress-bar__margin: @indent__base;
+
+@checkout-progress-bar-item__background-color: @color-gray-middle1;
+@checkout-progress-bar-item__border-radius: 6px;
+@checkout-progress-bar-item__color: @primary__color;
+@checkout-progress-bar-item__margin: @indent__s;
+@checkout-progress-bar-item__transition: background .3s;
+@checkout-progress-bar-item__width: 185px;
+
+@checkout-progress-bar-item__active__background-color: @color-orange-red1;
+@checkout-progress-bar-item__complete__color: @link__color;
+@checkout-progress-bar-item__hover__background-color: darken(@checkout-progress-bar-item__background-color, 5%);
+
+@checkout-progress-bar-item-element__height: @checkout-progress-bar-item-element__width;
+@checkout-progress-bar-item-element__width: 38px;
+
+@checkout-progress-bar-item-element-inner__background-color: @page__background-color;
+@checkout-progress-bar-item-element-inner__color: @checkout-progress-bar-item__color;
+@checkout-progress-bar-item-element-inner__height: @checkout-progress-bar-item-element-inner__width;
+@checkout-progress-bar-item-element-inner__width: @checkout-progress-bar-item-element__width - ( @checkout-progress-bar-item-element-outer-radius__width*2 );
+@checkout-progress-bar-item-element-inner__active__content: @icon-checkmark;
+
+@checkout-progress-bar-item-element-outer-radius__width: 6px;
+
+//
+//  Common
+//  _____________________________________________
+
+& when (@media-common = true) {
+
+    //
+    //  Checkout Progress Bar
+    //  ---------------------------------------------
+
+    .opc-progress-bar {
+        &:extend(.abs-reset-list all);
+        display: none;
+    }
+}
+
+//
+//  Desktop
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+
+    .opc-progress-bar {
+        .lib-css(margin, 0 0 @checkout-progress-bar__margin);
+        counter-reset: i;
+        display: block;
+        font-size: 0;
+
+        .steps__progress {
+            width: 50%;
+            position: absolute;
+            height: 2px;
+            top: 14px;
+            left: 0;
+            background: #2775ff;
+        }
+    }
+
+    .opc-progress-bar-item {
+             
+        
+ 
+            
+        &._complete {
+            cursor: pointer;
+
+            &:hover {
+                &:before {
+                    .lib-css(background, @checkout-progress-bar-item__hover__background-color);
+                }
+
+            }
+
+            > span {
+                .lib-css(color, @checkout-progress-bar-item__complete__color);
+
+              
+            }
+        }
+
+        &._active {
+            > span {
+                .lib-css(color, @checkout-progress-bar-item__color);
+
+                
+            }
+        }
+    }
+
+    .steps__wrapper-checkers {
+        
+        position: relative;
+        z-index: 1;
+        margin: 0;
+        margin-bottom: 30px;
+        display: -webkit-box;
+        display: flex;
+        -webkit-box-pack: justify;
+        justify-content: space-between;
+        -webkit-box-align: center;
+        align-items: center;
+        text-align: center;
+
+        .steps__title {
+            color: #333;
+            position: absolute;
+            top: 45px;
+            left: 50%;
+            transform: translate(-50%, 0%);
+            min-width: 80px;
+        }
+
+        &:before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: 50%;
+            transform: translate(-50%, 50%);
+            width: calc(100% - 2px);
+            height: 8px;
+            background: #E8F0FE;
+            box-shadow: inset 0 1px 15px -8px #000;
+            z-index: -1;
+        }
+
+        li {
+            cursor: pointer;
+            position: relative;
+
+            &.complete .steps__dot {
+                background: #2775ff;
+                color: transparent;
+                &:before {
+                    color: #fff;
+                }
+            }
+            &:not(.complete) .steps__dot {
+                background: #E8F0FE !important;
+            }
+            &:last-child {
+                margin-right: -1px;
+            }
+
+            
+        }
+    
+        .steps__dot {
+            margin: 0 auto;
+            color: #333;
+            width: 30px;
+            height: 30px;
+            border: 4px solid #E8F0FE;
+            transition: all .4s ease;
+            border-radius: 50%;
+            position: relative;
+            z-index: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            &:before {
+                content: '\f00c';
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                transition: all .4s ease;
+                font-family: "Font Awesome 5 Free";
+                font-weight: 600;
+                font-size: 14px;
+                color: transparent;
+                z-index: 20;
+            }
+
+            > .before {
+                display: block;
+                position: absolute;
+                top: 50%;
+                left: 0;
+                transform: translateY(-50%);
+                transition: all .4s ease;
+                height: 2px;
+                width: 10px;
+                opacity: 0;
+                background: #2775ff;
+            }
+
+            > .after {
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: #2775ff;
+                z-index: 2;
+                border-radius: 50%;
+                opacity: 0;
+                transition: all .4s ease;
+            }
+            &:after {
+                content: '';
+                position: absolute;
+                top: -4px;
+                left: -4px;
+                right: -4px;
+                bottom: -4px;
+                border: 5px solid #e7effd;
+                border-radius: 50%;
+                z-index: -1;
+            }
+        }
+
+        li {
+
+            &._active .steps__dot:before {
+                color: #fff;
+            }
+
+            &._active .steps__dot > .after {
+                opacity: 1;
+            }
+
+            &._active .steps__dot > .before {
+                left: -15px;
+                width: 45px;
+                opacity: 1;
+                transition-delay: .25s;
+            }
+
+            &._active .steps__dot > .before {
+                width: 45px;
+            }
+
+            &:first-child._active .steps__dot > .before {
+                left: 0;
+                width: 30px;
+                opacity: 1;
+            }            
+        }
+
+        li {
+            &._complete .steps__dot:before {
+                color: #fff;
+            }
+            &._complete .steps__dot > .after {
+                opacity: 1;
+            }
+            &._complete .steps__dot > .before {
+                left: 0;
+                width: 45px;
+                opacity: 1;
+                transition-delay: .25s;
+            }
+            &:first-child .steps__dot > .before {
+                left: 0;
+                width: 45px;
+                opacity: 1;
+            }            
+        }
+
+        li._complete ~ .steps__progress{
+            width: 100%!important;
+        }
+
+        .steps__dot {
+            border: none;
+        }
+    }
+}

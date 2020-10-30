@@ -1,0 +1,64 @@
+<?php
+/**
+ * Copyright © 2015 Ihor Vansach (ihor@magefan.com). All rights reserved.
+ * See LICENSE.txt for license details (http://opensource.org/licenses/osl-3.0.php).
+ *
+ * Glory to Ukraine! Glory to the heroes!
+ */
+?>
+<?php
+/**
+ * Blog related posts template
+ *
+ * @var $block \Magefan\Blog\Block\Post\View\RelatedPosts
+ */
+?>
+
+<?php if ($block->displayPosts()) { ?>
+    <?php $_postCollection = $block->getPostCollection(); ?>
+    <?php if ($_postCollection->count()) { ?>
+        <h5 class="font__family-montserrat font__size-40 line__height-42 text-uppercase mb-50 mt-60 text-center"> <?php echo __('Related Posts') ?></h5>
+	
+        <div class="brk-related-carousel mb-20" data-brk-library="component__blog_page">
+
+            <div class="brk-related-carousel__items owl-carousel">
+            <?php foreach ($_postCollection as $_post) {
+                
+                $_postUrl = $_post->getPostUrl();
+                $_postName = $block->escapeHtml($_post->getTitle(), null, true);
+                $scontent = $_post->getShortContent();
+            ?>
+                <div class="brk-post-preview">
+                        <div class="brk-post-preview__img-wrapper">
+                            <img src="<?php echo $_post->getFeaturedImage(); ?>" alt="alt" class="brk-post-preview__img">
+                            <div class="brk-post-preview__overlay brk-base-bg-gradient-10deg"></div><a href="<?php echo $_postUrl; ?>" class="brk-post-preview__link font__family-open-sans fotn__size-16 font__weight-bold line__height-16 text-uppercase letter-spacing-40">Read More</a>
+                        </div>
+                        <div class="brk-post-preview__info text-center">
+                            <h6 class="font__family-montserrat font__size-19 font__weight-bold line__height-20 mb-20"><?php echo $_postName; ?></h6>
+                            <p class="brk-dark-font-color font__family-open-sans font__size-16 line__height-28"><?php echo $scontent; ?></p>
+                        </div>
+                </div>
+                <?php } ?>
+            </div>
+        </div>
+
+        <script type="text/javascript">
+            require([
+                'jquery',
+                'owlcarousel'
+            ], function ($) {
+                $(".brk-related-carousel__items.owl-carousel").owlCarousel({
+                    nav: false,
+                    dots: true,
+                    items: 1,
+                    margin: 30,                    
+                    responsive : {                    
+                        0 : { items: 1, dots:  true},
+                        768 : { items: 2, dots:  true},
+                        993 : { items: 3, dots:  true},
+                    }
+                });
+            });
+    </script>
+        <?php } ?>  
+<?php } ?>
